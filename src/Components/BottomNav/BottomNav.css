@@ -1,0 +1,18 @@
+.app-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-tab {
+  display: inline-block !important;
+  margin-bottom: 15px !important;
+  margin-left: 2vw !important;
+  margin-right: 2vw !important;
+  color: #ffffff !important;
+}
+
+.nav-tab svg {
+  font-size: 5vw !important;
+}

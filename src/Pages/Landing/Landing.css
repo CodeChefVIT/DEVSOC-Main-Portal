@@ -1,13 +1,16 @@
 .devsoc21 {
-  padding-top: 5%;
-  font-size: 5rem;
-  padding-left: 5%;
   background: linear-gradient(91.52deg, #3051ff 0.45%, #25d8ff 107.04%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.ds-landing {
+  padding-top: 5%;
+  font-size: 5rem;
+  padding-left: 5%;
   margin: 0;
 }
 
