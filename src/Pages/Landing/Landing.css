@@ -1,0 +1,115 @@
+.devsoc21 {
+  padding-top: 5%;
+  font-size: 5rem;
+  padding-left: 5%;
+  background: linear-gradient(91.52deg, #3051ff 0.45%, #25d8ff 107.04%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0;
+}
+
+.landing-page {
+  height: 100vh;
+  margin: 0;
+  width: 100vw;
+  padding: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Google Button */
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+
+.google-link {
+  position: absolute;
+  right: 15%;
+  text-align: center;
+  bottom: 20%;
+}
+
+.sign-txt {
+  font-weight: 600;
+  font-size: 2.6rem;
+}
+
+.google-btn {
+  width: 200px;
+  height: 45px;
+  background-color: #4285f4;
+  border-radius: 2px;
+  box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  margin: 30px auto;
+}
+
+.google-icon-wrapper {
+  position: absolute;
+  width: 45px;
+  height: 45px;
+  border-radius: 2px;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-icon {
+  height: 100%;
+  background-color: #4285f4;
+}
+
+.google-btn .btn-text {
+  float: right;
+  margin: 15px 15px 0 0;
+  color: white;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  font-weight: 500;
+  font-family: "Roboto" !important;
+}
+
+.google-btn:hover {
+  box-shadow: 0 0 6px #4285f4;
+}
+
+.google-btn:active,
+.google-btn:active .google-icon {
+  background: #1669f2;
+}
+
+@media (min-width: 768px) {
+  .google-btn {
+    transform: scale(1.2);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .devsoc21 {
+    font-size: 4rem;
+    width: 100%;
+    text-align: center;
+    padding: 5% 0 0 0;
+  }
+
+  .google-link {
+    position: initial;
+    margin: auto;
+    margin-top: 45vh;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .devsoc21 {
+    font-size: 3rem;
+    width: 100%;
+    text-align: center;
+    padding: 25% 0 0 0;
+  }
+
+  .sign-txt {
+    font-size: 1.3rem;
+  }
+}

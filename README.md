@@ -1,7 +1,7 @@
 <p align="center"><a href="https://www.codechefvit.com" target="_blank"><img src="https://s3.amazonaws.com/codechef_shared/sites/all/themes/abessive/logo-3.png" title="CodeChef-VIT" alt="Codechef-VIT"></a>
 </p>
 
-# Project Title
+# DEVSOC Portal
 
 > <Subtitle>
 > Include project description here.
@@ -13,7 +13,7 @@
 
 ## Features
 
--   Insert list of features here
+- Insert list of features here
 
 ## Screenshots
 
@@ -30,8 +30,8 @@ $ python3 manage.py runserver
 
 ## Contributors
 
--   <a href="https://github.com/<Contributor>">Contributor Name</a>
--   <a href="https://github.com/<Contributor>">Contributor Name</a>
+- <a href="https://github.com/<Contributor>">Contributor Name</a>
+- <a href="https://github.com/<Contributor>">Contributor Name</a>
 
 ## License
 
