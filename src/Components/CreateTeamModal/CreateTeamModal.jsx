@@ -14,6 +14,7 @@ const CreateTeamModal = ({ open, handleClose, refresh }) => {
   const [loading, setLoading] = useState(false);
 
   const submit = async (data) => {
+    setLoading(true);
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/make`;
     const token = localStorage.getItem("authToken");
     try {
@@ -31,6 +32,8 @@ const CreateTeamModal = ({ open, handleClose, refresh }) => {
     } catch (error) {
       console.log(error);
     }
+
+    setLoading(false);
   };
 
   return (
@@ -42,6 +45,7 @@ const CreateTeamModal = ({ open, handleClose, refresh }) => {
             <input
               placeholder="Team name"
               {...register("name", { required: true, maxLength: 30 })}
+              className="modal-input"
             />
             {errors.name && (
               <span className="team-error">Please enter valid team name! (max length is 30)</span>

@@ -13,6 +13,7 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
   const [loading, setLoading] = useState(false);
 
   const submit = async (data) => {
+    setLoading(true);
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/join`;
     const token = localStorage.getItem("authToken");
     try {
@@ -30,6 +31,7 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
 
   return (
@@ -41,6 +43,7 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
             <input
               placeholder="Team code"
               {...register("code", { required: true, maxLength: 5, minLength: 5 })}
+              className="modal-input"
             />
             {errors.code && <span className="team-error">Please enter valid team code!</span>}
           </div>

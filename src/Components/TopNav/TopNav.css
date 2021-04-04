@@ -16,3 +16,7 @@
 .user-btn svg {
   font-size: 3rem;
 }
+
+.user-btn:hover svg {
+  filter: drop-shadow(0 0 7px #3051FF);
+}

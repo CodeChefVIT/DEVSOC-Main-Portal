@@ -22,6 +22,10 @@
 	align-items: center;
 }
 
+.modal-input {
+	font-weight: bold !important;
+}
+
 .team-error {
 	font-size: 0.8rem;
 	color: red;
