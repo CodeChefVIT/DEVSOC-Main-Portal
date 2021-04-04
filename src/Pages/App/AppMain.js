@@ -69,8 +69,7 @@ const AppMain = () => {
   return (
     <>
       <TopNav />
-      <BottomNav />
-      <div className="all-container">
+      <div className="all-container" style={{ height: "100%" }}>
         <Switch>
           <Route
             exact
@@ -89,6 +88,7 @@ const AppMain = () => {
           ></Route>
         </Switch>
       </div>
+      <BottomNav />
     </>
   );
 };

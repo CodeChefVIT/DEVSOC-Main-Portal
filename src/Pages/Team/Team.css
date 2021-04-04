@@ -1,0 +1,59 @@
+.team-container {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.team-div {
+	/* margin: 5% 0; */
+	margin: 5% 2%;
+	border: 2px solid #3051FF;
+	border-radius: 50px;
+	width: 100%;
+	height: 90%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 0 3%;
+	text-align: center;
+}
+
+.team-primary-btn {
+	cursor: pointer;
+	font-family: "Montserrat", sans-serif;
+	outline: none;
+	border: none;
+	border-radius: 15px;
+	background: linear-gradient(91.89deg, #6F57FF -5.11%, #25D8FF 152.73%);
+	color: white;
+	height: 55px;
+	width: 300px;
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+.team-primary-btn:hover {
+	filter: drop-shadow(0 0 10px #6F57FF);
+}
+
+.team-secondary-btn {
+	cursor: pointer;
+	font-family: "Montserrat", sans-serif;
+	outline: none;
+	border: none;
+	border-radius: 15px;
+	border: 2px solid #3051FF;
+	background: transparent;
+	color: white;
+	height: 55px;
+	width: 300px;
+	font-weight: 600;
+	font-size: 1.2rem;
+}
+
+.team-secondary-btn:hover {
+	filter: drop-shadow(0 0 10px #3051FF);
+}
