@@ -1,0 +1,18 @@
+.page-title {
+  padding-left: 2%;
+  margin: 0;
+  width: fit-content;
+  padding-right: 50px;
+  overflow: hidden;
+  height: 36px;
+}
+
+.user-btn {
+  position: absolute;
+  right: 2%;
+  top: 3%;
+}
+
+.user-btn svg {
+  font-size: 3rem;
+}

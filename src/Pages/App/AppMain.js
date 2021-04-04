@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Route, Switch, useHistory } from "react-router";
-// import Team from "../Team/Team";
+import Team from "../Team/Team";
 import BottomNav from "../../Components/BottomNav/BottomNav";
 import Dashboard from "../Dashboard/Dashboard";
 import axios from "axios";
 import Loading from "../../Components/Loading/Loading";
-// import Submission from "../Submission/Submission";
+import TopNav from "../../Components/TopNav/TopNav";
+import Submission from "../Submission/Submission";
 
 const AppMain = () => {
   const history = useHistory();
@@ -58,6 +59,7 @@ const AppMain = () => {
     }
 
     setupApp();
+    // eslint-disable-next-line
   }, []);
 
   if (loading) {
@@ -66,30 +68,25 @@ const AppMain = () => {
 
   return (
     <>
+      <TopNav />
       <BottomNav />
       <div className="all-container">
         <Switch>
           <Route
             exact
             path="/app/dashboard"
-            component={(props) => (
-              <Dashboard {...props} data={dashboardDetails} />
-            )}
+            component={(props) => <Dashboard {...props} data={dashboardDetails} />}
           ></Route>
-          {/* <Route
+          <Route
             exact
             path="/app/team"
-            component={(props) => (
-              // <Team {...props} data={teamDetails} refresh={setupApp} />
-            )}
+            component={(props) => <Team {...props} data={teamDetails} refresh={setupApp} />}
           ></Route>
           <Route
             exact
             path="/app/submission"
-            component={(props) => (
-              // <Submission {...props} data={teamDetails} refresh={setupApp} />
-            )}
-          ></Route> */}
+            component={(props) => <Submission {...props} data={teamDetails} refresh={setupApp} />}
+          ></Route>
         </Switch>
       </div>
     </>
