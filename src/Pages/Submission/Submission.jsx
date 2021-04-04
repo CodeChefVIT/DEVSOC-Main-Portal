@@ -10,7 +10,6 @@ function Submission(props) {
   const { register, handleSubmit } = useForm();
   return (
     <div>
-      <Header desc="Project Submission" title="Idea Submission" />
       <Grid container spacing={2}>
         <Grid item xs={8} sm={4}>
           <input
@@ -50,7 +49,6 @@ function Submission(props) {
           className="From-img"
         />
       </div>
-      <BottomNav />
     </div>
   );
 }

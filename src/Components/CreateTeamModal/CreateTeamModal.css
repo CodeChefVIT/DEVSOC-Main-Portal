@@ -1,0 +1,34 @@
+.create-team-modal .MuiPaper-root {
+	background: #140052 !important;
+	border-radius: 25px !important;
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	flex-direction: column !important;
+	text-align: center !important;
+	width: 400px !important;
+}
+
+.team-name {
+	margin: 40px 0 !important;
+}
+
+.team-name::placeholder {}
+
+.team-primary-btn.modal-input {
+	margin-bottom: 30px !important;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.team-error {
+	font-size: 0.8rem;
+	color: red;
+}
+
+.create-btn-div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
