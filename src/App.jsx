@@ -5,6 +5,7 @@ import Form from "./Pages/Form/Form";
 // import LandingPage from "./Pages/LandingPage/LandingPage";
 import GoogleOAuth from "./Pages/GoogleOAuth/GoogleOAuth";
 import AppMain from "./Pages/App/AppMain";
+import Submission from "./Pages/Submission/Submission";
 // import DiscordLink from "./Components/DiscordLink/DiscordLink";
 
 const theme = createMuiTheme({
@@ -30,6 +31,7 @@ function App() {
           <Route exact path="/auth" component={GoogleOAuth}></Route>
           <Route path="/app" component={AppMain}></Route>
           <Route exact path="/form" component={Form}></Route>
+          <Route exact path="/submissions" component={Submission}></Route>
         </Switch>
       </Router>
     </ThemeProvider>

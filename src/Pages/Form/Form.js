@@ -1,5 +1,4 @@
 import React from "react";
-import ResponsiveImgMaterialUi from 'responsive-responsive-img-material-ui';
 import { useForm } from "react-hook-form";
 import './Form.css';
 import Header from './Header';
@@ -15,7 +14,9 @@ export default function Form() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Header/>
+     <Header desc="Set Up Your Profile" title="Profile"
+
+/>
 <Grid container spacing={2}>
 
 <Grid item xs={8} sm={4}><input {...register("Name", {required:true , maxLength:30})} placeholder="name" className="TopLabels"/></Grid>
@@ -26,24 +27,24 @@ export default function Form() {
 <Grid item xs={8} sm={4}><input {...register("city",{required:true , maxLength:20})} placeholder="city" className="TopLabels" /></Grid>
 </Grid>
 <Grid container spacing={2}>
-<Grid item xs={8} sm={4}><input {...register("email")} placeholder="Email ID" className="TopLabels"/></Grid>
+<Grid item xs={8} sm={4}><input type="email" {...register("email") } placeholder="Email ID" className="TopLabels"/></Grid>
 <Grid item xs={8} sm={4}><input {...register("City")} placeholder="City" className="TopLabels" /></Grid>
 </Grid>
 <Grid container spacing={2}>
 <Grid item xs={8} sm={2} >
-  <div className="image-upload BottomLabels input-style"> <label for="resume-file-input">
+  <div className="image-upload input-style"> <label for="resume-file-input">
   <span><img src= {uploadbutton} />Resume</span>
-    </label><input type="file" {...register("Resume")} placeholder="Resume" className="BottomLabels" id="resume-file-input"/></div></Grid>
+    </label><input type="file" {...register("Resume", {required:true , maxLength:30})} placeholder="Resume"  id="resume-file-input"/></div></Grid>
     
 <Grid item xs={8} sm={2} >
-<div className="image-upload BottomLabels input-style"> <label for="picture-file-input">
+<div className="image-upload input-style"> <label for="picture-file-input">
         <span><img src= {uploadbutton}/>Picture</span>
-    </label><input type="file" {...register("Picture")} placeholder="Picture" className="BottomLabels" id="picture-file-input"/></div></Grid>
-<Grid item xs={8} sm={2} ><input {...register("bio")} placeholder="State" className="BottomLabels"/></Grid>
-<Grid item xs={8} sm={2} ><input {...register("state")} placeholder="Pincode" className="BottomLabels"/></Grid>
+    </label><input type="file" {...register("Picture", {required:true})} placeholder="Picture"  id="picture-file-input"/></div></Grid>
+<Grid item xs={8} sm={2} ><input {...register("state", {required:true , maxLength:100})} placeholder="State" className="BottomLabels"/></Grid>
+<Grid item xs={8} sm={2} ><input {...register("state", {required:true , maxLength:30})} placeholder="Pincode" className="BottomLabels"/></Grid>
 </Grid>
 <Grid container spacing={2}>
-<Grid item xs={8} sm={2}><input {...register("size")} placeholder="Tshirt Size" className="LowerLabels"/></Grid>
+<Grid item xs={8} sm={2}><input {...register("size", {required:true , maxLength:2})} placeholder="Tshirt Size" className="LowerLabels"/></Grid>
 <Grid item xs={8} sm={2} ><input {...register("bio")} placeholder="Bio" className="LowerLabels"/></Grid>
 <Grid item xs={8} sm={4} ><input {...register("email")} placeholder="Email" className="LowerLabels"/></Grid>
 </Grid>
