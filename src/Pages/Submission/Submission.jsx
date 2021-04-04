@@ -1,3 +1,4 @@
+//idea submission page
 import React from 'react';
 import BottomNav from "../../Components/BottomNav/BottomNav";
 import Header from "../Form/Header";
@@ -17,7 +18,7 @@ function Submission(props) {
 <Grid item xs={8} sm={4}><textarea {...register("address1", {required:true , maxLength:30})} placeholder="Idea Description" className="Idea-Description" /></Grid>
 </Grid>
 <div className={"bkg"} style={{
-          height: "100vh",
+          width: "20vw",
           position: 'fixed',
           bottom: '-10vh',
           right: '0vh',
