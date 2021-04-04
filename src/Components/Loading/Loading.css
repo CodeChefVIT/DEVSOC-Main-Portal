@@ -1,0 +1,33 @@
+.loading-screen {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+}
+
+.loading-screen img {
+  width: 200px;
+  animation: spin 2s ease-in-out infinite forwards;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0);
+  }
+  70% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .loading-screen img {
+    width: 160px;
+  }
+}

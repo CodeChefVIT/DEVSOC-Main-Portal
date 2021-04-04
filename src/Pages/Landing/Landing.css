@@ -1,7 +1,4 @@
 .devsoc21 {
-  padding-top: 5%;
-  font-size: 5rem;
-  padding-left: 5%;
   background: linear-gradient(91.52deg, #3051ff 0.45%, #25d8ff 107.04%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -9,6 +6,15 @@
   width: -moz-fit-content;
   width: fit-content;
   margin: 0;
+  padding-left: 2%;
+  padding-top: 2%;
+  font-size: 1.75rem;
+}
+
+.ds-landing {
+  padding-top: 5% !important;
+  padding-left: 5% !important;
+  font-size: 5rem;
 }
 
 .landing-page {
@@ -87,11 +93,11 @@
 }
 
 @media screen and (max-width: 768px) {
-  .devsoc21 {
+  .ds-landing {
     font-size: 4rem;
     width: 100%;
     text-align: center;
-    padding: 5% 0 0 0;
+    padding: 5% 0 0 0 !important;
   }
 
   .google-link {
@@ -102,11 +108,11 @@
 }
 
 @media screen and (max-width: 400px) {
-  .devsoc21 {
+  .ds-landing {
     font-size: 3rem;
     width: 100%;
     text-align: center;
-    padding: 25% 0 0 0;
+    padding: 25% 0 0 0 !important;
   }
 
   .sign-txt {
