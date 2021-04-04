@@ -1,5 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400;500;600;700;800);
-
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
@@ -7,8 +6,16 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #080020;
   color: #ffffff;
+  height: 100vh;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+#root {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }

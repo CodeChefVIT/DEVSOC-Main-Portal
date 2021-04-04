@@ -27,13 +27,13 @@
 }
 
 /* Google Button */
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .google-link {
   position: absolute;
   right: 15%;
   text-align: center;
-  bottom: 20%;
+  bottom: 30%;
 }
 
 .sign-txt {
@@ -81,8 +81,7 @@
   box-shadow: 0 0 6px #4285f4;
 }
 
-.google-btn:active,
-.google-btn:active .google-icon {
+.google-btn:active, .google-btn:active .google-icon {
   background: #1669f2;
 }
 
@@ -99,7 +98,6 @@
     text-align: center;
     padding: 5% 0 0 0 !important;
   }
-
   .google-link {
     position: initial;
     margin: auto;
@@ -114,7 +112,6 @@
     text-align: center;
     padding: 25% 0 0 0 !important;
   }
-
   .sign-txt {
     font-size: 1.3rem;
   }
