@@ -55,9 +55,9 @@ const AppMain = () => {
 
   useEffect(() => {
     const token = localStorage.getItem("authToken");
-    // if (!token) {
-    //   history.replace("/");   //if there is no token take the user back to home page
-    // }
+    if (!token) {
+      history.replace("/");   //if there is no token take the user back to home page
+    }
 
     setupApp();
     // eslint-disable-next-line
