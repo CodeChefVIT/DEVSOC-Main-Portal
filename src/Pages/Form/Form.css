@@ -31,10 +31,9 @@
     margin-bottom: 15px;
     font-size: 24px;
     font-family:'Montserrat', sans-serif;
-    color: blue;
-    
     background-color: rgba(18,0,72,1);
-   color:blue
+    color: #3000C0;
+
   }
   
   .label,
@@ -54,17 +53,17 @@
     background: linear-gradient(to right, rgba(111,87,255,1), rgba(37,216,255,1));
     color: white;
     margin-top: 20px;
-    padding-left: 29px;
-    padding-top: 20px;
-    padding-bottom: 15px;
+ text-align: center;
+   width: 13rem;
     border-radius: 10px;
     font-size: 20px;
     font-weight: 700;
     font-family:'Montserrat', sans-serif ;
     display: block;
     appearance: none;
-    width: 20%;
+    height: 3rem;
     font-weight: lighter;
+   
   }
   .Form {
     max-width: 600px;
@@ -78,8 +77,8 @@
   }
   
   button[type="button"] {
-    background: blue;
-    color: blue;
+    background: #3000C0;
+    color: #3000C0;
     letter-spacing: 0px;
     text-transform: none;
     padding: 10px;
@@ -115,6 +114,7 @@
   -webkit-background-clip: text;
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
+  font-size: 24px;
 
   }
   .profile-heading
@@ -122,15 +122,48 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     margin-top: 1px;
+    font-size: 35px;
   }
   .set-heading
   {
     font-family: 'Montserrat', sans-serif;
     font-weight: 200;
     margin-top: 0px;
+    font-size: 24px;
   }
   .flex {
     display: 'flex';
     flex: 1;
    flex-direction: row;
+}
+.image-upload > input
+{
+    display: none;
+}
+
+.image-upload img
+{
+    width: 30px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+.input-style
+{
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  padding-left: 29px;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-family:'Montserrat', sans-serif;
+  
+  background-color: rgba(18,0,72,1);
+ color: #3000C0;
+}
+input::placeholder {
+  color: #3000C0;
+  opacity: 1; 
 }
