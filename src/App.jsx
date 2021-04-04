@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 import Landing from "./Pages/Landing/Landing";
-import ProjectSubmissions from "./Pages/ProjectSubmission/ProjectSubmission";
 import Form from "./Pages/Form/Form";
 // import LandingPage from "./Pages/LandingPage/LandingPage";
 import GoogleOAuth from "./Pages/GoogleOAuth/GoogleOAuth";
@@ -33,7 +32,6 @@ function App() {
           <Route path="/app" component={AppMain}></Route>
           <Route exact path="/form" component={Form}></Route>
           <Route exact path="/submissions" component={Submission}></Route>
-          <Route exact path="/ProjectSubmissions" component={ProjectSubmissions}></Route>
         </Switch>
       </Router>
     </ThemeProvider>

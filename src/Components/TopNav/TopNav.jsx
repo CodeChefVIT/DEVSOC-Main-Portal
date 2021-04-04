@@ -31,8 +31,6 @@ function TopNav() {
           ? "Project Submission"
           : path === "/app/profile"
           ? "Set Up Profile"
-          : path === "/app/projectsubmissions"
-          ? "Team Name"
           : ""}
         </h2>
       <Link to={path === "/app/profile" ? "/app/dashboard" : "/app/profile"} className="user-btn">

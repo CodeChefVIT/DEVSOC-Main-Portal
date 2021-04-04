@@ -1,12 +1,56 @@
 .description
 {
-    height: 13rem;
+    height: 10rem;
 }
-.inputfield
+.inputield
 {
     height: 4rem;
 }
 
     .extra {
-       height: 7.5rem;
+       height: 4.8rem;
       }
+      .team-primary-btn {
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+        outline: none;
+        border: none;
+        border-radius: 15px;
+        background: linear-gradient(91.89deg, #6F57FF -5.11%, #25D8FF 152.73%);
+        color: white;
+        height: 55px;
+        width: 300px;
+        font-weight: 600;
+        font-size: 1.2rem;
+    }
+    .team-primary-btn:hover {
+        filter: drop-shadow(0 0 10px #6F57FF);
+    }
+    .team-secondary-btn {
+        cursor: pointer;
+        font-family: "Montserrat", sans-serif;
+        outline: none;
+        border: none;
+        border-radius: 15px;
+        border: 2px solid #3051FF;
+        background: transparent;
+        color: white;
+        height: 55px;
+        width: 300px;
+        font-weight: 600;
+        font-size: 1.2rem;
+
+    }
+    .team-secondary-btn:hover {
+        filter: drop-shadow(0 0 10px #3051FF);
+    }
+    @media screen and (max-width:600px) {
+        .team-primary-btn, .team-secondary-btn {
+            width: 200px;
+        }
+    }
+   @media  screen and (max-width:400px) {   /*for setting the size of extra fields */
+       .description{
+           height: 3rem;
+       }
+   }

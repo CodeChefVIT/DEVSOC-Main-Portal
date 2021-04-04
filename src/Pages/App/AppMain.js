@@ -70,7 +70,7 @@ const AppMain = () => {
   return (
     <>
       <TopNav />
-      <div className="all-container" style={{ height: "100%", padding: "5% 2%" }}>
+      <div className="all-container" style={{ height: "100%", padding: "4% 2%" }}>
         <Switch>
           <Route
             exact
