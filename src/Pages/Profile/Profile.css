@@ -19,6 +19,17 @@
 .team-primary-btn:hover {
   filter: drop-shadow(0 0 10px #6f57ff);
 }
+
+.social {
+	margin: 20px 0 10px 0;
+    display: flex;
+}
+
+.social svg {
+	font-size: 2rem;
+	margin: 0 3px;
+}
+
 @media screen and (max-width: 600px) {
   .team-primary-btn,
   .team-secondary-btn {

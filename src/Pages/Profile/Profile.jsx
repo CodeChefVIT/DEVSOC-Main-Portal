@@ -3,6 +3,7 @@ import { Avatar, Grid, Hidden } from "@material-ui/core";
 import "./Profile.css";
 import back from "./back.svg";
 import { Link } from "react-router-dom";
+import { GitHub, LinkedIn } from "@material-ui/icons";
 
 export default function Profile({ data }) {
   return (
@@ -18,6 +19,20 @@ export default function Profile({ data }) {
 
           <h1>{data.name}</h1>
           <h3>{data.email}</h3>
+          <h3>{data.college}</h3>
+          <h3>{data.bio}</h3>
+          {data.profile ? (
+            <div className="social">
+              <a href={data.profile?.github} target="_blank" rel="noreferrer">
+                <GitHub />
+              </a>
+              <a href={data.profile?.linkedin} target="_blank" rel="noreferrer">
+                <LinkedIn />
+              </a>
+            </div>
+          ) : (
+            <></>
+          )}
           <Link to="/app/profile/edit">
             <button className="team-primary-btn">Edit Profile</button>
           </Link>

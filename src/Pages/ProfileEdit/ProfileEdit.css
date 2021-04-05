@@ -18,7 +18,8 @@ body {
 }
 
 select,
-input {
+input,
+textarea {
   outline: none;
   display: block;
   box-sizing: border-box;
@@ -31,6 +32,10 @@ input {
   font-family: "Montserrat", sans-serif;
   background-color: #1c006f;
   color: #ffffff;
+}
+
+textarea {
+  resize: none;
 }
 
 input::placeholder {
@@ -54,8 +59,9 @@ input[type="submit"],
 .button {
   background: linear-gradient(to right, rgba(111, 87, 255, 1), rgba(37, 216, 255, 1));
   color: white;
-  margin-top: 20px;
-  width: 20rem;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
   border-radius: 10px;
   font-size: 20px;
   font-weight: 500;
@@ -64,8 +70,6 @@ input[type="submit"],
   align-items: center;
   justify-content: center;
   height: 3.5rem;
-  padding-top: 1%;
-  padding-left: 1%;
 }
 
 .Form {
