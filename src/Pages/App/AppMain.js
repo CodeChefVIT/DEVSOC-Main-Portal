@@ -8,6 +8,7 @@ import Loading from "../../Components/Loading/Loading";
 import TopNav from "../../Components/TopNav/TopNav";
 import Submission from "../Submission/Submission";
 import ProfileSection from "../ProfileSection/ProfileSection";
+import SubmissionSection from '../SubmitSection/SubmitSection';
 import "./AppMain.css";
 
 const AppMain = () => {
@@ -130,6 +131,12 @@ const AppMain = () => {
             path="/app/profile"
             component={(props) => (
               <ProfileSection {...props} data={dashboardDetails} refresh={setupApp} />
+            )}
+          ></Route>
+          <Route
+            path="/app/submission"
+            component={(props) => (
+              <SubmissionSection {...props} data={dashboardDetails} refresh={setupApp} />
             )}
           ></Route>
         </Switch>
