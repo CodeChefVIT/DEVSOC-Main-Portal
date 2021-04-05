@@ -3,6 +3,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CreateTeamModal from "../../Components/CreateTeamModal/CreateTeamModal";
 import JoinTeamModal from "../../Components/JoinTeamModal/JoinTeamModal";
+import RemoveMember from "../../Components/RemoveMemberModal/RemoveMember";
 import "./Team.css";
 
 function Team({ data, refresh }) {
@@ -10,6 +11,7 @@ function Team({ data, refresh }) {
   const [alreadyJoined, setAlreadyJoined] = useState(false);
   const [joinTeam, setJoinTeam] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
+  const [removing, setRemoving] = useState(false);
 
   useEffect(() => {
     if (data.message && data.message === "Not in a team") {
@@ -79,9 +81,21 @@ function Team({ data, refresh }) {
               <div className="my-team-info">
                 <h2 className="gradient-head">Status</h2>
                 <p className="team-status">Selected for final pitch</p>
-                <h2 className="gradient-head" style={{ marginBottom: "15px" }}>
-                  Team Members
-                </h2>
+                <div
+                  className="team-members-head-div"
+                  style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "20px",
+                  }}
+                >
+                  <h2 className="gradient-head">Team Members</h2>
+                  <span className="remove-btn" onClick={() => setRemoving(true)}>
+                    Remove members
+                  </span>
+                </div>
                 <Grid container spacing={3} className="team-members-div">
                   {data.teams.users.map((user) => (
                     <Grid
@@ -101,7 +115,7 @@ function Team({ data, refresh }) {
                 <p className="team-status">Idea accepted</p>
               </div>
               <div className="team-action-div">
-                {/* <button className="team-primary-btn">Edit team</button> */}
+                <button className="team-primary-btn">Invite members</button>
                 <button className="team-secondary-btn" onClick={handleLeave}>
                   {btnLoading ? <CircularProgress color="secondary" size={24} /> : "Leave team"}
                 </button>
@@ -119,6 +133,12 @@ function Team({ data, refresh }) {
               </Grid>
             </Hidden>
           </Grid>
+          <RemoveMember
+            open={removing}
+            handleClose={() => setRemoving(false)}
+            data={data}
+            refresh={refresh}
+          />
         </div>
       )}
     </div>

@@ -16,8 +16,10 @@ const AppMain = () => {
   const [teamDetails, setTeamDetails] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const setupApp = async () => {
-    setLoading(true);
+  const setupApp = async (noLoad) => {
+    if (!noLoad) {
+      setLoading(true);
+    }
     let url = `${process.env.REACT_APP_BACKEND_URL}/user/getProfile`;
     const token = localStorage.getItem("authToken");
 
@@ -55,7 +57,9 @@ const AppMain = () => {
       history.replace("/");
     }
 
-    setLoading(false);
+    if (!noLoad) {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {

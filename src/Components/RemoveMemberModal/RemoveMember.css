@@ -1,0 +1,49 @@
+.to-be-removed-div {
+	margin-top: 20px;
+	display: flex;
+	justify-content: flex-start;
+	flex-direction: column;
+	padding: 0 5%;
+}
+
+.create-team-modal.remove-modal .MuiPaper-root {
+	width: 70% !important;
+	overflow: hidden;
+}
+
+.team-member-rem {
+	width: 100% !important;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: left;
+	margin: 10px 0;
+}
+
+.member-rem {
+	font-weight: normal !important;
+	margin: 5px;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.remove-icon-btn {
+	width: 50px !important;
+	height: 50px !important;
+}
+
+.remove-icon-btn .MuiSvgIcon-root {
+	fill: white !important;
+}
+
+@media screen and (max-width: 600px) {
+	.member-rem {
+		font-size: 1rem;
+	}
+	.create-team-modal.remove-modal .MuiPaper-root {
+		width: 90% !important;
+	}
+}
