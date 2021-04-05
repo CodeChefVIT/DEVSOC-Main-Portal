@@ -8,7 +8,7 @@
 
 .team-div {
   /* margin: 5% 0; */
-  border: 2px solid #3051FF;
+  border: 2px solid #3051ff;
   border-radius: 50px;
   width: 90%;
   height: 100%;
@@ -32,7 +32,7 @@
   outline: none;
   border: none;
   border-radius: 15px;
-  background: linear-gradient(91.89deg, #6F57FF -5.11%, #25D8FF 152.73%);
+  background: linear-gradient(91.89deg, #6f57ff -5.11%, #25d8ff 152.73%);
   color: white;
   height: 55px;
   width: 300px;
@@ -41,7 +41,7 @@
 }
 
 .team-primary-btn:hover {
-  filter: drop-shadow(0 0 10px #6F57FF);
+  filter: drop-shadow(0 0 10px #6f57ff);
 }
 
 .team-secondary-btn {
@@ -50,7 +50,7 @@
   outline: none;
   border: none;
   border-radius: 15px;
-  border: 2px solid #3051FF;
+  border: 2px solid #3051ff;
   background: transparent;
   color: white;
   height: 55px;
@@ -60,18 +60,19 @@
 }
 
 .team-secondary-btn:hover {
-  filter: drop-shadow(0 0 10px #3051FF);
+  filter: drop-shadow(0 0 10px #3051ff);
 }
 
-@media screen and (max-width:600px) {
+@media screen and (max-width: 600px) {
   .team-primary-btn, .team-secondary-btn {
     width: 200px;
   }
 }
 
 .gradient-head {
-  background: linear-gradient(98.49deg, #6F57FF, #25D8FF);
+  background: linear-gradient(98.49deg, #6f57ff, #25d8ff);
   -webkit-background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   font-weight: 500;
   font-size: 2rem;
