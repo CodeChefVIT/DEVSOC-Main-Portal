@@ -10,13 +10,13 @@
 }
 
 .team-name {
-	margin: 40px 0 !important;
+	margin: 40px 0;
 }
 
 .team-name::placeholder {}
 
 .team-primary-btn.modal-input {
-	margin-bottom: 30px !important;
+	margin-bottom: 30px;
 	display: flex;
 	justify-content: center;
 	align-items: center;

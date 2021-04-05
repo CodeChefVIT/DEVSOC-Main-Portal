@@ -41,9 +41,16 @@ function TopNav({ data }) {
         className="create-team-modal"
         fullWidth
       >
-        <DialogContent>
+        <DialogContent
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
           <h3>Hello, {data.name}</h3>
-          <Link to="/app/profile" style={{ textDecoration: "none" }}>
+          <Link to="/app/profile" style={{ textDecoration: "none" }} onClick={() => setOpen(false)}>
             <button className="team-primary-btn modal-input">
               <SvgIcon viewBox="0 0 44 44" fill="none">
                 <path
