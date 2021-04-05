@@ -8,7 +8,7 @@ function TopNav() {
   const history = useHistory();
   const path = history.location.pathname;
   return (
-    <div>
+    <div style={{ padding: "0 3%" }}>
       <h1 className="devsoc21">DEVSOC'21</h1>
       <h1 className="page-title">
         {path === "/app/team"

@@ -74,19 +74,49 @@ function Team({ data, refresh }) {
       ) : (
         <div className="team-joined-div">
           <Grid container spacing={3}>
-            <Grid item xs={12} sm={6}>
-              <button className="team-secondary-btn" onClick={handleLeave}>
-                {btnLoading ? <CircularProgress color="secondary" size={24} /> : "Leave team"}
-              </button>
+            <Grid item sm={12} md={6}>
+              <h3 className="team-name">Team {data.teams.name}</h3>
+              <div className="my-team-info">
+                <h2 className="gradient-head">Status</h2>
+                <p className="team-status">Selected for final pitch</p>
+                <h2 className="gradient-head" style={{ marginBottom: "15px" }}>
+                  Team Members
+                </h2>
+                <Grid container spacing={3} className="team-members-div">
+                  {data.teams.users.map((user) => (
+                    <Grid
+                      item
+                      xs={12}
+                      sm={6}
+                      key={user.email}
+                      style={{ paddingBottom: 0, paddingTop: 0 }}
+                    >
+                      <p className="team-status team-member">{user.name}</p>
+                    </Grid>
+                  ))}
+                </Grid>
+                <h2 className="gradient-head" style={{ marginTop: "40px" }}>
+                  Idea Status
+                </h2>
+                <p className="team-status">Idea accepted</p>
+              </div>
+              <div className="team-action-div">
+                <button className="team-primary-btn">
+                  {btnLoading ? <CircularProgress color="secondary" size={24} /> : "Edit team"}
+                </button>
+                <button className="team-secondary-btn" onClick={handleLeave}>
+                  {btnLoading ? <CircularProgress color="secondary" size={24} /> : "Leave team"}
+                </button>
+              </div>
             </Grid>
-            <Hidden xsDown>
+            <Hidden smDown>
               <Grid
                 item
-                xs={12}
-                sm={6}
-                style={{ display: "flex", justifyContent: "flex-end", alignItems: "center" }}
+                sm={12}
+                md={6}
+                style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
               >
-                <img src="/assets/team-joined.svg" alt="team joined" style={{ width: "400px" }} />
+                <img src="/assets/team-joined.svg" alt="team joined" style={{ width: "500px" }} />
               </Grid>
             </Hidden>
           </Grid>
