@@ -94,9 +94,11 @@ function Team({ data, refresh }) {
                   }}
                 >
                   <h2 className="gradient-head">Team Members</h2>
-                  <span className="remove-btn" onClick={() => setRemoving(true)}>
-                    Remove members
-                  </span>
+                  {data.isLeader ? (
+                    <span className="remove-btn" onClick={() => setRemoving(true)}>
+                      Remove members
+                    </span>
+                  ) : null}
                 </div>
                 <Grid container spacing={3} className="team-members-div">
                   {data.teams.users.map((user) => (
@@ -117,9 +119,11 @@ function Team({ data, refresh }) {
                 <p className="team-status">Idea accepted</p>
               </div>
               <div className="team-action-div">
-                <button className="team-primary-btn" onClick={() => setInviting(true)}>
-                  Invite members
-                </button>
+                {data.isLeader ? (
+                  <button className="team-primary-btn" onClick={() => setInviting(true)}>
+                    Invite members
+                  </button>
+                ) : null}
                 <button className="team-secondary-btn" onClick={handleLeave}>
                   {btnLoading ? <CircularProgress color="secondary" size={24} /> : "Leave team"}
                 </button>

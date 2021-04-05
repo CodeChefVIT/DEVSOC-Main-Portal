@@ -32,7 +32,7 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
 
   return (
     <Dialog open={open} onClose={handleClose} fullWidth className="create-team-modal remove-modal">
-      <DialogContent style={{ width: "90%" }}>
+      <DialogContent style={{ width: "90%", paddingBottom: "40px" }}>
         <h3>Remove team members</h3>
         <div className="to-be-removed-div">
           {data.teams.users.map((user, i) => (
