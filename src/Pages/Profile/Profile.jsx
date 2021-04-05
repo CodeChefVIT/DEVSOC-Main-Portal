@@ -1,35 +1,57 @@
 import React from "react";
-import  user_photo from './Group 7.png';
 import {Grid} from '@material-ui/core'
 import './Profile.css';
+import { useEffect, useState } from "react";
 import side_photo from './Saly-1 (2).svg'
 export default function Profile() 
 {
+  const [avatarURL, setAvatarURL] = useState("");
+  const [nameUser, setNameUser] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+
+  useEffect(() => {
+    const token = localStorage.getItem("authToken");
+    var requestOptions = {
+      method: 'GET',
+      redirect: 'follow',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    };
+    const url = `${process.env.REACT_APP_BACKEND_URL}/user/getProfile`;
+    
+    fetch(url, requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error));
+  }, []);
+
   return (
-    <div>
-      <Grid container spacing={2}>
-        <Grid item xs={8} sm={1} >
-      <img src={user_photo} alt="user photo" className="user_profile_picture"/>
+    <div className="profile_page">
+      <Grid container spacing={1}>
+        <Grid item xs={12} sm={1} >
+      <img src={avatarURL} alt="user photo" className="user_profile_picture"/>
         </Grid>
       </Grid>
-      <Grid container spacing={2}>
-        <Grid item xs={8} sm={12} >
-      <h1>Siddharth Singh</h1>
+      <Grid container spacing={0.5}>
+        <Grid item xs={12} sm={12} >
+      <h1>{nameUser}</h1>
       </Grid>
       </Grid>
-      <Grid container spacing={2}>
-        <Grid item xs={8} sm={12}> 
-     				<h3>abc@gmail.com</h3>
+      <Grid container spacing={0.5}>
+        <Grid item xs={12} sm={12}> 
+     				<h3>{email}</h3>
 				</Grid>	
 			</Grid>
 
-      <Grid container spacing={2}>
-        <Grid item xs={8} sm={12} >
-      		<h3>+91 99999999</h3>
+      <Grid container spacing={0.5}>
+        <Grid item xs={12} sm={12} >
+      		<h3>{phone}</h3>
 			</Grid>
       </Grid>
-      <Grid container spacing={2}>
-        <Grid item xs={8} sm={12}>
+      <Grid container spacing={0.5}>
+        <Grid item xs={12} sm={12}>
                 <div className="team-btn-div">
                       <button className="team-primary-btn">
                         Edit Profile
