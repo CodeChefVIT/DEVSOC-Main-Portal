@@ -8,7 +8,11 @@ function ProfileSection({ data, refresh }) {
     <div className="team-container">
       <Switch>
         <Route exact path="/app/profile" component={(props) => <Profile data={data} />}></Route>
-        <Route exact path="/app/profile/edit" component={(props) => <ProfileEdit />}></Route>
+        <Route
+          exact
+          path="/app/profile/edit"
+          component={(props) => <ProfileEdit data={data} />}
+        ></Route>
       </Switch>
     </div>
   );

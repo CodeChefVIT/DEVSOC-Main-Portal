@@ -96,13 +96,13 @@ function BottomNav(props) {
           </Link>
           <Link
             to="/app/profile"
-            className={`nav-tab ${history.location.pathname === "/app/profile" ? "active" : null}`}
+            className={`nav-tab ${history.location.pathname === "/app/profile" || history.location.pathname === "/app/profile/edit" ? "active" : null}`}
           >
             <SvgIcon viewBox="0 0 44 44" fill="none">
               <path
                 d="M36.6666 38.5V34.8333C36.6666 32.8884 35.894 31.0232 34.5187 29.6479C33.1434 28.2726 31.2782 27.5 29.3333 27.5H14.6666C12.7217 27.5 10.8564 28.2726 9.48114 29.6479C8.10587 31.0232 7.33325 32.8884 7.33325 34.8333V38.5"
                 stroke={`${
-                  history.location.pathname === "/app/profile" ? "url(#paint0_linear)" : "white"
+                  history.location.pathname === "/app/profile" || history.location.pathname === "/app/profile/edit" ? "url(#paint0_linear)" : "white"
                 }`}
                 strokeWidth="4"
                 strokeLinecap="round"
@@ -112,7 +112,7 @@ function BottomNav(props) {
               <path
                 d="M22.0001 20.1667C26.0502 20.1667 29.3334 16.8834 29.3334 12.8333C29.3334 8.78325 26.0502 5.5 22.0001 5.5C17.95 5.5 14.6667 8.78325 14.6667 12.8333C14.6667 16.8834 17.95 20.1667 22.0001 20.1667Z"
                 stroke={`${
-                  history.location.pathname === "/app/profile" ? "url(#paint1_linear)" : "white"
+                  history.location.pathname === "/app/profile" || history.location.pathname === "/app/profile/edit" ? "url(#paint1_linear)" : "white"
                 }`}
                 strokeWidth="4"
                 fill="none"
