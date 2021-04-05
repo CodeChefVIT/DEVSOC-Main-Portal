@@ -74,7 +74,7 @@ function Team({ data, refresh }) {
       ) : (
         <div className="team-joined-div">
           <Grid container spacing={3}>
-            <Grid item sm={12} md={6}>
+            <Grid item xs={12} sm={12} md={6}>
               <h3 className="team-name">Team {data.teams.name}</h3>
               <div className="my-team-info">
                 <h2 className="gradient-head">Status</h2>
@@ -101,9 +101,7 @@ function Team({ data, refresh }) {
                 <p className="team-status">Idea accepted</p>
               </div>
               <div className="team-action-div">
-                <button className="team-primary-btn">
-                  {btnLoading ? <CircularProgress color="secondary" size={24} /> : "Edit team"}
-                </button>
+                {/* <button className="team-primary-btn">Edit team</button> */}
                 <button className="team-secondary-btn" onClick={handleLeave}>
                   {btnLoading ? <CircularProgress color="secondary" size={24} /> : "Leave team"}
                 </button>
@@ -112,6 +110,7 @@ function Team({ data, refresh }) {
             <Hidden smDown>
               <Grid
                 item
+                xs={12}
                 sm={12}
                 md={6}
                 style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
