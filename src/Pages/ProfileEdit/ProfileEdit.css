@@ -56,7 +56,7 @@ section > label {
 }
 
 input[type="submit"],
-.button {
+.submit-btn {
   background: linear-gradient(to right, rgba(111, 87, 255, 1), rgba(37, 216, 255, 1));
   color: white;
   width: 100%;

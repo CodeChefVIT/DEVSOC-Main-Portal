@@ -1,43 +1,65 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import "./ProfileEdit.css";
 import Grid from "@material-ui/core/Grid";
 import salty from "./Saly-14.svg";
-import { Hidden } from "@material-ui/core";
+import { CircularProgress, Hidden } from "@material-ui/core";
+import axios from "axios";
+import { useHistory } from "react-router";
 
-export default function ProfileEdit({ data }) {
-  const { register, handleSubmit, setValue } = useForm();
-  const onSubmit = (data) => alert(JSON.stringify(data));
+export default function ProfileEdit({ data, refresh }) {
+  const { register, setValue, getValues } = useForm();
+  const history = useHistory();
+
+  const [loading, setLoading] = useState(false);
+
+  const onSubmit = async (e) => {
+    setLoading(true);
+    e.preventDefault();
+    data = getValues();
+    const token = localStorage.getItem("authToken");
+    await axios
+      .patch(`${process.env.REACT_APP_BACKEND_URL}/user/update`, data, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((data) => {
+        console.log(data);
+        refresh(true);
+      });
+    setLoading(false);
+  };
 
   const initialise = () => {
     setValue("name", data.name);
     setValue("college", data.college);
     setValue("mobile", data.mobile);
-    setValue("address.line1", data.address.line1);
-    setValue("address.line2", data.address.line2);
-    setValue("address.city", data.address.city);
-    setValue("address.state", data.address.state);
-    setValue("address.pincode", data.address.pincode);
-    setValue("address.country", data.address.country);
-    setValue("personal.website", data.personal.website);
-    setValue("personal.resume", data.personal.resume);
-    setValue("personal.github", data.personal.github);
-    setValue("personal.linkedin", data.personal.linkedin);
-    setValue("personal.tshirt", data.personal.tshirt);
+    if (data.address) {
+      setValue("address.line1", data.address.line1);
+      setValue("address.line2", data.address.line2);
+      setValue("address.city", data.address.city);
+      setValue("address.state", data.address.state);
+      setValue("address.pincode", data.address.pincode);
+      setValue("address.country", data.address.country);
+    }
+    if (data.personal) {
+      setValue("personal.website", data.personal.website);
+      setValue("personal.resume", data.personal.resume);
+      setValue("personal.github", data.personal.github);
+      setValue("personal.linkedin", data.personal.linkedin);
+      setValue("personal.tshirt", data.personal.tshirt);
+    }
     setValue("bio", data.bio);
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      initialise();
-    }, 1000);
+    initialise();
   }, [initialise]);
 
   return (
     <div className="team-joined-div">
       <Grid container spacing={3}>
         <Grid item md={12} lg={8} style={{ paddingBottom: 80 }}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <input
@@ -55,6 +77,7 @@ export default function ProfileEdit({ data }) {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <input
+                  type="number"
                   {...register("mobile", { required: true, maxLength: 30 })}
                   placeholder="Mobile"
                   className="TopLabels"
@@ -69,6 +92,7 @@ export default function ProfileEdit({ data }) {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <input
+                  type="url"
                   {...register("personal.website")}
                   placeholder="Personal Website(optional)"
                   className="TopLabels"
@@ -100,6 +124,7 @@ export default function ProfileEdit({ data }) {
               </Grid>
               <Grid item xs={12} sm={3}>
                 <input
+                  type="number"
                   {...register("address.pincode", { required: true, maxLength: 30 })}
                   placeholder="Pincode"
                   className="TopLabels"
@@ -116,6 +141,7 @@ export default function ProfileEdit({ data }) {
               </Grid>
               <Grid item xs={12} sm={6}>
                 <input
+                  type="url"
                   {...register("personal.resume", { required: true, maxLength: 30 })}
                   placeholder="Resume Link"
                   className="TopLabels"
@@ -123,6 +149,7 @@ export default function ProfileEdit({ data }) {
               </Grid>
               <Grid item xs={12} sm={3}>
                 <input
+                  type="url"
                   {...register("personal.github", { required: true, maxLength: 100 })}
                   placeholder="Github Link"
                   className="TopLabels"
@@ -131,6 +158,7 @@ export default function ProfileEdit({ data }) {
               </Grid>
               <Grid item xs={12} sm={3}>
                 <input
+                  type="url"
                   {...register("personal.linkedin", { required: true, maxLength: 30 })}
                   placeholder="LinkedIn Link"
                   className="TopLabels"
@@ -154,7 +182,9 @@ export default function ProfileEdit({ data }) {
                   <option value="L">L</option>
                   <option value="XL">XL</option>
                 </select>
-                <input type="submit" />
+                <button className="submit-btn" onClick={onSubmit}>
+                  {loading ? <CircularProgress color="secondary" size={24} /> : "Update Profile"}
+                </button>
               </Grid>
             </Grid>
           </form>
