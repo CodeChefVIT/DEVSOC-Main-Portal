@@ -26,6 +26,19 @@
   padding: 0 3%;
 }
 
+.team-members-head-div .gradient-head {
+  margin: 0;
+}
+
+.remove-btn {
+  color: rgb(148, 148, 148);
+}
+
+.remove-btn:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
 .team-primary-btn {
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
@@ -64,9 +77,11 @@
 }
 
 @media screen and (max-width: 600px) {
-  .team-primary-btn,
-  .team-secondary-btn {
+  .team-primary-btn, .team-secondary-btn {
     width: 200px;
+  }
+  .remove-btn {
+    font-size: 0.8rem;
   }
 }
 

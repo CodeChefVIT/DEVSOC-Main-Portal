@@ -8,6 +8,7 @@ import Loading from "../../Components/Loading/Loading";
 import TopNav from "../../Components/TopNav/TopNav";
 import Submission from "../Submission/Submission";
 import ProfileSection from "../ProfileSection/ProfileSection";
+import SubmissionSection from '../SubmitSection/SubmitSection';
 import "./AppMain.css";
 
 const AppMain = () => {
@@ -16,8 +17,41 @@ const AppMain = () => {
   const [teamDetails, setTeamDetails] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const setupApp = async () => {
-    setLoading(true);
+  const joinViaInvite = async (toJoin) => {
+    let url = `${process.env.REACT_APP_BACKEND_URL}/user/joinInvite`;
+    const token = localStorage.getItem("authToken");
+    const data = {
+      code: toJoin.code,
+      email: toJoin.email,
+    };
+
+    try {
+      await axios
+        .post(url, data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          localStorage.removeItem("toJoin");
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const setupApp = async (noLoad) => {
+    if (!noLoad) {
+      setLoading(true);
+    }
+
+    const toJoin = JSON.parse(localStorage.getItem("toJoin"));
+
+    if (toJoin) {
+      await joinViaInvite(toJoin);
+    }
+
     let url = `${process.env.REACT_APP_BACKEND_URL}/user/getProfile`;
     const token = localStorage.getItem("authToken");
 
@@ -54,8 +88,9 @@ const AppMain = () => {
       localStorage.removeItem("authToken");
       history.replace("/");
     }
-
-    setLoading(false);
+    if (!noLoad) {
+      setLoading(false);
+    }
   };
 
   useEffect(() => {
@@ -96,6 +131,12 @@ const AppMain = () => {
             path="/app/profile"
             component={(props) => (
               <ProfileSection {...props} data={dashboardDetails} refresh={setupApp} />
+            )}
+          ></Route>
+          <Route
+            path="/app/submission"
+            component={(props) => (
+              <SubmissionSection {...props} data={dashboardDetails} refresh={setupApp} />
             )}
           ></Route>
         </Switch>

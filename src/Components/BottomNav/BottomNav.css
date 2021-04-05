@@ -14,8 +14,8 @@
 .nav-tabs-container {
   width: fit-content;
   background-color: #080020;
-  /* border-radius: 12px 12px 0 0;
-  box-shadow: 0 -1px 2px #25d8ff; */
+  border-radius: 12px 12px 0 0;
+  /* box-shadow: 0 -1px 2px #25d8ff; */
 }
 
 .nav-tab {

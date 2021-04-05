@@ -1,5 +1,4 @@
 import React from "react";
-import BottomNav from "../../Components/BottomNav/BottomNav";
 // import Header from "../ProfileEdit/Header";
 import Grid from "@material-ui/core/Grid";
 import { useForm } from "react-hook-form";
