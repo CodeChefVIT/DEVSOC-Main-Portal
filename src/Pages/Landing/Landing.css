@@ -81,7 +81,8 @@
   box-shadow: 0 0 6px #4285f4;
 }
 
-.google-btn:active, .google-btn:active .google-icon {
+.google-btn:active,
+.google-btn:active .google-icon {
   background: #1669f2;
 }
 
@@ -102,6 +103,9 @@
     position: initial;
     margin: auto;
     margin-top: 45vh;
+  }
+  .devsoc21 {
+    padding-top: 4%;
   }
 }
 

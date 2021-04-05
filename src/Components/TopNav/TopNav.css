@@ -1,6 +1,6 @@
 .page-title {
   padding-left: 2%;
-  margin: 0;
+  margin: 15px 0 0 0;
   width: fit-content;
   padding-right: 50px;
   overflow: hidden;
@@ -8,15 +8,19 @@
 }
 
 .user-btn {
+  outline: none;
   position: absolute;
   right: 2%;
   top: 3%;
+  background-color: transparent;
+  border: none;
+  margin: 0;
+  padding: 0;
+  border-radius: 50%;
+  filter: drop-shadow(0 0 3px #3051ff);
 }
 
-.user-btn svg {
-  font-size: 3rem;
-}
-
-.user-btn:hover svg {
-  filter: drop-shadow(0 0 7px #3051FF);
+.user-btn div {
+  width: 60px !important;
+  height: 60px !important;
 }

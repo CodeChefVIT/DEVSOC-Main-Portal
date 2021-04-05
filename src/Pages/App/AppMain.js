@@ -74,7 +74,7 @@ const AppMain = () => {
 
   return (
     <>
-      <TopNav />
+      <TopNav data={dashboardDetails} />
       <div className="all-container">
         <Switch>
           <Route

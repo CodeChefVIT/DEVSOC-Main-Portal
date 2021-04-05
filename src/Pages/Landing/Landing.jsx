@@ -22,6 +22,7 @@ function Landing() {
     if (token && token !== "") {
       history.replace("/app/dashboard");
     }
+    //eslint-disable-next-line
   }, []);
 
   return (
