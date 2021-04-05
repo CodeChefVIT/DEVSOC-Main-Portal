@@ -16,23 +16,11 @@ function TopNav() {
           : path === "/app/dashboard"
           ? "Dashboard"
           : path === "/app/submission"
-          ? "Idea Submission"
+          ? "My Submission"
           : path === "/app/profile"
           ? "Profile"
-          : path === "/app/projectsubmissions"
-          ? "Project Submission"
           : ""}
       </h1>
-      <h2>
-      {path === "/app/team"
-          ? "My Team"
-          
-          : path === "/app/submission"
-          ? "Project Submission"
-          : path === "/app/profile"
-          ? "Set Up Profile"
-          : ""}
-        </h2>
       <Link to={path === "/app/profile" ? "/app/dashboard" : "/app/profile"} className="user-btn">
         <SvgIcon viewBox="0 0 44 44" fill="none">
           <path

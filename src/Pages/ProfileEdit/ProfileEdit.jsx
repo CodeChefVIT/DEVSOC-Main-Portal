@@ -6,13 +6,12 @@ import Grid from "@material-ui/core/Grid";
 import salty from "./Saly-14.svg";
 import uploadbutton from "./upload.png";
 
-export default function Form() {
+export default function ProfileEdit() {
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => alert(JSON.stringify(data));
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Header desc="Set Up Your Profile" title="Profile" />
       <Grid container spacing={2}>
         <Grid item xs={8} sm={4}>
           <input

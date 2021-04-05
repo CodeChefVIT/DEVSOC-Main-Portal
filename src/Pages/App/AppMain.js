@@ -7,7 +7,7 @@ import axios from "axios";
 import Loading from "../../Components/Loading/Loading";
 import TopNav from "../../Components/TopNav/TopNav";
 import Submission from "../Submission/Submission";
-import ProjectSubmissions from "../ProjectSubmission/ProjectSubmission";
+import ProfileSection from "../ProfileSection/ProfileSection";
 
 const AppMain = () => {
   const history = useHistory();
@@ -56,7 +56,7 @@ const AppMain = () => {
   useEffect(() => {
     const token = localStorage.getItem("authToken");
     if (!token) {
-      history.replace("/");   //if there is no token take the user back to home page
+      history.replace("/"); //if there is no token take the user back to home page
     }
 
     setupApp();
@@ -75,7 +75,7 @@ const AppMain = () => {
           <Route
             exact
             path="/app/dashboard"
-            component={(props) => <Dashboard {...props} data={dashboardDetails} />}
+            component={(props) => <Dashboard {...props} data={teamDetails} refresh={setupApp} />}
           ></Route>
           <Route
             exact
@@ -88,9 +88,10 @@ const AppMain = () => {
             component={(props) => <Submission {...props} data={teamDetails} refresh={setupApp} />}
           ></Route>
           <Route
-            exact
-            path="/app/projectsubmissions"
-            component={(props) => <ProjectSubmissions {...props} data={teamDetails} refresh={setupApp} />}
+            path="/app/profile"
+            component={(props) => (
+              <ProfileSection {...props} data={dashboardDetails} refresh={setupApp} />
+            )}
           ></Route>
         </Switch>
       </div>

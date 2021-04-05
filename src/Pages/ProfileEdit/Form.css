@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap");
 .Form {
   font-family: sans-serif;
   text-align: center;
@@ -6,7 +6,8 @@
 
 body {
   background: #080020, 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   color: white;
   /* padding: 0 20px 50px; */
 }
@@ -16,7 +17,8 @@ body {
   margin: 0 auto;
 }
 
-select, input {
+select,
+input {
   outline: none;
   display: block;
   box-sizing: border-box;
@@ -26,12 +28,18 @@ select, input {
   padding: 3% 5%;
   margin-bottom: 0.3rem;
   font-size: 1.5rem;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #1C006F;
-  color: #3000C0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #1c006f;
+  color: #ffffff;
 }
 
-.label, section>label {
+input::placeholder {
+  color: #3000c0;
+  font-weight: 400 !important;
+}
+
+.label,
+section > label {
   line-height: 2;
   text-align: left;
   display: block;
@@ -42,7 +50,8 @@ select, input {
   font-weight: 700;
 }
 
-input[type="submit"], .button {
+input[type="submit"],
+.button {
   background: linear-gradient(to right, rgba(111, 87, 255, 1), rgba(37, 216, 255, 1));
   color: white;
   margin-top: 20px;
@@ -50,7 +59,7 @@ input[type="submit"], .button {
   border-radius: 10px;
   font-size: 20px;
   font-weight: 500;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -71,8 +80,8 @@ input[type="submit"], .button {
 }
 
 button[type="button"] {
-  background: #3000C0;
-  color: #3000C0;
+  background: #3000c0;
+  color: #3000c0;
   letter-spacing: 0px;
   text-transform: none;
   padding: 10px;
@@ -106,32 +115,33 @@ button[type="button"] {
   background: linear-gradient(to right, rgba(111, 87, 255, 1), rgba(37, 216, 255, 1));
   -webkit-text-fill-color: transparent;
   -webkit-background-clip: text;
-  font-family: 'Montserrat', sans-serif;
+  background-clip: text;
+  font-family: "Montserrat", sans-serif;
   font-weight: 700;
   font-size: 24px;
 }
 
 .profile-heading {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   margin-top: 1px;
   font-size: 35px;
 }
 
 .set-heading {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 200;
   margin-top: 0px;
   font-size: 24px;
 }
 
 .flex {
-  display: 'flex';
+  display: "flex";
   flex: 1;
   flex-direction: row;
 }
 
-.image-upload>input {
+.image-upload > input {
   display: none;
 }
 
@@ -152,12 +162,12 @@ button[type="button"] {
   padding-top: 0.5rem;
   margin-bottom: 0.3rem;
   font-size: 1.5rem;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   background-color: rgba(18, 0, 72, 1);
-  color: #3000C0;
+  color: #3000c0;
 }
 
 input::placeholder {
-  color: #3000C0;
+  color: #3000c0;
   opacity: 1;
 }
