@@ -27,3 +27,17 @@ textarea::placeholder {
   color: #3000C0;
   opacity: 1;
 }
+.team-primary-btn {
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(91.89deg, #6f57ff -5.11%, #25d8ff 152.73%);
+  color: white;
+  height: 55px;
+  width: 300px;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 1%;
+}

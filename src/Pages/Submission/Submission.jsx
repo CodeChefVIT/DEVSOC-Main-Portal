@@ -3,7 +3,9 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import { useForm } from "react-hook-form";
 import "./Submission.css";
+import { Link } from "react-router-dom";
 import saltysubmission from "./Saly-16.svg";
+import ProjectSubmission from "../ProjectSubmission/ProjectSubmission";
 
 function Submission(props) {
   const { register, handleSubmit } = useForm();
@@ -48,6 +50,9 @@ function Submission(props) {
           className="From-img"
         />
       </div>
+      <Link to= "./app/submission/project">
+      <button className="team-primary-btn">Submit Idea</button>
+      </Link>
     </div>
   );
 }
