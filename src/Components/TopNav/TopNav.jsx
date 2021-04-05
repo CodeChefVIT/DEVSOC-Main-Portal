@@ -17,7 +17,7 @@ function TopNav() {
           ? "Dashboard"
           : path === "/app/submission"
           ? "My Submission"
-          : path === "/app/profile"
+          : path === "/app/profile" || path === "/app/profile/edit" 
           ? "Profile"
           : ""}
       </h1>

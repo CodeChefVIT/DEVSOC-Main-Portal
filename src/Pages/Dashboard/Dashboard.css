@@ -1,0 +1,10 @@
+.dashset {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .dashset {
+    font-size: 2rem;
+  }
+}

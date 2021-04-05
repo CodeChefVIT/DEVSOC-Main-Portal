@@ -5,7 +5,7 @@ import Profile from "../Profile/Profile";
 
 function ProfileSection({ data, refresh }) {
   return (
-    <div className="all-container" style={{ height: "100%", padding: "4% 2%" }}>
+    <div>
       <Switch>
         <Route exact path="/app/profile" component={(props) => <Profile />}></Route>
         <Route exact path="/app/profile/edit" component={(props) => <ProfileEdit />}></Route>

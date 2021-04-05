@@ -1,8 +1,10 @@
 import axios from "axios";
-import React from "react";
+import React, { useEffect } from "react";
+import { useHistory } from "react-router";
 import "./Landing.css";
 
 function Landing() {
+  const history = useHistory();
   const handleButton = async () => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/auth/getUrl`;
     try {
@@ -14,6 +16,14 @@ function Landing() {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    let token = localStorage.getItem("authToken");
+    if (token && token !== "") {
+      history.replace("/app/dashboard");
+    }
+  }, []);
+
   return (
     <div className="landing-page" style={{ backgroundImage: `url('/assets/landing-bg.svg')` }}>
       <h1 className="devsoc21 ds-landing">DEVSOC'21</h1>

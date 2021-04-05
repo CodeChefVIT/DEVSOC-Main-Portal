@@ -1,14 +1,13 @@
-import { CircularProgress, Grid, Hidden } from "@material-ui/core";
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CreateTeamModal from "../../Components/CreateTeamModal/CreateTeamModal";
 import JoinTeamModal from "../../Components/JoinTeamModal/JoinTeamModal";
+import "./Dashboard.css";
 
 function Dashboard({ data, refresh }) {
   const [createTeam, setCreateTeam] = useState(false);
   const [alreadyJoined, setAlreadyJoined] = useState(false);
   const [joinTeam, setJoinTeam] = useState(false);
-  const [btnLoading, setBtnLoading] = useState(false);
+  const [hackBegin, setHack] = useState(false);
   const [hrs, setHrs] = useState(0);
   const [min, setMin] = useState(0);
   const [sec, setSec] = useState(0);
@@ -21,32 +20,23 @@ function Dashboard({ data, refresh }) {
     }
   }, [data]);
 
-  const handleLeave = async () => {
-    setBtnLoading(true);
-    const url = `${process.env.REACT_APP_BACKEND_URL}/team/leave`;
-    const token = localStorage.getItem("authToken");
-
-    try {
-      await axios
-        .post(
-          url,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        )
-        .then((res) => {
-          console.log(res);
-          refresh();
-        });
-    } catch (error) {
-      console.log(error);
+  useEffect(() => {
+    const start = new Date();
+    start.setFullYear(2021, 3, 30);
+    start.setHours(9);
+    start.setMinutes(0);
+    start.setSeconds(0);
+    const Now = new Date();
+    if (start - Now > 0) {
+    } else {
+      const start = new Date();
+      start.setFullYear(2021, 3, 30);
+      start.setHours(9);
+      start.setMinutes(0);
+      start.setSeconds(0);
     }
-  };
-
-  useEffect(() => {}, []);
+    // Test = start - Now;
+  }, []);
 
   return (
     <div className="team-container">
@@ -77,7 +67,7 @@ function Dashboard({ data, refresh }) {
         </div>
       ) : (
         <div className="team-div">
-          <div>You are all set</div>
+          <div className="dashset">You are all set</div>
           <div>Hack Timer</div>
           <div className="counter">
             <div class="clock">

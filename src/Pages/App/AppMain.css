@@ -1,0 +1,10 @@
+.all-container {
+  height: 100%;
+  padding: 4% 2% 100px 2%;
+}
+
+@media (max-width: 768px) {
+  .all-container {
+    padding: 4% 2% 80px 2%;
+  }
+}

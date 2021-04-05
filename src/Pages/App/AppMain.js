@@ -8,6 +8,7 @@ import Loading from "../../Components/Loading/Loading";
 import TopNav from "../../Components/TopNav/TopNav";
 import Submission from "../Submission/Submission";
 import ProfileSection from "../ProfileSection/ProfileSection";
+import "./AppMain.css";
 
 const AppMain = () => {
   const history = useHistory();
@@ -31,6 +32,8 @@ const AppMain = () => {
         });
     } catch (error) {
       console.log(error);
+      localStorage.removeItem("authToken");
+      history.replace("/");
     }
 
     url = `${process.env.REACT_APP_BACKEND_URL}/team/user`;
@@ -48,6 +51,8 @@ const AppMain = () => {
         });
     } catch (error) {
       console.log(error);
+      localStorage.removeItem("authToken");
+      history.replace("/");
     }
 
     setLoading(false);
@@ -70,7 +75,7 @@ const AppMain = () => {
   return (
     <>
       <TopNav />
-      <div className="all-container" style={{ height: "100%", padding: "4% 2%" }}>
+      <div className="all-container">
         <Switch>
           <Route
             exact
