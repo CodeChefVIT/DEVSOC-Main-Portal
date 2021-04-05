@@ -1,7 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import "./Form.css";
-import Header from "./Header";
 import Grid from "@material-ui/core/Grid";
 import salty from "./Saly-14.svg";
 import uploadbutton from "./upload.png";

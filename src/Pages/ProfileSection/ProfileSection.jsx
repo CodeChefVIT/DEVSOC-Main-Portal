@@ -5,9 +5,9 @@ import Profile from "../Profile/Profile";
 
 function ProfileSection({ data, refresh }) {
   return (
-    <div>
+    <div className="team-container">
       <Switch>
-        <Route exact path="/app/profile" component={(props) => <Profile />}></Route>
+        <Route exact path="/app/profile" component={(props) => <Profile data={data} />}></Route>
         <Route exact path="/app/profile/edit" component={(props) => <ProfileEdit />}></Route>
       </Switch>
     </div>

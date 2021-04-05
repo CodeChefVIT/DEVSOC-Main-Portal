@@ -1,31 +1,27 @@
-.user_profile_picture
-{
-border-radius: 50%;
-width: 10rem;
+.user_profile_picture {
+  width: 10rem !important;
+  height: 10rem !important;
 }
 .team-primary-btn {
-	cursor: pointer;
-	font-family: "Montserrat", sans-serif;
-	outline: none;
-	border: none;
-	border-radius: 15px;
-	background: linear-gradient(91.89deg, #6F57FF -5.11%, #25D8FF 152.73%);
-	color: white;
-	height: 55px;
-	width: 300px;
-	font-weight: 600;
-	font-size: 1.2rem;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(91.89deg, #6f57ff -5.11%, #25d8ff 152.73%);
+  color: white;
+  height: 55px;
+  width: 300px;
+  font-weight: 600;
+  font-size: 1.2rem;
 }
 
 .team-primary-btn:hover {
-	filter: drop-shadow(0 0 10px #6F57FF);
+  filter: drop-shadow(0 0 10px #6f57ff);
 }
-@media screen and (max-width:600px) {
-    .team-primary-btn, .team-secondary-btn {
-        width: 200px;
-    }
-}
-.profile_page
-{
-    padding-left: 3%;
+@media screen and (max-width: 600px) {
+  .team-primary-btn,
+  .team-secondary-btn {
+    width: 200px;
+  }
 }
