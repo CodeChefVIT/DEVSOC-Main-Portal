@@ -23,7 +23,7 @@
 .team-joined-div {
 	width: 100%;
 	height: 100%;
-	padding: 2% 3%;
+	padding: 0 3%;
 }
 
 .team-primary-btn {
@@ -66,5 +66,70 @@
 @media screen and (max-width:600px) {
 	.team-primary-btn, .team-secondary-btn {
 		width: 200px;
+	}
+}
+
+.gradient-head {
+	background: linear-gradient(98.49deg, #6F57FF, #25D8FF);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-weight: 500;
+	font-size: 2rem;
+	margin-bottom: 0;
+}
+
+.team-name {
+	font-size: 1.7rem;
+	margin-top: 0 !important;
+}
+
+.team-status {
+	font-size: 1.5rem;
+	margin-top: 0;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.team-status.team-member {
+	margin-bottom: 5px;
+}
+
+.team-action-div {
+	display: flex;
+	/* flex-direction: column; */
+	justify-content: space-between;
+	margin-top: 40px;
+}
+
+@media screen and (max-width: 490px) {
+	.team-name {
+		font-size: 1.5rem;
+		margin-top: 0 !important;
+	}
+	.gradient-head {
+		font-size: 1.5rem;
+	}
+	.team-status {
+		font-size: 1.2rem;
+	}
+	.team-action-div {
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	.team-action-div .team-primary-btn {
+		margin-bottom: 10px;
+		font-size: 1rem;
+		width: 90% !important;
+		height: 45px;
+	}
+	.team-action-div .team-secondary-btn {
+		margin-bottom: 20px;
+		height: 45px;
+		width: 90% !important;
+		font-size: 1rem;
 	}
 }
