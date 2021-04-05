@@ -2,6 +2,7 @@ import { CircularProgress, Grid, Hidden } from "@material-ui/core";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import CreateTeamModal from "../../Components/CreateTeamModal/CreateTeamModal";
+import InviteModal from "../../Components/InviteModal/InviteModal";
 import JoinTeamModal from "../../Components/JoinTeamModal/JoinTeamModal";
 import RemoveMember from "../../Components/RemoveMemberModal/RemoveMember";
 import "./Team.css";
@@ -12,6 +13,7 @@ function Team({ data, refresh }) {
   const [joinTeam, setJoinTeam] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
   const [removing, setRemoving] = useState(false);
+  const [inviting, setInviting] = useState(false);
 
   useEffect(() => {
     if (data.message && data.message === "Not in a team") {
@@ -115,7 +117,9 @@ function Team({ data, refresh }) {
                 <p className="team-status">Idea accepted</p>
               </div>
               <div className="team-action-div">
-                <button className="team-primary-btn">Invite members</button>
+                <button className="team-primary-btn" onClick={() => setInviting(true)}>
+                  Invite members
+                </button>
                 <button className="team-secondary-btn" onClick={handleLeave}>
                   {btnLoading ? <CircularProgress color="secondary" size={24} /> : "Leave team"}
                 </button>
@@ -136,6 +140,12 @@ function Team({ data, refresh }) {
           <RemoveMember
             open={removing}
             handleClose={() => setRemoving(false)}
+            data={data}
+            refresh={refresh}
+          />
+          <InviteModal
+            open={inviting}
+            handleClose={() => setInviting(false)}
             data={data}
             refresh={refresh}
           />

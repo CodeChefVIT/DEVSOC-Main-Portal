@@ -16,10 +16,41 @@ const AppMain = () => {
   const [teamDetails, setTeamDetails] = useState({});
   const [loading, setLoading] = useState(true);
 
+  const joinViaInvite = async (toJoin) => {
+    let url = `${process.env.REACT_APP_BACKEND_URL}/user/joinInvite`;
+    const token = localStorage.getItem("authToken");
+    const data = {
+      code: toJoin.code,
+      email: toJoin.email,
+    };
+
+    try {
+      await axios
+        .post(url, data, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          localStorage.removeItem("toJoin");
+        });
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const setupApp = async (noLoad) => {
     if (!noLoad) {
       setLoading(true);
     }
+
+    const toJoin = JSON.parse(localStorage.getItem("toJoin"));
+
+    if (toJoin) {
+      await joinViaInvite(toJoin);
+    }
+
     let url = `${process.env.REACT_APP_BACKEND_URL}/user/getProfile`;
     const token = localStorage.getItem("authToken");
 
@@ -56,7 +87,6 @@ const AppMain = () => {
       localStorage.removeItem("authToken");
       history.replace("/");
     }
-
     if (!noLoad) {
       setLoading(false);
     }
