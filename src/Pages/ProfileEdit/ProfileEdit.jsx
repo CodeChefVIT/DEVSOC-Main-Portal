@@ -3,7 +3,14 @@ import { useForm } from "react-hook-form";
 import "./ProfileEdit.css";
 import Grid from "@material-ui/core/Grid";
 import salty from "./Saly-14.svg";
-import { CircularProgress, Hidden, Snackbar } from "@material-ui/core";
+import {
+  CircularProgress,
+  Hidden,
+  InputLabel,
+  MenuItem,
+  Select,
+  Snackbar,
+} from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router";
 import { Alert } from "@material-ui/lab";
@@ -17,6 +24,7 @@ export default function ProfileEdit({ data, refresh }) {
   } = useForm();
   const history = useHistory();
 
+  const [tee, setTee] = useState("S");
   const [loading, setLoading] = useState(false);
   const [successSnack, setSuccessSnack] = useState(false);
   const [errorSnack, setErrorSnack] = useState(false);
@@ -81,7 +89,8 @@ export default function ProfileEdit({ data, refresh }) {
       setValue("resume", data.personal.resume);
       setValue("github", data.personal.github);
       setValue("linkedin", data.personal.linkedin);
-      setValue("tshirt", data.personal.tshirt);
+      // setValue("tshirt", data.personal.tshirt);
+      setTee(data.personal.tshirt);
     }
     setValue("bio", data.bio);
   };
@@ -94,7 +103,7 @@ export default function ProfileEdit({ data, refresh }) {
     <div className="team-joined-div">
       <Grid container spacing={3}>
         <Grid item md={12} lg={8} style={{ paddingBottom: 80 }}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+          <form onSubmit={handleSubmit(onSubmit)} style={{ marginBottom: 15 }}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <input
@@ -233,16 +242,35 @@ export default function ProfileEdit({ data, refresh }) {
                 {errors.bio && <span className="team-error">Please fill this field!</span>}
               </Grid>
               <Grid item container sm={6} justify="center" alignItems="center">
-                <select
-                  {...register("tshirt", { required: true })}
+                <Select
+                  value={tee}
+                  variant="outlined"
+                  onChange={(e) => {
+                    console.log(e.target.value);
+                    setValue("tshirt", e.target.value);
+                    setTee(e.target.value);
+                  }}
+                  required
+                  // {...register("tshirt", { required: true })}
                   placeholder="Tshirt Size"
-                  className="LowerLabels"
+                  className="tee-select"
                 >
-                  <option value="S">T-Shirt Size: S</option>
-                  <option value="M">T-Shirt Size: M</option>
-                  <option value="L">T-Shirt Size: L</option>
-                  <option value="XL">T-Shirt Size: XL</option>
-                </select>
+                  <MenuItem key={0} value="S">
+                    T-Shirt Size: S/36
+                  </MenuItem>
+                  <MenuItem key={1} value="M">
+                    T-Shirt Size: M/38
+                  </MenuItem>
+                  <MenuItem key={2} value="L">
+                    T-Shirt Size: L/40
+                  </MenuItem>
+                  <MenuItem key={3} value="XL">
+                    T-Shirt Size: XL/42
+                  </MenuItem>
+                  <MenuItem key={4} value="XXL">
+                    T-Shirt Size: XXL/44
+                  </MenuItem>
+                </Select>
                 {errors.tshirt && <span className="team-error">Please Select a size!</span>}
                 <button className="submit-btn" type="submit" disabled={loading}>
                   {loading ? <CircularProgress color="secondary" size={24} /> : "Update Profile"}

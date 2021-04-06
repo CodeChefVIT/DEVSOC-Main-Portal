@@ -59,7 +59,8 @@ function BottomNav(props) {
               </SvgIcon>
             </Tooltip>
           </Link>
-          <div
+          <Link
+            to="/app/submission"
             className={`nav-tab ${
               history.location.pathname === "/app/submission" ? "active" : null
             }`}
@@ -68,12 +69,12 @@ function BottomNav(props) {
               <SvgIcon viewBox="0 0 42 44" fill="none">
                 <path
                   d="M39 26.6667V34.8889C39 35.9792 38.5669 37.0249 37.7959 37.7959C37.0249 38.5669 35.9792 39 34.8889 39H6.11111C5.02078 39 3.9751 38.5669 3.20412 37.7959C2.43313 37.0249 2 35.9792 2 34.8889V26.6667"
-                  // stroke={`${
-                  //   history.location.pathname === "/app/submission"
-                  //     ? "url(#paint0_linear)"
-                  //     : "white"
-                  // }`}
-                  stroke="gray"
+                  stroke={`${
+                    history.location.pathname === "/app/submission"
+                      ? "url(#paint0_linear)"
+                      : "white"
+                  }`}
+                  // stroke="gray"
                   strokeWidth="3"
                   fill="none"
                   strokeLinecap="round"
@@ -81,12 +82,12 @@ function BottomNav(props) {
                 />
                 <path
                   d="M30.7777 12.2778L20.4999 2L10.2222 12.2778"
-                  // stroke={`${
-                  //   history.location.pathname === "/app/submission"
-                  //     ? "url(#paint0_linear)"
-                  //     : "white"
-                  // }`}
-                  stroke="gray"
+                  stroke={`${
+                    history.location.pathname === "/app/submission"
+                      ? "url(#paint0_linear)"
+                      : "white"
+                  }`}
+                  // stroke="gray"
                   strokeWidth="3"
                   fill="none"
                   strokeLinecap="round"
@@ -94,12 +95,12 @@ function BottomNav(props) {
                 />
                 <path
                   d="M20.5 2V26.6667"
-                  // stroke={`${
-                  //   history.location.pathname === "/app/submission"
-                  //     ? "url(#paint0_linear)"
-                  //     : "white"
-                  // }`}
-                  stroke="gray"
+                  stroke={`${
+                    history.location.pathname === "/app/submission"
+                      ? "url(#paint0_linear)"
+                      : "white"
+                  }`}
+                  // stroke="gray"
                   strokeWidth="3"
                   fill="none"
                   strokeLinecap="round"
@@ -107,7 +108,7 @@ function BottomNav(props) {
                 />
               </SvgIcon>
             </Tooltip>
-          </div>
+          </Link>
           <Link
             to="/app/profile"
             className={`nav-tab ${
