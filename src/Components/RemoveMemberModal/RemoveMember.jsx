@@ -51,14 +51,22 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
       <DialogContent style={{ width: "90%", paddingBottom: "40px" }}>
         <h3>Remove team members</h3>
         <div className="to-be-removed-div">
-          {data.teams.users.map((user, i) => (
-            <div className="team-member-rem" key={i}>
-              <h2 className="member-rem">{user.name}</h2>
-              <IconButton className="remove-icon-btn" onClick={() => removeUser(user)}>
-                <Delete />
-              </IconButton>
-            </div>
-          ))}
+          {data.teams.users.length > 1 ? (
+            data.teams.users.map((user, i) =>
+              user._id !== data.teams.leader._id ? (
+                <div className="team-member-rem" key={i}>
+                  <h2 className="member-rem">{user.name}</h2>
+                  <IconButton className="remove-icon-btn" onClick={() => removeUser(user)}>
+                    <Delete />
+                  </IconButton>
+                </div>
+              ) : null
+            )
+          ) : (
+            <h1 style={{ fontWeight: "normal", fontSize: "1.8rem", color: "#3500d4" }}>
+              You are alone :(
+            </h1>
+          )}
         </div>
       </DialogContent>
       <Snackbar

@@ -7,7 +7,7 @@ import JoinTeamModal from "../../Components/JoinTeamModal/JoinTeamModal";
 import RemoveMember from "../../Components/RemoveMemberModal/RemoveMember";
 import "./Team.css";
 
-function Team({ data, refresh }) {
+function Team({ data, refresh, profile }) {
   const [createTeam, setCreateTeam] = useState(false);
   const [alreadyJoined, setAlreadyJoined] = useState(false);
   const [joinTeam, setJoinTeam] = useState(false);
@@ -152,6 +152,7 @@ function Team({ data, refresh }) {
             handleClose={() => setRemoving(false)}
             data={data}
             refresh={refresh}
+            profile={profile}
           />
           <InviteModal
             open={inviting}

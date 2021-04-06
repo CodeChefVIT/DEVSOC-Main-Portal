@@ -142,7 +142,9 @@ const AppMain = () => {
           <Route
             exact
             path="/app/team"
-            component={(props) => <Team {...props} data={teamDetails} refresh={setupApp} />}
+            component={(props) => (
+              <Team {...props} data={teamDetails} refresh={setupApp} profile={dashboardDetails} />
+            )}
           ></Route>
           <Route
             exact
