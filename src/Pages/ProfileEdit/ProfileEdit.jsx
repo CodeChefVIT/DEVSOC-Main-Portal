@@ -7,7 +7,10 @@ import { CircularProgress, Hidden } from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router";
 
+
+
 export default function ProfileEdit({ data, refresh }) {
+
   const { register, setValue, getValues } = useForm();
   const history = useHistory();
 
@@ -128,6 +131,13 @@ export default function ProfileEdit({ data, refresh }) {
                   {...register("address.pincode", { required: true, maxLength: 6 })}
                   placeholder="Pincode"
                   className="TopLabels"
+                  
+                  onInput={(object)=>{
+                    if (object.target.value.length > 6) {
+                      object.target.value = object.target.value.slice(0, object.target.maxLength)
+                       }
+}
+}
                   style={{ padding: "6% 10%" }}
                 />
               </Grid>
