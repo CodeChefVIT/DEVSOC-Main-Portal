@@ -81,8 +81,8 @@ function Team({ data, refresh }) {
             <Grid item xs={12} sm={12} md={6}>
               <h3 className="team-name">Team {data.teams.name}</h3>
               <div className="my-team-info">
-                <h2 className="gradient-head">Status</h2>
-                <p className="team-status">Selected for final pitch</p>
+                {/* <h2 className="gradient-head">Status</h2>
+                <p className="team-status">Selected for final pitch</p> */}
                 <div
                   className="team-members-head-div"
                   style={{
