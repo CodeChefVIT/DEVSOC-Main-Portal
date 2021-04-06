@@ -121,6 +121,12 @@
   margin-top: 40px;
 }
 
+@media screen and (max-width: 600px) {
+  .member-name-grid {
+    justify-content: flex-start !important;
+  }
+}
+
 @media screen and (max-width: 490px) {
   .team-name {
     font-size: 1.5rem;

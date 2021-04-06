@@ -113,6 +113,7 @@ function Team({ data, refresh }) {
                         display: "flex",
                         justifyContent: i % 2 === 0 ? "flex-start" : "flex-end",
                       }}
+                      className="member-name-grid"
                     >
                       <p className="team-status team-member">{user.name}</p>
                     </Grid>

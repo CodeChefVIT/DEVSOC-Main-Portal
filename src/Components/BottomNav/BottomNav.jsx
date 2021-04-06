@@ -59,7 +59,7 @@ function BottomNav(props) {
               </SvgIcon>
             </Tooltip>
           </Link>
-          <Link
+          <div
             className={`nav-tab ${
               history.location.pathname === "/app/submission" ? "active" : null
             }`}
@@ -107,7 +107,7 @@ function BottomNav(props) {
                 />
               </SvgIcon>
             </Tooltip>
-          </Link>
+          </div>
           <Link
             to="/app/profile"
             className={`nav-tab ${
