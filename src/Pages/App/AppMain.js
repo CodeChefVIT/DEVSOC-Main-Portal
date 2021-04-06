@@ -151,12 +151,12 @@ const AppMain = () => {
               <ProfileSection {...props} data={dashboardDetails} refresh={setupApp} />
             )}
           ></Route>
-          <Route
+          {/* <Route
             path="/app/submission"
             component={(props) => (
               <SubmissionSection {...props} data={dashboardDetails} refresh={setupApp} />
             )}
-          ></Route>
+          ></Route> */}
         </Switch>
       </div>
       <BottomNav />

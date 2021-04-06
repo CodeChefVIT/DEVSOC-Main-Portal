@@ -12,7 +12,7 @@ function Submission(props) {
   return (
     <div>
       <Grid container spacing={2}>
-        <Grid item xs={8} sm={4}>
+        <Grid item xs={12} sm={4}>
           <input
             {...register("Name", { required: true, maxLength: 30 })}
             placeholder="Idea Name"
@@ -20,7 +20,7 @@ function Submission(props) {
           />
         </Grid>
         <Grid container spacing={2} />
-        <Grid item xs={8} sm={4}>
+        <Grid item xs={12} sm={4}>
           <textarea
             {...register("address1", { required: true, maxLength: 30 })}
             placeholder="Idea Description"
@@ -50,9 +50,10 @@ function Submission(props) {
           className="From-img"
         />
       </div>
-      <Link to= "./app/submission/project">
-      <button className="team-primary-btn">Submit Idea</button>
-      </Link>
+      {/* <Link to="/app/submission/project">
+        <button className="team-primary-btn">Submit Idea</button>
+      </Link> */}
+      <h3>Idea submissions opening soon!</h3>
     </div>
   );
 }
