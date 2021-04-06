@@ -25,14 +25,18 @@ function TopNav({ data }) {
           ? "Profile"
           : ""}
       </h1>
-      <button
-        className="user-btn"
-        onClick={() => {
-          setOpen(true);
-        }}
-      >
-        <Avatar alt={data.name} variant="circular" src={data.avatar} />
-      </button>
+      {history.location.pathname === "/app/profile" ? (
+        <></>
+      ) : (
+        <button
+          className="user-btn"
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          <Avatar alt={data.name} variant="circular" src={data.avatar} />
+        </button>
+      )}
       <Dialog
         open={open}
         onClose={() => {

@@ -1,6 +1,6 @@
 .user_profile_picture {
-  width: 10rem !important;
-  height: 10rem !important;
+  width: 6rem !important;
+  height: 6rem !important;
 }
 .team-primary-btn {
   cursor: pointer;
@@ -21,18 +21,24 @@
 }
 
 .social {
-	margin: 20px 0 10px 0;
-    display: flex;
+  margin: 20px 0 10px 0;
+  display: flex;
 }
 
 .social svg {
-	font-size: 2rem;
-	margin: 0 3px;
+  font-size: 2rem;
+  margin: 0 3px;
 }
 
 @media screen and (max-width: 600px) {
   .team-primary-btn,
   .team-secondary-btn {
     width: 200px;
+  }
+  .user_profile_picture {
+    margin: auto;
+  }
+  .profile-data {
+    text-align: center;
   }
 }

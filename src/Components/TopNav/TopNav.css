@@ -22,6 +22,21 @@
 }
 
 .user-btn div {
-  width: 60px !important;
-  height: 60px !important;
+  width: 50px !important;
+  height: 50px !important;
+}
+
+@media (max-width: 600px) {
+  .page-title {
+    font-size: 1.6rem !important;
+    height: 26px !important;
+  }
+  .user-btn {
+    right: 4%;
+    top: 4%;
+  }
+  .user-btn div {
+    width: 40px !important;
+    height: 40px !important;
+  }
 }

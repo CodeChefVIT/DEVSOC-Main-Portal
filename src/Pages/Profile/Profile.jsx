@@ -1,15 +1,16 @@
 import React from "react";
-import { Avatar, Grid, Hidden } from "@material-ui/core";
+import { Avatar, Grid, Hidden, SvgIcon } from "@material-ui/core";
 import "./Profile.css";
 import back from "./back.svg";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { GitHub, LinkedIn } from "@material-ui/icons";
 
 export default function Profile({ data }) {
+  const history = useHistory();
   return (
     <div className="team-joined-div">
       <Grid container spacing={3}>
-        <Grid item md={6}>
+        <Grid item xs={12} md={6} className="profile-data">
           <Avatar
             className="user_profile_picture"
             alt={data.name}
@@ -36,6 +37,18 @@ export default function Profile({ data }) {
           <Link to="/app/profile/edit">
             <button className="team-primary-btn">Edit Profile</button>
           </Link>
+          <Hidden smUp>
+            <button
+              className="team-primary-btn"
+              style={{ margin: "5px auto" }}
+              onClick={() => {
+                localStorage.removeItem("authToken");
+                history.push("/");
+              }}
+            >
+              Logout
+            </button>
+          </Hidden>
         </Grid>
       </Grid>
 
