@@ -3,9 +3,10 @@ import { useForm } from "react-hook-form";
 import "./ProfileEdit.css";
 import Grid from "@material-ui/core/Grid";
 import salty from "./Saly-14.svg";
-import { CircularProgress, Hidden } from "@material-ui/core";
+import { CircularProgress, Hidden, Snackbar } from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router";
+import { Alert } from "@material-ui/lab";
 
 export default function ProfileEdit({ data, refresh }) {
   const {
@@ -17,6 +18,9 @@ export default function ProfileEdit({ data, refresh }) {
   const history = useHistory();
 
   const [loading, setLoading] = useState(false);
+  const [successSnack, setSuccessSnack] = useState(false);
+  const [errorSnack, setErrorSnack] = useState(false);
+  const [errorText, setErrorText] = useState("");
 
   const onSubmit = async (data) => {
     setLoading(true);
@@ -43,14 +47,20 @@ export default function ProfileEdit({ data, refresh }) {
       },
     };
     const token = localStorage.getItem("authToken");
-    await axios
-      .patch(`${process.env.REACT_APP_BACKEND_URL}/user/update`, update, {
-        headers: { Authorization: `Bearer ${token}` },
-      })
-      .then((data) => {
-        console.log(data);
-        refresh(true);
-      });
+    try {
+      await axios
+        .patch(`${process.env.REACT_APP_BACKEND_URL}/user/update`, update, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((data) => {
+          console.log(data);
+          setSuccessSnack(true);
+          refresh(true);
+        });
+    } catch (error) {
+      setErrorText("Something went wrong, please try again!");
+      setErrorSnack(true);
+    }
     setLoading(false);
   };
 
@@ -261,6 +271,26 @@ export default function ProfileEdit({ data, refresh }) {
           />
         </Grid>
       </Hidden>
+      <Snackbar
+        open={successSnack}
+        onClose={() => setSuccessSnack(false)}
+        autoHideDuration={3000}
+        className="snackbar"
+      >
+        <Alert variant="filled" severity="success" onClose={() => setSuccessSnack(false)}>
+          Profile updated successfully!
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={errorSnack}
+        onClose={() => setErrorSnack(false)}
+        autoHideDuration={3000}
+        className="snackbar"
+      >
+        <Alert variant="filled" severity="error" onClose={() => setErrorSnack(false)}>
+          {errorText}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

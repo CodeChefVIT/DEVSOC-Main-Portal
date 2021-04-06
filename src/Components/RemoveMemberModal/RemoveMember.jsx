@@ -1,10 +1,16 @@
-import { Dialog, DialogContent, IconButton } from "@material-ui/core";
+import { Dialog, DialogContent, IconButton, Snackbar } from "@material-ui/core";
 import { Delete } from "@material-ui/icons";
+import { Alert } from "@material-ui/lab";
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import "./RemoveMember.css";
 
 const RemoveMember = ({ open, handleClose, data, refresh }) => {
+  const [successSnack, setSuccessSnack] = useState(false);
+  const [infoSnack, setInfoSnack] = useState(false);
+  const [errorSnack, setErrorSnack] = useState(false);
+  const [errorText, setErrorText] = useState("");
+
   const removeUser = async (user) => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/removeUser`;
     const token = localStorage.getItem("authToken");
@@ -14,6 +20,7 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
       teamId: data.teams._id,
     };
 
+    setInfoSnack(true);
     try {
       await axios
         .post(url, dat, {
@@ -24,9 +31,12 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
         .then((res) => {
           console.log(res);
           refresh(true);
+          setSuccessSnack(true);
         });
     } catch (error) {
       console.log(error);
+      setErrorText("Something went wrong! Please try again!");
+      setErrorSnack(true);
     }
   };
 
@@ -36,7 +46,7 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
       onClose={handleClose}
       fullWidth
       className="create-team-modal remove-modal"
-      PaperProps={{ className: "dialog-paper" }}
+      PaperProps={{ className: "dialog-paper remove-paper" }}
     >
       <DialogContent style={{ width: "90%", paddingBottom: "40px" }}>
         <h3>Remove team members</h3>
@@ -51,6 +61,36 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
           ))}
         </div>
       </DialogContent>
+      <Snackbar
+        open={infoSnack}
+        onClose={() => setInfoSnack(false)}
+        autoHideDuration={3000}
+        className="snackbar"
+      >
+        <Alert variant="filled" severity="info" onClose={() => setInfoSnack(false)}>
+          Removing team member
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={successSnack}
+        onClose={() => setSuccessSnack(false)}
+        autoHideDuration={3000}
+        className="snackbar"
+      >
+        <Alert variant="filled" severity="success" onClose={() => setSuccessSnack(false)}>
+          Member removed successfully!
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={errorSnack}
+        onClose={() => setErrorSnack(false)}
+        autoHideDuration={3000}
+        className="snackbar"
+      >
+        <Alert variant="filled" severity="error" onClose={() => setErrorSnack(false)}>
+          {errorText}
+        </Alert>
+      </Snackbar>
     </Dialog>
   );
 };

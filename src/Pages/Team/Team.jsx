@@ -101,13 +101,18 @@ function Team({ data, refresh }) {
                   ) : null}
                 </div>
                 <Grid container spacing={3} className="team-members-div">
-                  {data.teams.users.map((user) => (
+                  {data.teams.users.map((user, i) => (
                     <Grid
                       item
                       xs={12}
                       sm={6}
                       key={user.email}
-                      style={{ paddingBottom: 0, paddingTop: 0 }}
+                      style={{
+                        paddingBottom: 0,
+                        paddingTop: 0,
+                        display: "flex",
+                        justifyContent: i % 2 == 0 ? "flex-start" : "flex-end",
+                      }}
                     >
                       <p className="team-status team-member">{user.name}</p>
                     </Grid>

@@ -6,7 +6,7 @@
 	padding: 0 5%;
 }
 
-.create-team-modal.remove-modal .MuiPaper-root {
+.create-team-modal.remove-modal .remove-paper {
 	width: 70% !important;
 	overflow: hidden;
 }
