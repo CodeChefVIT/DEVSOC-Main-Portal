@@ -19,3 +19,7 @@ code {
   flex-direction: column;
   justify-content: space-between;
 }
+
+body::-webkit-scrollbar {
+  width: 0px;
+}

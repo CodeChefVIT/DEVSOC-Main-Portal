@@ -6,7 +6,8 @@
 
 body {
   background: #080020, 100%;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   color: white;
   /* padding: 0 20px 50px; */
 }
@@ -16,7 +17,9 @@ body {
   margin: 0 auto;
 }
 
-select, input, textarea {
+select,
+input,
+textarea {
   outline: none;
   display: block;
   box-sizing: border-box;
@@ -31,6 +34,30 @@ select, input, textarea {
   color: #ffffff;
 }
 
+.tee-select {
+  outline: none !important;
+  display: block !important;
+  box-sizing: border-box !important;
+  width: 100% !important;
+  border-radius: 16px !important;
+  border: 1px solid transparent !important;
+  margin-bottom: 1rem !important;
+  font-size: 1.5rem !important;
+  font-family: "Montserrat", sans-serif !important;
+  background-color: #1c006f !important;
+  color: #ffffff !important;
+}
+
+.tee-select div {
+  width: 90%;
+}
+
+.tee-select li {
+  outline: none;
+  background-color: #1c006f !important;
+  border: 1px solid transparent !important;
+}
+
 textarea {
   resize: none;
 }
@@ -40,7 +67,8 @@ input::placeholder {
   font-weight: 400 !important;
 }
 
-.label, section>label {
+.label,
+section > label {
   line-height: 2;
   text-align: left;
   display: block;
@@ -51,7 +79,8 @@ input::placeholder {
   font-weight: 700;
 }
 
-input[type="submit"], .submit-btn {
+input[type="submit"],
+.submit-btn {
   background: linear-gradient(to right, rgba(111, 87, 255, 1), rgba(37, 216, 255, 1));
   color: white;
   width: 100%;
@@ -70,7 +99,8 @@ input[type="submit"], .submit-btn {
   outline: none;
 }
 
-input[type="submit"], .submit-btn:hover {
+input[type="submit"],
+.submit-btn:hover {
   filter: drop-shadow(0 0 10px #6f57ff);
 }
 
@@ -147,7 +177,7 @@ button[type="button"] {
   flex-direction: row;
 }
 
-.image-upload>input {
+.image-upload > input {
   display: none;
 }
 
@@ -178,7 +208,8 @@ input::placeholder {
   opacity: 1;
 }
 
-input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }

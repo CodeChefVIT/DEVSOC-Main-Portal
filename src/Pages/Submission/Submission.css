@@ -18,13 +18,13 @@ textarea {
   padding-top: 0.5rem;
   margin-bottom: 0.3rem;
   font-size: 1.5rem;
-  font-family: 'Montserrat', sans-serif;
-  background-color: #1C006F;
-  color: #3000C0;
+  font-family: "Montserrat", sans-serif;
+  background-color: #1c006f;
+  color: #3000c0;
 }
 
 textarea::placeholder {
-  color: #3000C0;
+  color: #3000c0;
   opacity: 1;
 }
 
@@ -41,4 +41,62 @@ textarea::placeholder {
   font-weight: 600;
   font-size: 1.2rem;
   /* margin-top: 1%; */
+}
+
+.discord {
+  display: flex;
+  background-color: rgb(114, 137, 218);
+  color: rgb(255, 255, 255);
+  border: none;
+  margin: 30px 10px;
+  outline: none;
+  font-size: 1.4rem;
+  border-radius: 4px;
+  align-items: center;
+  padding: 8px 20px;
+  width: fit-content;
+  text-decoration: none;
+  box-shadow: 0px 0px 7px rgba(114, 137, 218, 0.8);
+}
+
+.discord:hover {
+  background-color: rgba(114, 137, 218, 0.9);
+}
+
+.discord img {
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.insta {
+  background: -moz-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: -webkit-linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+
+  /* background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%) !important; */
+  background-color: pink;
 }
