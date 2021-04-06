@@ -96,6 +96,7 @@ const InviteModal = ({ open, handleClose, data }) => {
               className="team-primary-btn modal-input"
               type="submit"
               style={{ marginBottom: "10px", width: "100%" }}
+              disabled={loading}
             >
               {loading ? <CircularProgress color="secondary" size={24} /> : "Invite!"}
             </button>

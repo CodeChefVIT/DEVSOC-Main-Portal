@@ -68,7 +68,7 @@ const CreateTeamModal = ({ open, handleClose, refresh }) => {
             )}
           </div>
           <div className="create-btn-div">
-            <button className="team-primary-btn modal-input" type="submit">
+            <button className="team-primary-btn modal-input" type="submit" disabled={loading}>
               {loading ? <CircularProgress color="secondary" size={24} /> : "Create a team"}
             </button>
           </div>
