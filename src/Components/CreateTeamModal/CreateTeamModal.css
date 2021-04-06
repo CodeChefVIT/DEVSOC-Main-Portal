@@ -1,4 +1,4 @@
-.create-team-modal .MuiPaper-root {
+.create-team-modal .dialog-paper {
 	background: #140052 !important;
 	border-radius: 25px !important;
 	display: flex !important;

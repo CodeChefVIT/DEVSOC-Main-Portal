@@ -1,4 +1,5 @@
-import { CircularProgress, Dialog, DialogContent } from "@material-ui/core";
+import { CircularProgress, Dialog, DialogContent, Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -11,6 +12,8 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
   } = useForm();
 
   const [loading, setLoading] = useState(false);
+  const [errorSnack, setErrorSnack] = useState(false);
+  const [errorText, setErrorText] = useState("");
 
   const submit = async (data) => {
     setLoading(true);
@@ -29,13 +32,31 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
           refresh();
         });
     } catch (error) {
-      console.log(error);
+      const status = error.response.status;
+
+      if (status === 404) {
+        setErrorText("Team not found");
+      } else if (status === 403) {
+        setErrorText("You are already in a team");
+      } else if (status === 405) {
+        setErrorText("Team is full");
+      } else {
+        setErrorText("There was some error. Please try again!");
+      }
+
+      setErrorSnack(true);
     }
     setLoading(false);
   };
 
   return (
-    <Dialog open={open} onClose={handleClose} className="create-team-modal" fullWidth>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      className="create-team-modal"
+      fullWidth
+      PaperProps={{ className: "dialog-paper" }}
+    >
       <DialogContent>
         <h3>Enter team code</h3>
         <form onSubmit={handleSubmit(submit)}>
@@ -54,6 +75,16 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
           </div>
         </form>
       </DialogContent>
+      <Snackbar
+        open={errorSnack}
+        onClose={() => setErrorSnack(false)}
+        autoHideDuration={3000}
+        className="snackbar"
+      >
+        <Alert variant="filled" severity="error" onClose={() => setErrorSnack(false)}>
+          {errorText}
+        </Alert>
+      </Snackbar>
     </Dialog>
   );
 };

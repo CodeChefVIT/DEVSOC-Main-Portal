@@ -40,6 +40,7 @@ function TopNav({ data }) {
         }}
         className="create-team-modal"
         fullWidth
+        PaperProps={{ className: "dialog-paper" }}
       >
         <DialogContent
           style={{
@@ -76,7 +77,7 @@ function TopNav({ data }) {
           <button
             className="team-primary-btn modal-input"
             onClick={() => {
-              localStorage.clear();
+              localStorage.removeItem("authToken");
               history.push("/");
             }}
           >

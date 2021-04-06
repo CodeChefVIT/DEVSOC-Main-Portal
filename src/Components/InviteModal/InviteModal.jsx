@@ -1,5 +1,6 @@
-import { CircularProgress, Dialog, DialogContent } from "@material-ui/core";
+import { CircularProgress, Dialog, DialogContent, Snackbar } from "@material-ui/core";
 import { Done, FilterNone } from "@material-ui/icons";
+import { Alert } from "@material-ui/lab";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -8,11 +9,15 @@ import "./InviteModal.css";
 const InviteModal = ({ open, handleClose, data }) => {
   const [loading, setLoading] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [successSnack, setSuccessSnack] = useState(false);
+  const [errorSnack, setErrorSnack] = useState(false);
+  const [errorText, setErrorText] = useState("");
 
   const {
     handleSubmit,
     register,
     formState: { errors },
+    reset,
   } = useForm();
 
   const handleCopy = () => {
@@ -46,16 +51,33 @@ const InviteModal = ({ open, handleClose, data }) => {
         })
         .then((res) => {
           console.log(res);
-          document.getElementById("email-input").value = "";
+          setSuccessSnack(true);
+          reset();
         });
     } catch (error) {
-      console.log(error);
+      const status = error.response.status;
+
+      if (status === 403) {
+        setErrorText("User already in a team");
+      } else if (status === 410) {
+        setErrorText("User already invited");
+      } else {
+        setErrorText("There was some error. Please try again!");
+      }
+
+      setErrorSnack(true);
     }
 
     setLoading(false);
   };
   return (
-    <Dialog open={open} onClose={handleClose} className="create-team-modal invite-modal" fullWidth>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      className="create-team-modal invite-modal"
+      fullWidth
+      PaperProps={{ className: "dialog-paper" }}
+    >
       <DialogContent>
         <h3>Enter invite email</h3>
         <form onSubmit={handleSubmit(submit)}>
@@ -85,13 +107,13 @@ const InviteModal = ({ open, handleClose, data }) => {
           value={data.teams.code}
           readOnly
           className="modal-input"
-          style={{ marginBottom: "20px" }}
+          style={{ marginBottom: "20px", cursor: "pointer" }}
+          onClick={handleCopy}
         />
         <button
           className="team-secondary-btn modal-input"
           type="submit"
           style={{
-            marginBottom: "10px",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -111,6 +133,26 @@ const InviteModal = ({ open, handleClose, data }) => {
           )}
         </button>
       </DialogContent>
+      <Snackbar
+        open={successSnack}
+        onClose={() => setSuccessSnack(false)}
+        autoHideDuration={3000}
+        className="snackbar"
+      >
+        <Alert variant="filled" severity="success" onClose={() => setSuccessSnack(false)}>
+          Invite sent successfully!
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={errorSnack}
+        onClose={() => setErrorSnack(false)}
+        autoHideDuration={3000}
+        className="snackbar"
+      >
+        <Alert variant="filled" severity="error" onClose={() => setErrorSnack(false)}>
+          {errorText}
+        </Alert>
+      </Snackbar>
     </Dialog>
   );
 };

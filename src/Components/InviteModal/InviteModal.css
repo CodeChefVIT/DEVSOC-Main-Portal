@@ -1,3 +1,15 @@
 .create-team-modal.invite-modal .MuiDialogContent-root {
 	width: 80%;
 }
+
+.snackbar .MuiIconButton-root {
+	background-color: transparent;
+}
+
+.snackbar .MuiIconButton-root:hover {
+	background-color: rgba(0, 0, 0, 0.103);
+}
+
+.snackbar .MuiSvgIcon-root {
+	fill: white !important;
+}

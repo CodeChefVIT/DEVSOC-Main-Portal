@@ -8,14 +8,18 @@ import Loading from "../../Components/Loading/Loading";
 import TopNav from "../../Components/TopNav/TopNav";
 import Submission from "../Submission/Submission";
 import ProfileSection from "../ProfileSection/ProfileSection";
-import SubmissionSection from '../SubmitSection/SubmitSection';
+import SubmissionSection from "../SubmitSection/SubmitSection";
 import "./AppMain.css";
+import { Snackbar } from "@material-ui/core";
+import { Alert } from "@material-ui/lab";
 
 const AppMain = () => {
   const history = useHistory();
   const [dashboardDetails, setDashboardDetails] = useState({});
   const [teamDetails, setTeamDetails] = useState({});
   const [loading, setLoading] = useState(true);
+  const [errorSnack, setErrorSnack] = useState(false);
+  const [errorText, setErrorText] = useState("");
 
   const joinViaInvite = async (toJoin) => {
     let url = `${process.env.REACT_APP_BACKEND_URL}/user/joinInvite`;
@@ -34,11 +38,25 @@ const AppMain = () => {
         })
         .then((res) => {
           console.log(res);
-          localStorage.removeItem("toJoin");
         });
     } catch (error) {
-      console.log(error);
+      const status = error.response.status;
+      if (status === 405) {
+        setErrorText("This account was not invited for the team");
+      } else if (status === 403) {
+        setErrorText("Cannot accept invitation! Already in a team!");
+      } else if (status === 407) {
+        setErrorText("Cannot accept invitation! Team is full!");
+      } else if (status === 404) {
+        setErrorText("Invite team not found!");
+      } else {
+        setErrorText("There was some error with the");
+      }
+
+      setErrorSnack(true);
     }
+
+    localStorage.removeItem("toJoin");
   };
 
   const setupApp = async (noLoad) => {
@@ -142,6 +160,16 @@ const AppMain = () => {
         </Switch>
       </div>
       <BottomNav />
+      <Snackbar
+        open={errorSnack}
+        onClose={() => setErrorSnack(false)}
+        autoHideDuration={3000}
+        className="snackbar"
+      >
+        <Alert variant="filled" severity="error" onClose={() => setErrorSnack(false)}>
+          {errorText}
+        </Alert>
+      </Snackbar>
     </>
   );
 };

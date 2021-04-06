@@ -31,7 +31,13 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
   };
 
   return (
-    <Dialog open={open} onClose={handleClose} fullWidth className="create-team-modal remove-modal">
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      fullWidth
+      className="create-team-modal remove-modal"
+      PaperProps={{ className: "dialog-paper" }}
+    >
       <DialogContent style={{ width: "90%", paddingBottom: "40px" }}>
         <h3>Remove team members</h3>
         <div className="to-be-removed-div">

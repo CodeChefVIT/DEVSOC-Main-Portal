@@ -4,7 +4,6 @@ import Landing from "./Pages/Landing/Landing";
 // import LandingPage from "./Pages/LandingPage/LandingPage";
 import GoogleOAuth from "./Pages/GoogleOAuth/GoogleOAuth";
 import AppMain from "./Pages/App/AppMain";
-import Submission from "./Pages/Submission/Submission";
 import JoinInvite from "./Pages/JoinInvite/JoinInvite";
 // import DiscordLink from "./Components/DiscordLink/DiscordLink";
 
