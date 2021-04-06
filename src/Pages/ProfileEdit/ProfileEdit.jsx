@@ -125,7 +125,7 @@ export default function ProfileEdit({ data, refresh }) {
               <Grid item xs={12} sm={3}>
                 <input
                   type="number"
-                  {...register("address.pincode", { required: true, maxLength: 30 })}
+                  {...register("address.pincode", { required: true, maxLength: 6 })}
                   placeholder="Pincode"
                   className="TopLabels"
                   style={{ padding: "6% 10%" }}
