@@ -108,21 +108,30 @@ function Dashboard({ data, refresh }) {
           <div className="dashset">You are all set</div>
           <div className="dashhack">{!hackBegin ? "Hack Starts in" : "Hack ends in"}</div>
           <div className="counter">
-            <div class="clock">
-              {hrs.toLocaleString("en-US", {
-                minimumIntegerDigits: 2,
-                useGrouping: false,
-              })}{" "}
+            <div className="clock">
+              <div className="clock-item">
+                {hrs.toLocaleString("en-US", {
+                  minimumIntegerDigits: 2,
+                  useGrouping: false,
+                })}{" "}
+                <span className="clock-label">DAYS</span>
+              </div>
               :{" "}
-              {min.toLocaleString("en-US", {
-                minimumIntegerDigits: 2,
-                useGrouping: false,
-              })}{" "}
+              <div className="clock-item">
+                {min.toLocaleString("en-US", {
+                  minimumIntegerDigits: 2,
+                  useGrouping: false,
+                })}{" "}
+                <span className="clock-label">HOURS</span>
+              </div>
               :{" "}
-              {sec.toLocaleString("en-US", {
-                minimumIntegerDigits: 2,
-                useGrouping: false,
-              })}
+              <div className="clock-item">
+                {sec.toLocaleString("en-US", {
+                  minimumIntegerDigits: 2,
+                  useGrouping: false,
+                })}{" "}
+                <span className="clock-label">MINUTES</span>
+              </div>
             </div>
           </div>
         </div>

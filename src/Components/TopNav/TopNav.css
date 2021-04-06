@@ -1,6 +1,6 @@
 .page-title {
   padding-left: 2%;
-  margin: 15px 0 0 0;
+  margin: 0 0 15px 0;
   width: fit-content;
   padding-right: 50px;
   overflow: hidden;
@@ -28,7 +28,7 @@
 
 @media (max-width: 600px) {
   .page-title {
-    font-size: 1.6rem !important;
+    font-size: 1.3rem !important;
     height: 26px !important;
   }
   .user-btn {

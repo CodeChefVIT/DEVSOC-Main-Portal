@@ -19,6 +19,21 @@
   -webkit-text-fill-color: transparent;
   width: -moz-fit-content;
   width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clock-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 10px;
+}
+
+.clock-label {
+  font-size: 0.8rem;
 }
 
 @media (max-width: 768px) {
