@@ -111,7 +111,7 @@ function Team({ data, refresh }) {
                         paddingBottom: 0,
                         paddingTop: 0,
                         display: "flex",
-                        justifyContent: i % 2 == 0 ? "flex-start" : "flex-end",
+                        justifyContent: i % 2 === 0 ? "flex-start" : "flex-end",
                       }}
                     >
                       <p className="team-status team-member">{user.name}</p>
