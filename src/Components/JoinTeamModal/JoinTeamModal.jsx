@@ -69,7 +69,7 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
             {errors.code && <span className="team-error">Please enter a valid team code!</span>}
           </div>
           <div className="create-btn-div">
-            <button className="team-primary-btn modal-input" type="submit">
+            <button className="team-primary-btn modal-input" type="submit" disabled={loading}>
               {loading ? <CircularProgress color="secondary" size={24} /> : "Join team!"}
             </button>
           </div>
