@@ -2,27 +2,15 @@
   width: 6rem !important;
   height: 6rem !important;
 }
-.team-primary-btn {
-  cursor: pointer;
-  font-family: "Montserrat", sans-serif;
-  outline: none;
-  border: none;
-  border-radius: 15px;
-  background: linear-gradient(91.89deg, #6f57ff -5.11%, #25d8ff 152.73%);
-  color: white;
-  height: 55px;
-  width: 300px;
-  font-weight: 600;
-  font-size: 1.2rem;
-}
-
-.team-primary-btn:hover {
-  filter: drop-shadow(0 0 10px #6f57ff);
-}
 
 .social {
   margin: 20px 0 10px 0;
   display: flex;
+}
+
+.social a {
+  text-decoration: none;
+  color: #fff !important;
 }
 
 .social svg {
@@ -31,14 +19,20 @@
 }
 
 @media screen and (max-width: 600px) {
-  .team-primary-btn,
-  .team-secondary-btn {
-    width: 200px;
+  .profile-btn {
+    width: 160px;
+    margin: 5px;
+    height: 40px;
   }
   .user_profile_picture {
     margin: auto;
   }
   .profile-data {
     text-align: center;
+    font-size: 13px;
+  }
+  .social {
+    display: flex;
+    justify-content: center;
   }
 }

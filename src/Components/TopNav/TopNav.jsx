@@ -1,4 +1,4 @@
-import { Avatar, Dialog, DialogContent, SvgIcon } from "@material-ui/core";
+import { Avatar, Dialog, DialogContent, Hidden, SvgIcon } from "@material-ui/core";
 import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
@@ -26,7 +26,16 @@ function TopNav({ data }) {
           : ""}
       </h1>
       {history.location.pathname === "/app/profile" ? (
-        <></>
+        <Hidden xsDown>
+          <button
+            className="user-btn"
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
+            <Avatar alt={data.name} variant="circular" src={data.avatar} />
+          </button>
+        </Hidden>
       ) : (
         <button
           className="user-btn"

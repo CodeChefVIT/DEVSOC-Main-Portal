@@ -22,12 +22,12 @@ export default function Profile({ data }) {
           <h3>{data.email}</h3>
           <h3>{data.college}</h3>
           <h3>{data.bio}</h3>
-          {data.profile ? (
+          {data.personal ? (
             <div className="social">
-              <a href={data.profile?.github} target="_blank" rel="noreferrer">
+              <a href={data.personal?.github} target="_blank" rel="noreferrer">
                 <GitHub />
               </a>
-              <a href={data.profile?.linkedin} target="_blank" rel="noreferrer">
+              <a href={data.personal?.linkedin} target="_blank" rel="noreferrer">
                 <LinkedIn />
               </a>
             </div>
@@ -35,11 +35,11 @@ export default function Profile({ data }) {
             <></>
           )}
           <Link to="/app/profile/edit">
-            <button className="team-primary-btn">Edit Profile</button>
+            <button className="team-primary-btn profile-btn">Edit Profile</button>
           </Link>
           <Hidden smUp>
             <button
-              className="team-primary-btn"
+              className="team-primary-btn profile-btn"
               style={{ margin: "5px auto" }}
               onClick={() => {
                 localStorage.removeItem("authToken");
