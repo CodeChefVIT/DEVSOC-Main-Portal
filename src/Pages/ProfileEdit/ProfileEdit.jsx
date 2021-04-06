@@ -7,22 +7,44 @@ import { CircularProgress, Hidden } from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router";
 
-
-
 export default function ProfileEdit({ data, refresh }) {
-
-  const { register, setValue, getValues } = useForm();
+  const {
+    handleSubmit,
+    formState: { errors },
+    register,
+    setValue,
+  } = useForm();
   const history = useHistory();
 
   const [loading, setLoading] = useState(false);
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (data) => {
     setLoading(true);
-    e.preventDefault();
-    data = getValues();
+    console.log(data);
+    var update = {
+      college: data.college,
+      bio: data.bio,
+      name: data.name,
+      mobile: data.mobile,
+      address: {
+        line1: data.line1,
+        line2: data.line2,
+        city: data.city,
+        state: data.state,
+        pincode: data.pincode,
+        country: data.country,
+      },
+      personal: {
+        website: data.website,
+        resume: data.resume,
+        github: data.github,
+        linkedin: data.linkedin,
+        tshirt: data.tshirt,
+      },
+    };
     const token = localStorage.getItem("authToken");
     await axios
-      .patch(`${process.env.REACT_APP_BACKEND_URL}/user/update`, data, {
+      .patch(`${process.env.REACT_APP_BACKEND_URL}/user/update`, update, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((data) => {
@@ -37,32 +59,32 @@ export default function ProfileEdit({ data, refresh }) {
     setValue("college", data.college);
     setValue("mobile", data.mobile);
     if (data.address) {
-      setValue("address.line1", data.address.line1);
-      setValue("address.line2", data.address.line2);
-      setValue("address.city", data.address.city);
-      setValue("address.state", data.address.state);
-      setValue("address.pincode", data.address.pincode);
-      setValue("address.country", data.address.country);
+      setValue("line1", data.address.line1);
+      setValue("line2", data.address.line2);
+      setValue("city", data.address.city);
+      setValue("state", data.address.state);
+      setValue("pincode", data.address.pincode);
+      setValue("country", data.address.country);
     }
     if (data.personal) {
-      setValue("personal.website", data.personal.website);
-      setValue("personal.resume", data.personal.resume);
-      setValue("personal.github", data.personal.github);
-      setValue("personal.linkedin", data.personal.linkedin);
-      setValue("personal.tshirt", data.personal.tshirt);
+      setValue("website", data.personal.website);
+      setValue("resume", data.personal.resume);
+      setValue("github", data.personal.github);
+      setValue("linkedin", data.personal.linkedin);
+      setValue("tshirt", data.personal.tshirt);
     }
     setValue("bio", data.bio);
   };
 
   useEffect(() => {
     initialise();
-  }, [initialise]);
+  }, []);
 
   return (
     <div className="team-joined-div">
       <Grid container spacing={3}>
         <Grid item md={12} lg={8} style={{ paddingBottom: 80 }}>
-          <form>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <input
@@ -70,129 +92,149 @@ export default function ProfileEdit({ data, refresh }) {
                   placeholder="Name"
                   className="TopLabels"
                 />
+                {errors.name && <span className="team-error">This field is required!</span>}
               </Grid>
               <Grid item xs={12} sm={6}>
                 <input
-                  {...register("address.line1", { required: true, maxLength: 30 })}
+                  {...register("line1", { required: true, maxLength: 200 })}
                   placeholder="Address line 1"
                   className="TopLabels"
                 />
+                {errors.line1 && <span className="team-error">This field is required!</span>}
               </Grid>
               <Grid item xs={12} sm={6}>
                 <input
                   type="number"
-                  {...register("mobile", { required: true, maxLength: 30 })}
+                  {...register("mobile", { required: true, maxLength: 15, minLength: 6 })}
                   placeholder="Mobile"
                   className="TopLabels"
                 />
+                {errors.number && (
+                  <span className="team-error">Please enter a valid phone number!</span>
+                )}
               </Grid>
               <Grid item xs={12} sm={6}>
                 <input
-                  {...register("address.line2", { required: true, maxLength: 30 })}
+                  {...register("line2", { maxLength: 100 })}
                   placeholder="Address line 2"
                   className="TopLabels"
                 />
+                {errors.line2 && <span className="team-error">Max 100 characters only</span>}
               </Grid>
               <Grid item xs={12} sm={6}>
                 <input
                   type="url"
-                  {...register("personal.website")}
+                  {...register("website", { type: "url", maxLength: 200 })}
                   placeholder="Personal Website(optional)"
                   className="TopLabels"
                 />
+                {errors.website && <span className="team-error">Please enter a valid url!</span>}
               </Grid>
               <Grid item xs={12} sm={3}>
                 <input
-                  {...register("address.city", { required: true, maxLength: 10 })}
+                  {...register("city", { required: true, maxLength: 30 })}
                   placeholder="City"
                   className="TopLabels"
                   style={{ padding: "6% 10%" }}
                 />
+                {errors.city && (
+                  <span className="team-error">Please fill this field! Max 30 characters.</span>
+                )}
               </Grid>
               <Grid item xs={12} sm={3}>
                 <input
-                  {...register("address.state", { required: true, maxLength: 100 })}
+                  {...register("state", { required: true, maxLength: 30 })}
                   placeholder="State"
                   className="TopLabels"
                   style={{ padding: "6% 10%" }}
                 />
+                {errors.state && (
+                  <span className="team-error">Please fill this field! Max 30 characters.</span>
+                )}
               </Grid>
               <Grid item xs={12} sm={6}>
                 <input
                   type="text"
-                  {...register("college")}
-                  placeholder="College Name"
+                  {...register("college", { required: true, maxLength: 100 })}
                   className="TopLabels"
+                  placeholder="College Name"
                 />
+                {errors.college && <span className="team-error">Please fill this field!</span>}
               </Grid>
               <Grid item xs={12} sm={3}>
                 <input
-                  type="number"
-                  {...register("address.pincode", { required: true, maxLength: 6 })}
+                  {...register("pincode", {
+                    required: "Time",
+                    maxLength: 6,
+                    minLength: 6,
+                    pattern: /^[0-9]{6}$/,
+                  })}
                   placeholder="Pincode"
                   className="TopLabels"
-                  
-                  onInput={(object)=>{
-                    if (object.target.value.length > 6) {
-                      object.target.value = object.target.value.slice(0, object.target.maxLength)
-                       }
-}
-}
                   style={{ padding: "6% 10%" }}
                 />
+                {errors.pincode && <span className="team-error">Invalid Pin Code!</span>}
               </Grid>
               <Grid item xs={12} sm={3}>
                 <input
-                  {...register("address.country", { required: true, maxLength: 100 })}
+                  {...register("country", { required: true, maxLength: 100 })}
                   placeholder="Country"
                   className="TopLabels"
                   style={{ padding: "6% 10%" }}
                 />
+                {errors.country && <span className="team-error">Please fill this field!</span>}
               </Grid>
               <Grid item xs={12} sm={6}>
                 <input
                   type="url"
-                  {...register("personal.resume", { required: true, maxLength: 30 })}
+                  {...register("resume", { required: true, maxLength: 200 })}
                   placeholder="Resume Link"
                   className="TopLabels"
                 />
+                {errors.resume && <span className="team-error">Invalid Url!</span>}
               </Grid>
               <Grid item xs={12} sm={3}>
                 <input
                   type="url"
-                  {...register("personal.github", { required: true, maxLength: 100 })}
+                  {...register("github", { required: true, maxLength: 200 })}
                   placeholder="Github Link"
                   className="TopLabels"
                   style={{ padding: "6% 10%" }}
                 />
+                {errors.github && <span className="team-error">Invalid Url!</span>}
               </Grid>
               <Grid item xs={12} sm={3}>
                 <input
                   type="url"
-                  {...register("personal.linkedin", { required: true, maxLength: 30 })}
+                  {...register("linkedin", { required: true, maxLength: 200 })}
                   placeholder="LinkedIn Link"
                   className="TopLabels"
                   style={{ padding: "6% 10%" }}
                 />
+                {errors.linkedin && <span className="team-error">Invalid Url!</span>}
               </Grid>
               <Grid item xs={12} sm={6}>
-                <textarea {...register("bio")} rows={4} placeholder="Bio" className="LowerLabels" />
+                <textarea
+                  {...register("bio", { required: true, maxLength: 500 })}
+                  rows={4}
+                  placeholder="Bio"
+                  className="LowerLabels"
+                />
+                {errors.bio && <span className="team-error">Please fill this field!</span>}
               </Grid>
               <Grid item container sm={6} justify="center" alignItems="center">
                 <select
-                  {...register("personal.tshirt", { required: true, maxLength: 2 })}
+                  {...register("tshirt", { required: true })}
                   placeholder="Tshirt Size"
                   className="LowerLabels"
                 >
-                  <option value="" selected disabled>
-                    T-Shirt Size
-                  </option>
-                  <option value="S">S</option>
-                  <option value="M">M</option>
-                  <option value="L">L</option>
-                  <option value="XL">XL</option>
+                  <option value="S">T-Shirt Size: S</option>
+                  <option value="M">T-Shirt Size: M</option>
+                  <option value="L">T-Shirt Size: L</option>
+                  <option value="XL">T-Shirt Size: XL</option>
                 </select>
-                <button className="submit-btn" onClick={onSubmit}>
+                {errors.tshirt && <span className="team-error">Please Select a size!</span>}
+                <button className="submit-btn" type="submit">
                   {loading ? <CircularProgress color="secondary" size={24} /> : "Update Profile"}
                 </button>
               </Grid>
