@@ -119,7 +119,7 @@ export default function ProfileEdit({ data, refresh }) {
                   placeholder="Mobile"
                   className="TopLabels"
                 />
-                {errors.number && (
+                {errors.mobile && (
                   <span className="team-error">Please enter a valid phone number!</span>
                 )}
               </Grid>
