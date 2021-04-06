@@ -244,7 +244,7 @@ export default function ProfileEdit({ data, refresh }) {
                   <option value="XL">T-Shirt Size: XL</option>
                 </select>
                 {errors.tshirt && <span className="team-error">Please Select a size!</span>}
-                <button className="submit-btn" type="submit">
+                <button className="submit-btn" type="submit" disabled={loading}>
                   {loading ? <CircularProgress color="secondary" size={24} /> : "Update Profile"}
                 </button>
               </Grid>
