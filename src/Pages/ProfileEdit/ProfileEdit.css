@@ -67,6 +67,7 @@ input[type="submit"], .submit-btn {
   height: 3.5rem;
   cursor: pointer;
   border: none;
+  outline: none;
 }
 
 input[type="submit"], .submit-btn:hover {
