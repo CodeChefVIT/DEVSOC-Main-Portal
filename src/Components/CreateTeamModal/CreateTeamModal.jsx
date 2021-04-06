@@ -64,7 +64,7 @@ const CreateTeamModal = ({ open, handleClose, refresh }) => {
               className="modal-input"
             />
             {errors.name && (
-              <span className="team-error">Please enter valid team name! (max length is 30)</span>
+              <span className="team-error">Please enter a valid team name! (max length is 30)</span>
             )}
           </div>
           <div className="create-btn-div">

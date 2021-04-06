@@ -64,12 +64,6 @@ const AppMain = () => {
       setLoading(true);
     }
 
-    const toJoin = JSON.parse(localStorage.getItem("toJoin"));
-
-    if (toJoin) {
-      await joinViaInvite(toJoin);
-    }
-
     let url = `${process.env.REACT_APP_BACKEND_URL}/user/getProfile`;
     const token = localStorage.getItem("authToken");
 
@@ -86,6 +80,7 @@ const AppMain = () => {
       console.log(error);
       localStorage.removeItem("authToken");
       history.replace("/");
+      return;
     }
 
     url = `${process.env.REACT_APP_BACKEND_URL}/team/user`;
@@ -105,7 +100,16 @@ const AppMain = () => {
       console.log(error);
       localStorage.removeItem("authToken");
       history.replace("/");
+      return;
     }
+
+    const toJoin = JSON.parse(localStorage.getItem("toJoin"));
+
+    if (toJoin) {
+      await joinViaInvite(toJoin);
+      await setupApp();
+    }
+
     if (!noLoad) {
       setLoading(false);
     }

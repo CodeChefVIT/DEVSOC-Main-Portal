@@ -66,7 +66,7 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
               {...register("code", { required: true, maxLength: 5, minLength: 5 })}
               className="modal-input"
             />
-            {errors.code && <span className="team-error">Please enter valid team code!</span>}
+            {errors.code && <span className="team-error">Please enter a valid team code!</span>}
           </div>
           <div className="create-btn-div">
             <button className="team-primary-btn modal-input" type="submit">
