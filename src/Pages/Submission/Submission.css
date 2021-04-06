@@ -27,6 +27,7 @@ textarea::placeholder {
   color: #3000C0;
   opacity: 1;
 }
+
 .team-primary-btn {
   cursor: pointer;
   font-family: "Montserrat", sans-serif;
@@ -39,5 +40,5 @@ textarea::placeholder {
   width: 300px;
   font-weight: 600;
   font-size: 1.2rem;
-  margin-top: 1%;
+  /* margin-top: 1%; */
 }
