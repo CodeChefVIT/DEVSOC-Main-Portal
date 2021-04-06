@@ -118,10 +118,10 @@ function Team({ data, refresh }) {
                     </Grid>
                   ))}
                 </Grid>
-                <h2 className="gradient-head" style={{ marginTop: "40px" }}>
+                {/* <h2 className="gradient-head" style={{ marginTop: "40px" }}>
                   Idea Status
                 </h2>
-                <p className="team-status">Idea accepted</p>
+                <p className="team-status">Idea accepted</p> */}
               </div>
               <div className="team-action-div">
                 {data.isLeader ? (
