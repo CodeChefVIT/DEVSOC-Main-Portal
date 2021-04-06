@@ -13,10 +13,11 @@
   font-size: 4.8rem;
   font-weight: 600;
   letter-spacing: 0em;
-  background: linear-gradient(94.73deg, #6f57ff 0%, #25d8ff 114.11%);
+  /* background: linear-gradient(94.73deg, #6f57ff 0%, #25d8ff 114.11%);
   -webkit-background-clip: text;
   background-clip: text;
-  -webkit-text-fill-color: transparent;
+  -webkit-text-fill-color: transparent; */
+  color: #6f57ff;
   width: -moz-fit-content;
   width: fit-content;
   display: flex;
