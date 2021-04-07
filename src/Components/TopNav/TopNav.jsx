@@ -11,9 +11,11 @@ function TopNav({ data }) {
   const [open, setOpen] = useState(false);
   return (
     <div style={{ padding: "0 3%" }}>
-      <Link to="/app/dashboard" style={{ textDecoration: "none" }}>
-        <h1 className="devsoc21">DEVSOC'21</h1>
-      </Link>
+      <h1 className="devsoc21">
+        <Link to="/app/dashboard" style={{ textDecoration: "none", width: "fit-content" }}>
+          DEVSOC'21
+        </Link>
+      </h1>
       <h1 className="page-title">
         {path === "/app/team"
           ? "My Team"

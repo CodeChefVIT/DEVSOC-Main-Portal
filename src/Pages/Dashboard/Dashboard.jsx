@@ -1,12 +1,9 @@
 import React, { useEffect, useState } from "react";
-import CreateTeamModal from "../../Components/CreateTeamModal/CreateTeamModal";
-import JoinTeamModal from "../../Components/JoinTeamModal/JoinTeamModal";
+import { useHistory } from "react-router";
 import "./Dashboard.css";
 
 function Dashboard({ data, refresh }) {
-  const [createTeam, setCreateTeam] = useState(false);
   const [alreadyJoined, setAlreadyJoined] = useState(false);
-  const [joinTeam, setJoinTeam] = useState(false);
   const [hackBegin, setHack] = useState(false);
   const [timer, setTimer] = useState(0);
   const [hrs, setHrs] = useState(0);
@@ -20,6 +17,8 @@ function Dashboard({ data, refresh }) {
       setAlreadyJoined(true);
     }
   }, [data]);
+
+  const history = useHistory();
 
   var hackTimer;
   useEffect(() => {
@@ -78,64 +77,48 @@ function Dashboard({ data, refresh }) {
 
   return (
     <div className="team-container">
-      {!alreadyJoined ? (
-        <div className="team-div">
-          <>
-            <h3 style={{ marginBottom: "40px" }}>Oops, looks like you dont have a team yet!</h3>
-            <div className="team-btn-div">
-              <button className="team-primary-btn" onClick={() => setCreateTeam(true)}>
-                Create a team
-              </button>
-              <p style={{ fontWeight: 400, fontSize: 24, margin: "10px" }}>or</p>
-              <button className="team-secondary-btn" onClick={() => setJoinTeam(true)}>
-                Join a team
-              </button>
+      <div className="team-div">
+        <div className="dashhack">{!hackBegin ? "Hack Starts in" : "Hack ends in"}</div>
+        <div className="counter">
+          <div className="clock">
+            <div className="clock-item">
+              {hrs.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false,
+              })}{" "}
+              <span className="clock-label">DAYS</span>
             </div>
-            <CreateTeamModal
-              open={createTeam}
-              handleClose={() => setCreateTeam(false)}
-              refresh={refresh}
-            />
-            <JoinTeamModal
-              open={joinTeam}
-              handleClose={() => setJoinTeam(false)}
-              refresh={refresh}
-            />
-          </>
-        </div>
-      ) : (
-        <div className="team-div">
-          <div className="dashset">You are all set</div>
-          <div className="dashhack">{!hackBegin ? "Hack Starts in" : "Hack ends in"}</div>
-          <div className="counter">
-            <div className="clock">
-              <div className="clock-item">
-                {hrs.toLocaleString("en-US", {
-                  minimumIntegerDigits: 2,
-                  useGrouping: false,
-                })}{" "}
-                <span className="clock-label">DAYS</span>
-              </div>
-              :{" "}
-              <div className="clock-item">
-                {min.toLocaleString("en-US", {
-                  minimumIntegerDigits: 2,
-                  useGrouping: false,
-                })}{" "}
-                <span className="clock-label">HOURS</span>
-              </div>
-              :{" "}
-              <div className="clock-item">
-                {sec.toLocaleString("en-US", {
-                  minimumIntegerDigits: 2,
-                  useGrouping: false,
-                })}{" "}
-                <span className="clock-label">MINUTES</span>
-              </div>
+            :{" "}
+            <div className="clock-item">
+              {min.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false,
+              })}{" "}
+              <span className="clock-label">HOURS</span>
+            </div>
+            :{" "}
+            <div className="clock-item">
+              {sec.toLocaleString("en-US", {
+                minimumIntegerDigits: 2,
+                useGrouping: false,
+              })}{" "}
+              <span className="clock-label">MINUTES</span>
             </div>
           </div>
         </div>
-      )}
+        {!alreadyJoined ? (
+          <>
+            <h3 style={{ marginBottom: "30px", marginTop: "20px" }}>Meanwhile, we recommend you</h3>
+            <div className="team-btn-div">
+              <button className="team-primary-btn" onClick={() => history.push("/app/team")}>
+                Form your Team now!
+              </button>
+            </div>
+          </>
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 }
