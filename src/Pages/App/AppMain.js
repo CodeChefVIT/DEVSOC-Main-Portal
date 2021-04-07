@@ -6,7 +6,6 @@ import Dashboard from "../Dashboard/Dashboard";
 import axios from "axios";
 import Loading from "../../Components/Loading/Loading";
 import TopNav from "../../Components/TopNav/TopNav";
-import Submission from "../Submission/Submission";
 import ProfileSection from "../ProfileSection/ProfileSection";
 import SubmissionSection from "../SubmitSection/SubmitSection";
 import "./AppMain.css";
@@ -152,9 +151,10 @@ const AppMain = () => {
             )}
           ></Route>
           <Route
-            exact
             path="/app/submission"
-            component={(props) => <Submission {...props} data={teamDetails} refresh={setupApp} />}
+            component={(props) => (
+              <SubmissionSection {...props} data={teamDetails} refresh={setupApp} />
+            )}
           ></Route>
           <Route
             path="/app/profile"

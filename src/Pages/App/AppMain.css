@@ -1,10 +1,23 @@
 .all-container {
   height: 100%;
-  padding: 4% 2% 100px 2%;
+  margin: 0 2% 86px 2%;
+  overflow: auto;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 991px) {
   .all-container {
-    padding: 4% 2% 80px 2%;
+    margin: 0 2% calc(36px + 5vw) 2%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .all-container {
+    margin: 0 2% 60px 2%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .all-container {
+    margin: 0 2% 55px 2%;
   }
 }

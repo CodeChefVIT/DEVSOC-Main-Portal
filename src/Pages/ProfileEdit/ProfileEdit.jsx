@@ -3,45 +3,12 @@ import { useForm } from "react-hook-form";
 import "./ProfileEdit.css";
 import Grid from "@material-ui/core/Grid";
 import salty from "./Saly-14.svg";
-import {
-  CircularProgress,
-  Hidden,
-  MenuItem,
-  Snackbar,
-  withStyles,
-  TextField,
-} from "@material-ui/core";
+import { CircularProgress, Hidden, MenuItem, Snackbar } from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router";
 import { Alert } from "@material-ui/lab";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
-
-const TextInput = withStyles({
-  root: {
-    width: "100%",
-    borderRadius: 14,
-    backgroundColor: "#1c006f",
-    "& .MuiInputBase-input": {
-      fontFamily: "Montserrat",
-      borderRadius: 16,
-    },
-    "& .MuiFormLabel-root.Mui-focused": {
-      color: "#cdcdcd !important",
-    },
-    "& .MuiFormLabel-filled:not(.Mui-focused)": {
-      paddingTop: 10,
-    },
-    "& .MuiOutlinedInput-root": {
-      "& fieldset": {
-        borderRadius: 14,
-        borderColor: "#1c006f",
-      },
-      "&.Mui-focused fieldset": {
-        borderColor: "#cdcdcd !important",
-      },
-    },
-  },
-})(TextField);
+import TextInput from "../../Components/TextInput/TextInput";
 
 export default function ProfileEdit({ data, refresh }) {
   const {
@@ -100,7 +67,7 @@ export default function ProfileEdit({ data, refresh }) {
         .then((data) => {
           // console.log(data);
           setSuccessSnack(true);
-          // refresh(true);
+          refresh(true);
           history.push("/app/profile");
         });
     } catch (error) {
@@ -141,14 +108,8 @@ export default function ProfileEdit({ data, refresh }) {
   return (
     <div className="team-joined-div">
       <Grid container>
-        <Grid item sm={12} md={8} lg={6}>
-          <form
-            onSubmit={handleSubmit(onSubmit)}
-            style={{ marginBottom: 15 }}
-            onChange={() => {
-              console.log({ errors, vals: getValues() });
-            }}
-          >
+        <Grid item xs={12} md={8} lg={6}>
+          <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={2} justify="flex-start" alignItems="flex-start">
               <Grid item container xs={12} sm={6} spacing={1}>
                 <Grid item xs={12}>
@@ -324,8 +285,8 @@ export default function ProfileEdit({ data, refresh }) {
                   {errors.tshirt && <span className="team-error">Please Select a size!</span>}
                 </Grid>
               </Grid>
-              <Grid item xs={12} sm={6} spacing={4}>
-                <button className="submit-btn" type="submit" disabled={loading}>
+              <Grid item container xs={12} sm={6}>
+                <button className="team-primary-btn submit-btn" type="submit" disabled={loading}>
                   {loading ? <CircularProgress color="secondary" size={24} /> : "Update Profile"}
                 </button>
               </Grid>

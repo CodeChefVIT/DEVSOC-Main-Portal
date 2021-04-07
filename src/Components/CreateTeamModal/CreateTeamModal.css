@@ -13,7 +13,7 @@
 	margin: 40px 0;
 }
 
-.team-name::placeholder {}
+/* .team-name::placeholder {} */
 
 .team-primary-btn.modal-input {
 	margin-bottom: 30px;

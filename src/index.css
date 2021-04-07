@@ -20,7 +20,7 @@ code {
   justify-content: space-between;
 }
 
-body::-webkit-scrollbar {
+*::-webkit-scrollbar {
   width: 0px;
 }
 
