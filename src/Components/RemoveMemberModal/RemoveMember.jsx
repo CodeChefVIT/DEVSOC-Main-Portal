@@ -38,7 +38,7 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
           setSuccessSnack(true);
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setErrorText("Something went wrong! Please try again!");
       setErrorSnack(true);
     }

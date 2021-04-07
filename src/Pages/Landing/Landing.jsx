@@ -13,7 +13,7 @@ function Landing() {
         window.location.href = res.data.data;
       });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

@@ -82,7 +82,7 @@ const AppMain = () => {
           setDashboardDetails(res.data.user);
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       localStorage.removeItem("authToken");
       history.replace("/");
       return;
@@ -102,7 +102,7 @@ const AppMain = () => {
           setTeamDetails(res.data);
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       localStorage.removeItem("authToken");
       history.replace("/");
       return;

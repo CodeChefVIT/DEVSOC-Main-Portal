@@ -48,7 +48,7 @@ function Team({ data, refresh, profile }) {
           refresh();
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 
