@@ -23,3 +23,7 @@ code {
 body::-webkit-scrollbar {
   width: 0px;
 }
+
+.grecaptcha-badge {
+  display: none !important;
+}
