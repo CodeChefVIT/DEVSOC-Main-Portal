@@ -65,7 +65,7 @@ export default function ProfileEdit({ data, refresh }) {
   const onSubmit = async (data) => {
     setLoading(true);
     let captcha = await executeRecaptcha("/");
-    console.log(data);
+    // console.log(data);
     var update = {
       college: data.college,
       bio: data.bio,
@@ -95,7 +95,7 @@ export default function ProfileEdit({ data, refresh }) {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           setSuccessSnack(true);
           refresh(true);
         });
@@ -280,7 +280,7 @@ export default function ProfileEdit({ data, refresh }) {
                   value={tee}
                   variant="outlined"
                   onChange={(e) => {
-                    console.log(e.target.value);
+                    // console.log(e.target.value);
                     setValue("tshirt", e.target.value);
                     setTee(e.target.value);
                   }}

@@ -28,7 +28,7 @@ const CreateTeamModal = ({ open, handleClose, refresh }) => {
 
     data = { ...data, captcha };
 
-    console.log(data);
+    // console.log(data);
 
     try {
       await axios
@@ -38,7 +38,7 @@ const CreateTeamModal = ({ open, handleClose, refresh }) => {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           handleClose();
           refresh();
         });

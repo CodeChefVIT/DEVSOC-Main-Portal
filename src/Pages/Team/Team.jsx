@@ -44,7 +44,7 @@ function Team({ data, refresh, profile }) {
           }
         )
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           refresh();
         });
     } catch (error) {

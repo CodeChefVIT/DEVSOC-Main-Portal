@@ -42,7 +42,7 @@ const AppMain = () => {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
         });
     } catch (error) {
       const status = error.response.status;
@@ -78,7 +78,7 @@ const AppMain = () => {
           headers: { authorization: `Bearer ${token}` },
         })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           setDashboardDetails(res.data.user);
         });
     } catch (error) {
@@ -98,7 +98,7 @@ const AppMain = () => {
           },
         })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           setTeamDetails(res.data);
         });
     } catch (error) {

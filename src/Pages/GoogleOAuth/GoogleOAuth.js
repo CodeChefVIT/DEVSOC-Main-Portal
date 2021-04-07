@@ -9,7 +9,7 @@ const GoogleOAuth = (props) => {
     const query = new URLSearchParams(props.location.search);
     const token = query.get("token");
 
-    console.log(token);
+    // console.log(token);
     if (!token || token === "") {
       history.replace("/");
       return;

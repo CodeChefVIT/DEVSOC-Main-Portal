@@ -34,7 +34,7 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           handleClose();
           refresh();
         });

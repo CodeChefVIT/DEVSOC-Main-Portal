@@ -33,7 +33,7 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           refresh(true);
           setSuccessSnack(true);
         });
