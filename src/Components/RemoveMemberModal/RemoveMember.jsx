@@ -3,6 +3,7 @@ import { Delete } from "@material-ui/icons";
 import { Alert } from "@material-ui/lab";
 import axios from "axios";
 import React, { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import "./RemoveMember.css";
 
 const RemoveMember = ({ open, handleClose, data, refresh }) => {
@@ -10,14 +11,17 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
   const [infoSnack, setInfoSnack] = useState(false);
   const [errorSnack, setErrorSnack] = useState(false);
   const [errorText, setErrorText] = useState("");
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const removeUser = async (user) => {
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/removeUser`;
     const token = localStorage.getItem("authToken");
+    let captcha = await executeRecaptcha("/");
 
     const dat = {
       remove: user._id,
       teamId: data.teams._id,
+      captcha,
     };
 
     setInfoSnack(true);

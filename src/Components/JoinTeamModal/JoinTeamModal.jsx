@@ -2,6 +2,7 @@ import { CircularProgress, Dialog, DialogContent, Snackbar } from "@material-ui/
 import { Alert } from "@material-ui/lab";
 import axios from "axios";
 import React, { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useForm } from "react-hook-form";
 
 const JoinTeamModal = ({ open, handleClose, refresh }) => {
@@ -15,10 +16,16 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
   const [errorSnack, setErrorSnack] = useState(false);
   const [errorText, setErrorText] = useState("");
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const submit = async (data) => {
     setLoading(true);
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/join`;
     const token = localStorage.getItem("authToken");
+    let captcha = await executeRecaptcha("/");
+
+    data = { ...data, captcha };
+
     try {
       await axios
         .post(url, data, {

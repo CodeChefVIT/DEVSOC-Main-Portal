@@ -3,6 +3,7 @@ import { Done, FilterNone } from "@material-ui/icons";
 import { Alert } from "@material-ui/lab";
 import axios from "axios";
 import React, { useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import { useForm } from "react-hook-form";
 import "./InviteModal.css";
 
@@ -32,14 +33,17 @@ const InviteModal = ({ open, handleClose, data }) => {
       .catch((err) => console.log(err));
   };
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
   const submit = async (formData) => {
     setLoading(true);
     const url = `${process.env.REACT_APP_BACKEND_URL}/user/sendInvite`;
     const token = localStorage.getItem("authToken");
+    let captcha = await executeRecaptcha("/");
 
     const dat = {
       teamId: data.teams._id,
       inviteEmail: formData.email,
+      captcha,
     };
 
     try {

@@ -12,6 +12,7 @@ import SubmissionSection from "../SubmitSection/SubmitSection";
 import "./AppMain.css";
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 
 const AppMain = () => {
   const history = useHistory();
@@ -20,13 +21,17 @@ const AppMain = () => {
   const [loading, setLoading] = useState(true);
   const [errorSnack, setErrorSnack] = useState(false);
   const [errorText, setErrorText] = useState("");
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const joinViaInvite = async (toJoin) => {
     let url = `${process.env.REACT_APP_BACKEND_URL}/user/joinInvite`;
     const token = localStorage.getItem("authToken");
+    let captcha = await executeRecaptcha("/");
+
     const data = {
       code: toJoin.code,
       email: toJoin.email,
+      captcha,
     };
 
     try {

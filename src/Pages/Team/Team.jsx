@@ -1,6 +1,7 @@
 import { CircularProgress, Grid, Hidden } from "@material-ui/core";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import CreateTeamModal from "../../Components/CreateTeamModal/CreateTeamModal";
 import InviteModal from "../../Components/InviteModal/InviteModal";
 import JoinTeamModal from "../../Components/JoinTeamModal/JoinTeamModal";
@@ -23,16 +24,19 @@ function Team({ data, refresh, profile }) {
     }
   }, [data]);
 
+  const { executeRecaptcha } = useGoogleReCaptcha();
+
   const handleLeave = async () => {
     setBtnLoading(true);
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/leave`;
     const token = localStorage.getItem("authToken");
+    let captcha = await executeRecaptcha("/");
 
     try {
       await axios
         .post(
           url,
-          {},
+          { captcha },
           {
             headers: {
               Authorization: `Bearer ${token}`,

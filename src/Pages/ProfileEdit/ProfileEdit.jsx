@@ -10,10 +10,41 @@ import {
   MenuItem,
   Select,
   Snackbar,
+  withStyles,
+  TextField,
 } from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router";
 import { Alert } from "@material-ui/lab";
+import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+
+const TextInput = withStyles({
+  root: {
+    "& label": {
+      color: "rgba(0,0,0,0.7)",
+    },
+    "& label.Mui-focused": {
+      color: "#2980B9",
+    },
+    "& .MuiInput-underline:after": {
+      borderBottomColor: "#2980B9",
+    },
+    "& .MuiInputBase-input": {
+      color: "black !important",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor: "rgba(0,0,0,0.7)",
+      },
+      "&:hover fieldset": {
+        borderColor: "#2980B9",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: "#2980B9",
+      },
+    },
+  },
+})(TextField);
 
 export default function ProfileEdit({ data, refresh }) {
   const {
@@ -23,6 +54,7 @@ export default function ProfileEdit({ data, refresh }) {
     setValue,
   } = useForm();
   const history = useHistory();
+  const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [tee, setTee] = useState("S");
   const [loading, setLoading] = useState(false);
@@ -32,6 +64,7 @@ export default function ProfileEdit({ data, refresh }) {
 
   const onSubmit = async (data) => {
     setLoading(true);
+    let captcha = await executeRecaptcha("/");
     console.log(data);
     var update = {
       college: data.college,
@@ -53,6 +86,7 @@ export default function ProfileEdit({ data, refresh }) {
         linkedin: data.linkedin,
         tshirt: data.tshirt,
       },
+      captcha,
     };
     const token = localStorage.getItem("authToken");
     try {

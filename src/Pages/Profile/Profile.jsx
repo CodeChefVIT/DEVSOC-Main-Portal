@@ -17,23 +17,26 @@ export default function Profile({ data }) {
             variant="circular"
             src={data.avatar}
           />
-
           <h1>{data.name}</h1>
           <h3>{data.email}</h3>
           <h3>{data.college}</h3>
           <h3>{data.bio}</h3>
-          {data.personal ? (
-            <div className="social">
+          <div className="social">
+            {data.personal.github === "" ? (
+              <></>
+            ) : (
               <a href={data.personal?.github} target="_blank" rel="noreferrer">
                 <GitHub />
               </a>
+            )}
+            {data.personal.linkedin === "" ? (
+              <></>
+            ) : (
               <a href={data.personal?.linkedin} target="_blank" rel="noreferrer">
                 <LinkedIn />
               </a>
-            </div>
-          ) : (
-            <></>
-          )}
+            )}
+          </div>
           <Link to="/app/profile/edit">
             <button className="team-primary-btn profile-btn">Edit Profile</button>
           </Link>
