@@ -16,7 +16,7 @@ const GoogleOAuth = (props) => {
     }
 
     localStorage.setItem("authToken", token);
-    history.replace("/app/dashboard");
+    history.replace("/app/profile/edit");
     // eslint-disable-next-line
   }, []);
   return <></>;
