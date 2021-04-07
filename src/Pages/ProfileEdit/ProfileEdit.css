@@ -213,3 +213,8 @@ input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
+/* Mui Overrides */
+textarea.MuiInputBase-input {
+  border-radius: 0px !important;
+}
