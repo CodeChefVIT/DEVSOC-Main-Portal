@@ -54,7 +54,7 @@ const InviteModal = ({ open, handleClose, data }) => {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           setSuccessSnack(true);
           reset();
         });

@@ -33,12 +33,12 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
           },
         })
         .then((res) => {
-          console.log(res);
+          // console.log(res);
           refresh(true);
           setSuccessSnack(true);
         });
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setErrorText("Something went wrong! Please try again!");
       setErrorSnack(true);
     }

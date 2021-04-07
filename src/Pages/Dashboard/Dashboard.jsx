@@ -29,7 +29,7 @@ function Dashboard({ data, refresh }) {
     start.setSeconds(0);
     const Now = new Date();
     const diff = (start - Now) / 1000;
-    console.log(diff);
+    // console.log(diff);
     if (start - Now > 0) {
       setTimer(diff);
     } else {

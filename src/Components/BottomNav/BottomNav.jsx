@@ -7,7 +7,7 @@ function BottomNav(props) {
   const history = useHistory();
 
   useEffect(() => {
-    console.log(history.location.pathname);
+    // console.log(history.location.pathname);
   }, [history.location]);
   return (
     <div className="app-nav">
