@@ -16,7 +16,6 @@ export default function ProfileEdit({ data, refresh }) {
     formState: { errors },
     register,
     setValue,
-    getValues,
   } = useForm();
 
   const history = useHistory();
@@ -94,7 +93,7 @@ export default function ProfileEdit({ data, refresh }) {
       setValue("resume", data.personal.resume);
       setValue("github", data.personal.github);
       setValue("linkedin", data.personal.linkedin);
-      setValue("tshirt", data.personal.tshirt);
+      // setValue("tshirt", data.personal.tshirt);  // Don't know why it doesn't work
       setValue("discordUser", data.personal.discord.nickname);
       setValue("discordHash", data.personal.discord.hash);
     }
@@ -111,8 +110,8 @@ export default function ProfileEdit({ data, refresh }) {
         <Grid item xs={12} md={8} lg={6}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={2} justify="flex-start" alignItems="flex-start">
-              <Grid item container xs={12} sm={6} spacing={1}>
-                <Grid item xs={12}>
+              <Grid item container xs={12} sm={6} spacing={2}>
+                <Grid item xs={12} style={{ paddingTop: 12 }}>
                   <TextInput
                     label="Name"
                     variant="outlined"
@@ -136,9 +135,17 @@ export default function ProfileEdit({ data, refresh }) {
                   <TextInput
                     variant="outlined"
                     label="Personal Website(optional)"
-                    inputProps={{ ...register("website", { type: "url", maxLength: 200 }) }}
+                    inputProps={{
+                      ...register("website", {
+                        maxLength: { value: 200, message: "Too long.. consider shotening url" },
+                        pattern: {
+                          value: /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/,
+                          message: "Invalid Url!",
+                        },
+                      }),
+                    }}
                   />
-                  {errors.website && <span className="team-error">Please enter a valid url!</span>}
+                  {errors.website && <span className="team-error">{errors.website.website}</span>}
                 </Grid>
                 <Grid item xs={12}>
                   <TextInput
@@ -152,25 +159,48 @@ export default function ProfileEdit({ data, refresh }) {
                   <TextInput
                     variant="outlined"
                     label="Resume Link"
-                    inputProps={{ ...register("resume", { required: true, maxLength: 200 }) }}
+                    inputProps={{
+                      ...register("resume", {
+                        required: true,
+                        maxLength: { value: 200, message: "Too long.. consider shotening url" },
+                        pattern: {
+                          value: /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/,
+                          message: "Invalid Url!",
+                        },
+                      }),
+                    }}
                   />
-                  {errors.resume && <span className="team-error">Invalid Url!</span>}
+                  {errors.resume && <span className="team-error">{errors.resume.message}</span>}
                 </Grid>
                 <Grid item xs={12}>
                   <TextInput
                     variant="outlined"
                     label="Github Profile"
-                    inputProps={{ ...register("github", { required: true, maxLength: 50 }) }}
+                    inputProps={{
+                      ...register("github", {
+                        required: true,
+                        maxLength: 50,
+                        pattern: /^(https?:\/\/)?(www\.)?github.com\/[a-zA-Z0-9-]+\/?$/,
+                      }),
+                    }}
                   />
-                  {errors.github && <span className="team-error">Invalid Url!</span>}
+                  {errors.github && <span className="team-error">Invalid Github Profile Url!</span>}
                 </Grid>
                 <Grid item xs={12}>
                   <TextInput
                     variant="outlined"
                     label="LinkedIn Profile"
-                    inputProps={{ ...register("linkedin", { required: true, maxLength: 60 }) }}
+                    inputProps={{
+                      ...register("linkedin", {
+                        required: true,
+                        maxLength: 60,
+                        pattern: /^(https?:\/\/)?(www\.)?linkedin.com\/in\/[a-zA-Z0-9-]+\/?$/,
+                      }),
+                    }}
                   />
-                  {errors.linkedin && <span className="team-error">Invalid Url!</span>}
+                  {errors.linkedin && (
+                    <span className="team-error">Invalid LinkedIn Profile Url!</span>
+                  )}
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextInput
@@ -178,29 +208,45 @@ export default function ProfileEdit({ data, refresh }) {
                     label="Discord Username"
                     inputProps={{ ...register("discordUser", { required: true, maxLength: 30 }) }}
                   />
-                  {errors.linkedin && <span className="team-error">Invalid Url!</span>}
+                  {errors.discordUser && (
+                    <span className="team-error">Please fill this field!</span>
+                  )}
                 </Grid>
                 <Grid item xs={12} sm={6}>
                   <TextInput
                     variant="outlined"
                     label="Discord Hash"
-                    inputProps={{ ...register("discordHash", { required: true, maxLength: 4 }) }}
+                    inputProps={{
+                      ...register("discordHash", {
+                        required: true,
+                        minLength: 4,
+                        maxLength: 4,
+                        pattern: /^\d{4}$/,
+                      }),
+                    }}
                   />
-                  {errors.linkedin && <span className="team-error">Invalid Url!</span>}
+                  {errors.discordHash && (
+                    <span className="team-error">Enter only the 4 digits without hash!</span>
+                  )}
                 </Grid>
                 <Grid item xs={12}>
                   <TextInput
                     multiline
                     variant="outlined"
                     label="Bio"
-                    inputProps={{ ...register("bio", { required: true, maxLength: 500 }) }}
+                    inputProps={{
+                      ...register("bio", {
+                        required: { value: true, message: "Please fill this field!" },
+                        maxLength: { value: 500, message: "Max 500 characters only!" },
+                      }),
+                    }}
                     rows={4}
                   />
-                  {errors.bio && <span className="team-error">Please fill this field!</span>}
+                  {errors.bio && <span className="team-error">{errors.bio.message}</span>}
                 </Grid>
               </Grid>
-              <Grid item container xs={12} sm={6} spacing={1}>
-                <Grid item xs={12}>
+              <Grid item container xs={12} sm={6} spacing={2}>
+                <Grid item xs={12} style={{ paddingTop: 12 }}>
                   <TextInput
                     label="Address Line 1"
                     variant="outlined"
@@ -264,6 +310,7 @@ export default function ProfileEdit({ data, refresh }) {
                     select
                     label="T Shirt Size"
                     variant="outlined"
+                    defaultValue={data.personal.tshirt}
                     inputProps={{ ...register("tshirt", { required: true }) }}
                   >
                     <MenuItem key={0} value="S">

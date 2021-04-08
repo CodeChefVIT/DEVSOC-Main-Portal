@@ -3,7 +3,7 @@ textarea {
 }
 
 .submit-btn {
-  width: 100%;
+  width: 100% !important;
   margin: 4px 4px 0 0;
 }
 
