@@ -106,3 +106,13 @@ textarea::placeholder {
     height: auto;
   }
 }
+
+.sub-side {
+  margin: 0 0 20px -8px !important;
+}
+
+@media (max-width: 959px) {
+  .sub-side {
+    margin: 0 0 20px 0 !important;
+  }
+}
