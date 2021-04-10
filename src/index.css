@@ -27,3 +27,23 @@ code {
 .grecaptcha-badge {
   display: none !important;
 }
+
+.modal-input {
+  outline: none;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  border-radius: 16px;
+  border: 1px solid transparent;
+  padding: 3% 5%;
+  margin-bottom: 0.3rem;
+  font-size: 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  background-color: #1c006f;
+  color: #ffffff;
+}
+
+.modal-input::placeholder {
+  color: #3000c0;
+  font-weight: 400 !important;
+}

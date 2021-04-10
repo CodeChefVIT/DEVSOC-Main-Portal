@@ -28,6 +28,7 @@ function Team({ data, refresh, profile }) {
 
   const handleLeave = async () => {
     setBtnLoading(true);
+
     const url = `${process.env.REACT_APP_BACKEND_URL}/team/leave`;
     const token = localStorage.getItem("authToken");
     let captcha = await executeRecaptcha("/");

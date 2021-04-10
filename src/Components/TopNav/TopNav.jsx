@@ -66,7 +66,11 @@ function TopNav({ data }) {
           }}
         >
           <h3>Hello, {data.name}</h3>
-          <Link to="/app/profile" style={{ textDecoration: "none" }} onClick={() => setOpen(false)}>
+          <Link
+            to="/app/profile"
+            style={{ textDecoration: "none", width: "100%" }}
+            onClick={() => setOpen(false)}
+          >
             <button className="team-primary-btn modal-input">
               <SvgIcon viewBox="0 0 44 44" fill="none">
                 <path
