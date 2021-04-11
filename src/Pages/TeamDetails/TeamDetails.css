@@ -1,0 +1,11 @@
+.team-details-div {
+	height: calc(100vh - 120px);
+}
+
+@media screen and (max-width: 600px) {
+	.team-details {
+		background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/src/assets/teamDetails.svg");
+		background-position: center left;
+		/* background-size: cover; */
+	}
+}

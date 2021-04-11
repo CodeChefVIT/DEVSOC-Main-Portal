@@ -1,0 +1,42 @@
+.all-teams-div {
+	display: flex !important;
+	flex-direction: column !important;
+	/* justify-content: center; */
+	align-items: center !important;
+}
+
+.search-container {
+	width: 40%;
+	margin-bottom: 10%;
+}
+
+.search-box {
+	width: 100%;
+}
+
+.search-box .MuiOutlinedInput-notchedOutline {
+	border-width: 3px !important;
+	border-color: #3051FF !important;
+	border-radius: 15px !important;
+}
+
+.search-box .MuiFormLabel-root {
+	font-weight: bold !important;
+}
+
+.search-box .MuiFormLabel-root.Mui-focused {
+	color: #3051FF !important;
+}
+
+.all-teams-list {
+	width: 60%;
+}
+
+@media screen and (max-width: 960px) {
+	.search-container {
+		width: 70%;
+	}
+	.all-teams-list {
+		width: 90%;
+	}
+}

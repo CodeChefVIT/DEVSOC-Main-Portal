@@ -5,9 +5,14 @@ import Landing from "./Pages/Landing/Landing";
 import GoogleOAuth from "./Pages/GoogleOAuth/GoogleOAuth";
 import AppMain from "./Pages/App/AppMain";
 import JoinInvite from "./Pages/JoinInvite/JoinInvite";
+import AllTeams from "./Pages/AllTeams/AllTeams";
+import TeamDetails from "./Pages/TeamDetails/TeamDetails";
 // import DiscordLink from "./Components/DiscordLink/DiscordLink";
 
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: "Montserrat",
+  },
   palette: {
     type: "dark",
     primary: {
@@ -30,6 +35,8 @@ function App() {
           <Route exact path="/auth" component={GoogleOAuth}></Route>
           <Route path="/app" component={AppMain}></Route>
           <Route exact path="/jointeam" component={JoinInvite}></Route>
+          <Route exact path="/allTeams" component={AllTeams}></Route>
+          <Route exact path="/team/:id" component={TeamDetails}></Route>
         </Switch>
       </Router>
     </ThemeProvider>
