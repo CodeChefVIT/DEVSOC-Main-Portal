@@ -22,7 +22,7 @@ function TopNav({ data }) {
           : path === "/app/dashboard"
           ? "Dashboard"
           : path === "/app/submission"
-          ? "My Submission"
+          ? "Idea Submission"
           : path === "/app/profile" || path === "/app/profile/edit"
           ? "Profile"
           : ""}
