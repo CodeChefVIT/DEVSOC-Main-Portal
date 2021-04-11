@@ -33,14 +33,12 @@ function IdeaSubmission({ data, refresh }) {
   const onSubmit = async (data) => {
     setLoading(true);
     let captcha = await executeRecaptcha("/");
-    var update = {
-      captcha,
-    };
+    var update = { ...data, captcha };
     // console.log(update);
     const token = localStorage.getItem("authToken");
     try {
       await axios
-        .patch(`${process.env.REACT_APP_BACKEND_URL}/user/update`, update, {
+        .post(`${process.env.REACT_APP_BACKEND_URL}/team/saveidea`, update, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((data) => {
@@ -57,13 +55,11 @@ function IdeaSubmission({ data, refresh }) {
   };
 
   const initialise = () => {
-    if (data.teams) {
-      if (data.teams.submission) {
-        setValue("name", data.teams.submission?.name);
-        setValue("desc", data.teams.submission?.description);
-      }
-    } else {
-      history.push("/app/team");
+    // console.log(data);
+    if (data.teams && data.teams.submission) {
+      setValue("name", data.teams.submission.name);
+      setValue("description", data.teams.submission.description);
+      setMarkdown(data.teams.submission.description);
     }
   };
 
@@ -89,19 +85,19 @@ function IdeaSubmission({ data, refresh }) {
                 <TextInput
                   multiline
                   variant="outlined"
-                  label="Bio"
+                  label="Description"
                   onChange={(event) => {
                     setMarkdown(event.target.value);
                   }}
                   helperText="Markdown Supported"
                   inputProps={{
-                    ...register("desc", {
+                    ...register("description", {
                       required: { value: true, message: "Please fill this field!" },
                     }),
                   }}
                   rows={10}
                 />
-                {errors.bio && <span className="team-error">{errors.bio.message}</span>}
+                {errors.description && <span className="team-error">{errors.description.message}</span>}
               </Grid>
               <button className="team-primary-btn submit-btn" type="submit" disabled={loading}>
                 {loading ? <CircularProgress color="secondary" size={24} /> : "Submit Idea"}

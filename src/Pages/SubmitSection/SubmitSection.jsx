@@ -7,10 +7,10 @@ function SubmitSection({ data, refresh }) {
   return (
     <div className="team-container sub-container">
       <Switch>
-        <Route exact path="/app/submission" component={Submission}></Route>
+        {/* <Route exact path="/app/submission" component={Submission}></Route> */}
         <Route
           exact
-          path="/app/submission/idea"
+          path="/app/submission"
           component={(props) => <IdeaSubmission {...props} data={data} refresh={refresh} />}
         ></Route>
         <Route
