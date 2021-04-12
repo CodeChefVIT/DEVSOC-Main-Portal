@@ -223,7 +223,7 @@ function IdeaSubmission({ data, refresh }) {
             </div>
           ) : (
             <div style={{ overflow: "auto", maxHeight: "calc(100% - 10px)" }}>
-              <ReactMarkdown plugins={[gfm]} children={markdown} allowDangerousHtml />
+              <ReactMarkdown plugins={[gfm]} children={markdown} />
             </div>
           )}
         </Grid>
