@@ -42,7 +42,7 @@
 
 .remove-btn:hover {
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 .team-primary-btn {
@@ -83,8 +83,7 @@
 }
 
 @media screen and (max-width: 600px) {
-  .team-primary-btn,
-  .team-secondary-btn {
+  .team-primary-btn, .team-secondary-btn {
     width: 200px;
   }
   .remove-btn {

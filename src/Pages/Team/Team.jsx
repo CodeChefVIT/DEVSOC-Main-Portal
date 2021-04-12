@@ -88,7 +88,26 @@ function Team({ data, refresh, profile }) {
         <div className="team-joined-div">
           <Grid container spacing={3}>
             <Grid item xs={12} sm={12} md={6}>
-              <h3 className="team-name">Team {data.teams.name}</h3>
+              <div
+                style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  margin: "40px 0",
+                }}
+              >
+                <h3 className="team-name">Team {data.teams.name}</h3>
+                <a
+                  className="remove-btn"
+                  href="/allTeams"
+                  target="_blank"
+                  rel="noreferrer"
+                  style={{ textDecoration: "none" }}
+                >
+                  View all teams
+                </a>
+              </div>
               <div className="my-team-info">
                 {/* <h2 className="gradient-head">Status</h2>
                 <p className="team-status">Selected for final pitch</p> */}
