@@ -52,8 +52,8 @@ function BottomNav(props) {
                     y2="38.5"
                     gradientUnits="userSpaceOnUse"
                   >
-                    <stop stop-color="#3051FF" />
-                    <stop offset="1" stop-color="#62D9FF" />
+                    <stop stopColor="#3051FF" />
+                    <stop offset="1" stopColor="#62D9FF" />
                   </linearGradient>
                 </defs>
               </SvgIcon>
@@ -154,8 +154,8 @@ function BottomNav(props) {
                   y2="20.1667"
                   gradientUnits="userSpaceOnUse"
                 >
-                  <stop stop-color="#3051FF" />
-                  <stop offset="1" stop-color="#62D9FF" />
+                  <stop stopColor="#3051FF" />
+                  <stop offset="1" stopColor="#62D9FF" />
                 </linearGradient>
               </defs>
             </SvgIcon>

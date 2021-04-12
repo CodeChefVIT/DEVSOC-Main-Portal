@@ -102,6 +102,7 @@ export default function ProfileEdit({ data, refresh }) {
 
   useEffect(() => {
     initialise();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -139,7 +140,7 @@ export default function ProfileEdit({ data, refresh }) {
                       ...register("website", {
                         maxLength: { value: 200, message: "Too long.. consider shotening url" },
                         pattern: {
-                          value: /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/,
+                          value: /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/,
                           message: "Invalid Url!",
                         },
                       }),
@@ -164,7 +165,7 @@ export default function ProfileEdit({ data, refresh }) {
                         required: true,
                         maxLength: { value: 200, message: "Too long.. consider shotening url" },
                         pattern: {
-                          value: /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)$/,
+                          value: /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/,
                           message: "Invalid Url!",
                         },
                       }),
@@ -355,7 +356,7 @@ export default function ProfileEdit({ data, refresh }) {
               zIndex: -1,
             }}
             src={salty}
-            alt={"image"}
+            alt={""}
             className="From-img"
           />
         </Grid>

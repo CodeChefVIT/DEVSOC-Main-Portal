@@ -97,7 +97,7 @@ const AppMain = () => {
           },
         })
         .then((res) => {
-          // console.log(res.data);
+          console.log(res.data);
           setTeamDetails(res.data);
         });
     } catch (error) {
@@ -162,12 +162,6 @@ const AppMain = () => {
               <ProfileSection {...props} data={dashboardDetails} refresh={setupApp} />
             )}
           ></Route>
-          {/* <Route
-            path="/app/submission"
-            component={(props) => (
-              <SubmissionSection {...props} data={dashboardDetails} refresh={setupApp} />
-            )}
-          ></Route> */}
         </Switch>
       </div>
       <BottomNav />
