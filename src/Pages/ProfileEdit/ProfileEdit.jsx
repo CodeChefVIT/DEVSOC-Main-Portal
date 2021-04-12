@@ -23,6 +23,7 @@ export default function ProfileEdit({ data, refresh }) {
   const { executeRecaptcha } = useGoogleReCaptcha();
 
   const [loading, setLoading] = useState(false);
+  const [firstTime, setFirstTime] = useState(false);
   const [successSnack, setSuccessSnack] = useState(false);
   const [errorSnack, setErrorSnack] = useState(false);
   const [errorText, setErrorText] = useState("");
@@ -87,6 +88,8 @@ export default function ProfileEdit({ data, refresh }) {
       setValue("state", data.address.state);
       setValue("pincode", data.address.pincode);
       setValue("country", data.address.country);
+    } else {
+      setFirstTime(true);
     }
     if (data.personal) {
       setValue("website", data.personal.website);

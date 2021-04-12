@@ -65,7 +65,7 @@ function BottomNav(props) {
               history.location.pathname === "/app/submission" ? "active" : null
             }`}
           >
-            <Tooltip title="Submissions open soon">
+            <Tooltip title="Idea Submissions">
               <SvgIcon viewBox="0 0 42 44" fill="none">
                 <path
                   d="M39 26.6667V34.8889C39 35.9792 38.5669 37.0249 37.7959 37.7959C37.0249 38.5669 35.9792 39 34.8889 39H6.11111C5.02078 39 3.9751 38.5669 3.20412 37.7959C2.43313 37.0249 2 35.9792 2 34.8889V26.6667"

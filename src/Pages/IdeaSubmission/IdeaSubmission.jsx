@@ -114,7 +114,9 @@ function IdeaSubmission({ data, refresh }) {
                   select
                   label="Track"
                   variant="outlined"
-                  defaultValue={data.teams.submission.track}
+                  defaultValue={
+                    data.teams && data.teams.submission ? data.teams.submission.track : ""
+                  }
                   inputProps={{ ...register("track", { required: true }) }}
                 >
                   <MenuItem key={0} value="ar-vr">
