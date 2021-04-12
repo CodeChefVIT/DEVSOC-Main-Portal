@@ -22,7 +22,8 @@ function Team({ data, refresh, profile }) {
       setAlreadyJoined(false);
     } else {
       setAlreadyJoined(true);
-      if (data.teams.submission) {
+      // console.log(data.teams.submission.name)
+      if (data.teams.submission.name) {
         setIdeaSubmitted(true);
       }
     }
