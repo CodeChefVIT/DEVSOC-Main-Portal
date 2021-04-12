@@ -16,6 +16,7 @@ const JoinInvite = (props) => {
     localStorage.setItem("toJoin", JSON.stringify(obj));
 
     history.replace("/app/team");
+    // eslint-disable-next-line
   }, []);
   return <Loading />;
 };

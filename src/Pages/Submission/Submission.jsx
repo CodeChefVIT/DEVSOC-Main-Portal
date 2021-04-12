@@ -43,7 +43,7 @@ function Submission(props) {
           zIndex: -1,
         }}
         src={saltysubmission}
-        alt={"image"}
+        alt={""}
         className="From-img"
       />
     </div>

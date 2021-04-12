@@ -1,5 +1,4 @@
-import { Route, Switch, useHistory } from "react-router";
-import Submission from "../Submission/Submission";
+import { Route, Switch } from "react-router";
 import ProjectSubmission from "../ProjectSubmission/ProjectSubmission";
 import IdeaSubmission from "../IdeaSubmission/IdeaSubmission";
 
@@ -7,7 +6,6 @@ function SubmitSection({ data, refresh }) {
   return (
     <div className="team-container sub-container">
       <Switch>
-        {/* <Route exact path="/app/submission" component={Submission}></Route> */}
         <Route
           exact
           path="/app/submission"

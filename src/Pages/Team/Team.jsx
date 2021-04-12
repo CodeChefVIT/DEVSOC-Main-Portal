@@ -11,6 +11,7 @@ import "./Team.css";
 function Team({ data, refresh, profile }) {
   const [createTeam, setCreateTeam] = useState(false);
   const [alreadyJoined, setAlreadyJoined] = useState(false);
+  const [ideaSubmitted, setIdeaSubmitted] = useState(false);
   const [joinTeam, setJoinTeam] = useState(false);
   const [btnLoading, setBtnLoading] = useState(false);
   const [removing, setRemoving] = useState(false);
@@ -21,6 +22,9 @@ function Team({ data, refresh, profile }) {
       setAlreadyJoined(false);
     } else {
       setAlreadyJoined(true);
+      if (data.teams.submission) {
+        setIdeaSubmitted(true);
+      }
     }
   }, [data]);
 
@@ -118,7 +122,7 @@ function Team({ data, refresh, profile }) {
                   }}
                 >
                   <h2 className="gradient-head">Team Members</h2>
-                  {data.isLeader ? (
+                  {data.isLeader && !ideaSubmitted ? (
                     <span className="remove-btn" onClick={() => setRemoving(true)}>
                       Remove members
                     </span>
@@ -149,14 +153,18 @@ function Team({ data, refresh, profile }) {
                 <p className="team-status">Idea accepted</p> */}
               </div>
               <div className="team-action-div">
-                {data.isLeader ? (
+                {data.isLeader && !ideaSubmitted ? (
                   <button className="team-primary-btn" onClick={() => setInviting(true)}>
                     Invite members
                   </button>
                 ) : null}
-                <button className="team-secondary-btn" onClick={handleLeave}>
-                  {btnLoading ? <CircularProgress color="secondary" size={24} /> : "Leave team"}
-                </button>
+                {!ideaSubmitted ? (
+                  <button className="team-secondary-btn" onClick={handleLeave}>
+                    {btnLoading ? <CircularProgress color="secondary" size={24} /> : "Leave team"}
+                  </button>
+                ) : (
+                  <></>
+                )}
               </div>
             </Grid>
             <Hidden smDown>

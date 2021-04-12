@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Grid, Hidden, SvgIcon } from "@material-ui/core";
+import { Avatar, Grid, Hidden } from "@material-ui/core";
 import "./Profile.css";
 import back from "./back.svg";
 import { Link, useHistory } from "react-router-dom";
@@ -68,7 +68,7 @@ export default function Profile({ data }) {
               zIndex: -1,
             }}
             src={back}
-            alt={"image"}
+            alt={""}
             className="From-img"
           />
         </Grid>

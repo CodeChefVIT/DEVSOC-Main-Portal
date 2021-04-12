@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Route, Switch, useHistory } from "react-router";
+import React from "react";
+import { Route, Switch } from "react-router";
 import ProfileEdit from "../ProfileEdit/ProfileEdit";
 import Profile from "../Profile/Profile";
 
