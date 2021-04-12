@@ -23,8 +23,8 @@ function Team({ data, refresh, profile }) {
     } else {
       setAlreadyJoined(true);
       // console.log(data.teams.submission.name)
-      if (data.teams.submission.name) {
-        setIdeaSubmitted(true);
+      if (data.teams.submission) {
+        if (data.teams.submission.name) setIdeaSubmitted(true);
       }
     }
   }, [data]);
