@@ -12,6 +12,7 @@ import "./AppMain.css";
 import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
+import Error404 from "../Error404/Error404";
 
 const AppMain = () => {
   const history = useHistory();
@@ -160,6 +161,12 @@ const AppMain = () => {
             path="/app/profile"
             component={(props) => (
               <ProfileSection {...props} data={dashboardDetails} refresh={setupApp} />
+            )}
+          ></Route>
+          <Route
+            path="*"
+            component={(props) => (
+              <Error404 />
             )}
           ></Route>
         </Switch>

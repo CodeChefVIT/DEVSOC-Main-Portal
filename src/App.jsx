@@ -7,6 +7,7 @@ import AppMain from "./Pages/App/AppMain";
 import JoinInvite from "./Pages/JoinInvite/JoinInvite";
 import AllTeams from "./Pages/AllTeams/AllTeams";
 import TeamDetails from "./Pages/TeamDetails/TeamDetails";
+import Error404 from "./Pages/Error404/Error404";
 // import DiscordLink from "./Components/DiscordLink/DiscordLink";
 
 const theme = createMuiTheme({
@@ -37,6 +38,7 @@ function App() {
           <Route exact path="/jointeam" component={JoinInvite}></Route>
           <Route exact path="/allTeams" component={AllTeams}></Route>
           <Route exact path="/team/:id" component={TeamDetails}></Route>
+          <Route path="*" component={Error404}></Route>
         </Switch>
       </Router>
     </ThemeProvider>
