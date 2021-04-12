@@ -167,7 +167,7 @@ function Team({ data, refresh, profile }) {
                 md={6}
                 style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
               >
-                <img src="/assets/team-joined.svg" alt="team joined" style={{ width: "500px" }} />
+                <img src="/assets/team-joined.png" alt="team joined" style={{ width: "500px" }} />
               </Grid>
             </Hidden>
           </Grid>

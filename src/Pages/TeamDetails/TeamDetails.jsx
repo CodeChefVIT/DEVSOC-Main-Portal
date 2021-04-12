@@ -27,7 +27,7 @@ const TeamDetails = () => {
                 sm={6}
                 style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
               >
-                <img src="/assets/teamDetails.svg" alt="team details" style={{ width: "400px" }} />
+                <img src="/assets/teamDetails.png" alt="team details" style={{ width: "400px" }} />
               </Grid>
             </Hidden>
           </Grid>
