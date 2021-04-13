@@ -3,12 +3,24 @@ import { useForm } from "react-hook-form";
 import "./ProfileEdit.css";
 import Grid from "@material-ui/core/Grid";
 import salty from "./Saly-14.svg";
-import { CircularProgress, Hidden, MenuItem, Snackbar } from "@material-ui/core";
+import {
+  Button,
+  CircularProgress,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+  Hidden,
+  MenuItem,
+  Snackbar,
+} from "@material-ui/core";
 import axios from "axios";
 import { useHistory } from "react-router";
 import { Alert } from "@material-ui/lab";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import TextInput from "../../Components/TextInput/TextInput";
+import NavigationPrompt from "react-router-navigation-prompt";
 
 export default function ProfileEdit({ data, refresh }) {
   const {
@@ -55,6 +67,8 @@ export default function ProfileEdit({ data, refresh }) {
           hash: data.discordHash,
         },
       },
+      regNumber: data.regno,
+      collegeYear: data.year,
       captcha,
     };
     // console.log(update);
@@ -67,6 +81,7 @@ export default function ProfileEdit({ data, refresh }) {
         .then((data) => {
           // console.log(data);
           setSuccessSnack(true);
+          setFirstTime(false);
           refresh(true);
           history.push("/app/profile");
         });
@@ -81,6 +96,8 @@ export default function ProfileEdit({ data, refresh }) {
     setValue("name", data.name);
     setValue("college", data.college);
     setValue("mobile", data.mobile);
+    setValue("regno", data.regNumber);
+    setValue("year", data.collegeYear);
     if (data.address) {
       setValue("line1", data.address.line1);
       setValue("line2", data.address.line2);
@@ -88,8 +105,6 @@ export default function ProfileEdit({ data, refresh }) {
       setValue("state", data.address.state);
       setValue("pincode", data.address.pincode);
       setValue("country", data.address.country);
-    } else {
-      setFirstTime(true);
     }
     if (data.personal) {
       setValue("website", data.personal.website);
@@ -101,6 +116,9 @@ export default function ProfileEdit({ data, refresh }) {
       setValue("discordHash", data.personal.discord.hash);
     }
     setValue("bio", data.bio);
+    if (!data.is_profile_completed) {
+      setFirstTime(true);
+    }
   };
 
   useEffect(() => {
@@ -110,6 +128,9 @@ export default function ProfileEdit({ data, refresh }) {
 
   return (
     <div className="team-joined-div">
+      <div style={{ fontSize: "1.3rem", marginBottom: 10 }}>
+        {data.is_profile_completed ? "" : "Please Complete your profile to navigate to other pages"}
+      </div>
       <Grid container>
         <Grid item xs={12} md={8} lg={6}>
           <form onSubmit={handleSubmit(onSubmit)}>
@@ -138,22 +159,6 @@ export default function ProfileEdit({ data, refresh }) {
                 <Grid item xs={12}>
                   <TextInput
                     variant="outlined"
-                    label="Personal Website(optional)"
-                    inputProps={{
-                      ...register("website", {
-                        maxLength: { value: 200, message: "Too long.. consider shotening url" },
-                        pattern: {
-                          value: /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/,
-                          message: "Invalid Url!",
-                        },
-                      }),
-                    }}
-                  />
-                  {errors.website && <span className="team-error">{errors.website.website}</span>}
-                </Grid>
-                <Grid item xs={12}>
-                  <TextInput
-                    variant="outlined"
                     label="College"
                     inputProps={{ ...register("college", { required: true, maxLength: 100 }) }}
                   />
@@ -162,19 +167,28 @@ export default function ProfileEdit({ data, refresh }) {
                 <Grid item xs={12}>
                   <TextInput
                     variant="outlined"
-                    label="Resume Link"
+                    label="Year of Study"
                     inputProps={{
-                      ...register("resume", {
-                        required: true,
-                        maxLength: { value: 200, message: "Too long.. consider shotening url" },
+                      ...register("year", {
+                        required: { value: true, message: "Required" },
                         pattern: {
-                          value: /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/,
-                          message: "Invalid Url!",
+                          value: /^[12345]{1}$/,
+                          message: "Enter Number only!",
                         },
                       }),
                     }}
                   />
-                  {errors.resume && <span className="team-error">{errors.resume.message}</span>}
+                  {errors.year && <span className="team-error">{errors.year.message}</span>}
+                </Grid>
+                <Grid item xs={12}>
+                  <TextInput
+                    variant="outlined"
+                    label="Registration No"
+                    inputProps={{
+                      ...register("regno"),
+                    }}
+                  />
+                  {errors.regno && <span className="team-error">{errors.regno.message}</span>}
                 </Grid>
                 <Grid item xs={12}>
                   <TextInput
@@ -250,6 +264,39 @@ export default function ProfileEdit({ data, refresh }) {
                 </Grid>
               </Grid>
               <Grid item container xs={12} sm={6} spacing={2}>
+                <Grid item xs={12}>
+                  <TextInput
+                    variant="outlined"
+                    label="Personal Website(optional)"
+                    inputProps={{
+                      ...register("website", {
+                        maxLength: { value: 200, message: "Too long.. consider shotening url" },
+                        pattern: {
+                          value: /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/,
+                          message: "Invalid Url!",
+                        },
+                      }),
+                    }}
+                  />
+                  {errors.website && <span className="team-error">{errors.website.message}</span>}
+                </Grid>
+                <Grid item xs={12}>
+                  <TextInput
+                    variant="outlined"
+                    label="Resume Link"
+                    inputProps={{
+                      ...register("resume", {
+                        required: true,
+                        maxLength: { value: 200, message: "Too long.. consider shotening url" },
+                        pattern: {
+                          value: /^(https?:\/\/)?(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)$/,
+                          message: "Invalid Url!",
+                        },
+                      }),
+                    }}
+                  />
+                  {errors.resume && <span className="team-error">{errors.resume.message}</span>}
+                </Grid>
                 <Grid item xs={12} style={{ paddingTop: 12 }}>
                   <TextInput
                     label="Address Line 1"
@@ -384,6 +431,38 @@ export default function ProfileEdit({ data, refresh }) {
           {errorText}
         </Alert>
       </Snackbar>
+      <NavigationPrompt when={firstTime}>
+        {({ onConfirm, onCancel }) => (
+          <React.Fragment>
+            <Dialog
+              open={firstTime}
+              keepMounted
+              onClose={() => {}}
+              aria-labelledby="alert-dialog-slide-title"
+              aria-describedby="alert-dialog-slide-description"
+            >
+              <DialogTitle id="alert-dialog-slide-title">Are you sure?</DialogTitle>
+              <DialogContent>
+                <DialogContentText id="alert-dialog-slide-description">
+                  Complete your profile in order to navigate to other sections
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={onCancel} color="primary">
+                  Complete my profile
+                </Button>
+              </DialogActions>
+            </Dialog>
+          </React.Fragment>
+        )}
+      </NavigationPrompt>
+      {/* <Prompt
+        message={(location, action) => {
+          if (firstTime)
+            return "You need to update profile for idea submission. Do you still want to navigate right now?";
+          else return true;
+        }}
+      /> */}
     </div>
   );
 }

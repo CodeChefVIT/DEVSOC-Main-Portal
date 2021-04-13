@@ -78,7 +78,8 @@ const AppMain = () => {
           headers: { authorization: `Bearer ${token}` },
         })
         .then((res) => {
-          // console.log(res.data);
+          console.log(res.data);
+          if (!res.data.user.is_profile_completed) history.replace("/app/profile/edit");
           setDashboardDetails(res.data.user);
         });
     } catch (error) {
@@ -163,12 +164,7 @@ const AppMain = () => {
               <ProfileSection {...props} data={dashboardDetails} refresh={setupApp} />
             )}
           ></Route>
-          <Route
-            path="*"
-            component={(props) => (
-              <Error404 />
-            )}
-          ></Route>
+          <Route path="*" component={(props) => <Error404 />}></Route>
         </Switch>
       </div>
       <BottomNav />
