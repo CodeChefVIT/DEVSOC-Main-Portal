@@ -168,16 +168,30 @@ export default function ProfileEdit({ data, refresh }) {
                   <TextInput
                     variant="outlined"
                     label="Year of Study"
+                    select
+                    defaultValue={data?.collegeYear}
                     inputProps={{
                       ...register("year", {
                         required: { value: true, message: "Required" },
-                        pattern: {
-                          value: /^[12345]{1}$/,
-                          message: "Enter Number only!",
-                        },
                       }),
                     }}
-                  />
+                  >
+                    <MenuItem key={0} value="1">
+                      First Year
+                    </MenuItem>
+                    <MenuItem key={1} value="2">
+                      Second Year
+                    </MenuItem>
+                    <MenuItem key={2} value="3">
+                      Third Year
+                    </MenuItem>
+                    <MenuItem key={3} value="4">
+                      Fourth Year
+                    </MenuItem>
+                    <MenuItem key={4} value="5">
+                      Fifth Year
+                    </MenuItem>
+                  </TextInput>
                   {errors.year && <span className="team-error">{errors.year.message}</span>}
                 </Grid>
                 <Grid item xs={12}>

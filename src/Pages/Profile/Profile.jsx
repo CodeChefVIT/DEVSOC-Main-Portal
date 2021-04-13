@@ -7,6 +7,22 @@ import { GitHub, LinkedIn } from "@material-ui/icons";
 
 export default function Profile({ data }) {
   const history = useHistory();
+  const getString = (num) => {
+    switch (num) {
+      case 1:
+        return "First Year";
+      case 2:
+        return "Second Year";
+      case 3:
+        return "Third Year";
+      case 4:
+        return "Fourth Year";
+      case 5:
+        return "Fifth Year";
+      default:
+        return "";
+    }
+  };
   return (
     <div className="team-joined-div">
       <Grid container spacing={3}>
@@ -19,7 +35,18 @@ export default function Profile({ data }) {
           />
           <h1>{data.name}</h1>
           <h3>{data.email}</h3>
-          <h3>{data.college}</h3>
+          <div className="social">
+            {data.personal.website === "" ? (
+              <></>
+            ) : (
+              <a href={data.personal?.website} target="_blank" rel="noreferrer">
+                <h3>{data.personal?.website}</h3>
+              </a>
+            )}
+          </div>
+          <h3>
+            {data.college}: {getString(data.collegeYear)}
+          </h3>
           <h3>{data.bio}</h3>
           <div className="social">
             {data.personal.github === "" ? (
