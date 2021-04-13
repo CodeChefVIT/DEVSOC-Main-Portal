@@ -112,8 +112,10 @@ export default function ProfileEdit({ data, refresh }) {
       setValue("github", data.personal.github);
       setValue("linkedin", data.personal.linkedin);
       // setValue("tshirt", data.personal.tshirt);  // Don't know why it doesn't work
-      setValue("discordUser", data.personal.discord.nickname);
-      setValue("discordHash", data.personal.discord.hash);
+      if (data.personal.discord) {
+        setValue("discordUser", data.personal.discord.nickname);
+        setValue("discordHash", data.personal.discord.hash);
+      }
     }
     setValue("bio", data.bio);
     if (!data.is_profile_completed) {
