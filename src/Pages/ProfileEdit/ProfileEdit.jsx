@@ -457,7 +457,7 @@ export default function ProfileEdit({ data, refresh }) {
               aria-labelledby="alert-dialog-slide-title"
               aria-describedby="alert-dialog-slide-description"
             >
-              <DialogTitle id="alert-dialog-slide-title">Are you sure?</DialogTitle>
+              <DialogTitle id="alert-dialog-slide-title">Wait!</DialogTitle>
               <DialogContent>
                 <DialogContentText id="alert-dialog-slide-description">
                   Complete your profile in order to navigate to other sections

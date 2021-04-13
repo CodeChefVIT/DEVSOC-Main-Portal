@@ -48,10 +48,15 @@ function IdeaSubmission({ data, refresh }) {
           setSuccessSnack(true);
           refresh(true);
           // history.push("/app/profile");
-        });
+        })
     } catch (error) {
-      setErrorText("Something went wrong, please try again!");
-      setErrorSnack(true);
+      if(error.response.status == 409) {
+        setErrorText("Time Size should be 2 to 5 members!");
+        setErrorSnack(true);
+      } else {
+        setErrorText("Something went wrong, please try again!");
+        setErrorSnack(true);
+      }
     }
     setLoading(false);
   };
@@ -254,7 +259,7 @@ function IdeaSubmission({ data, refresh }) {
         className="snackbar"
       >
         <Alert variant="filled" severity="success" onClose={() => setSuccessSnack(false)}>
-          Profile updated successfully!
+          Idea Submitted successfully!
         </Alert>
       </Snackbar>
       <Snackbar
