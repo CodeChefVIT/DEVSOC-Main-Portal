@@ -36,7 +36,7 @@ function IdeaSubmission({ data, refresh }) {
     setLoading(true);
     let captcha = await executeRecaptcha("/");
     var update = { ...data, captcha };
-    console.log(update);
+    // console.log(update);
     const token = localStorage.getItem("authToken");
     try {
       await axios
@@ -44,7 +44,7 @@ function IdeaSubmission({ data, refresh }) {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((data) => {
-          console.log(data);
+          // console.log(data);
           setSuccessSnack(true);
           refresh(true);
           // history.push("/app/profile");

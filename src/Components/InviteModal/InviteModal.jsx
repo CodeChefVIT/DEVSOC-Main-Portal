@@ -30,7 +30,9 @@ const InviteModal = ({ open, handleClose, data }) => {
           setCopied(false);
         }, 3000);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
   };
 
   const { executeRecaptcha } = useGoogleReCaptcha();

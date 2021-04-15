@@ -23,7 +23,7 @@ const AllTeams = () => {
         setTeams(res.data.teams);
       });
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       setError(true);
     }
 
