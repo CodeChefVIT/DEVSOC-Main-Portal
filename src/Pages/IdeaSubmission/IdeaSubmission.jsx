@@ -48,9 +48,9 @@ function IdeaSubmission({ data, refresh }) {
           setSuccessSnack(true);
           refresh(true);
           // history.push("/app/profile");
-        })
+        });
     } catch (error) {
-      if(error.response.status == 409) {
+      if (error.response.status == 409) {
         setErrorText("Time Size should be 2 to 5 members!");
         setErrorSnack(true);
       } else {
@@ -154,9 +154,14 @@ function IdeaSubmission({ data, refresh }) {
                 <TextInput
                   label="Project Name"
                   variant="outlined"
-                  inputProps={{ ...register("name", { required: true, maxLength: 30 }) }}
+                  inputProps={{
+                    ...register("name", {
+                      required: { value: true, message: "This field is required" },
+                      maxLength: { value: 100, message: "Max 100 characters only" },
+                    }),
+                  }}
                 />
-                {errors.name && <span className="team-error">This field is required!</span>}
+                {errors.name && <span className="team-error">{errors.name.message}</span>}
               </Grid>
               <Grid item xs={12}>
                 <TextInput
