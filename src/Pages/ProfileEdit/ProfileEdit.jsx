@@ -153,6 +153,7 @@ export default function ProfileEdit({ data, refresh }) {
                     inputProps={{
                       ...register("mobile", { required: true, maxLength: 15, minLength: 7 }),
                     }}
+                    placeholder="without country code"
                   />
                   {errors.mobile && (
                     <span className="team-error">Please enter a valid phone number!</span>
