@@ -24,7 +24,7 @@ function Dashboard({ data, refresh }) {
   useEffect(() => {
     const start = new Date();
     start.setFullYear(2021, 3, 30);
-    start.setHours(9);
+    start.setHours(18);
     start.setMinutes(0);
     start.setSeconds(0);
     const Now = new Date();
