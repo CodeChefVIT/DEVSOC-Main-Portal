@@ -123,6 +123,7 @@ function IdeaSubmission({ data, refresh }) {
                     data.teams && data.teams.submission ? data.teams.submission.track : ""
                   }
                   inputProps={{ ...register("track", { required: true }) }}
+                  disabled
                 >
                   <MenuItem key={0} value="ar-vr">
                     Best of AR/VR
@@ -160,6 +161,7 @@ function IdeaSubmission({ data, refresh }) {
                       maxLength: { value: 100, message: "Max 100 characters only" },
                     }),
                   }}
+                  disabled
                 />
                 {errors.name && <span className="team-error">{errors.name.message}</span>}
               </Grid>
@@ -187,18 +189,20 @@ function IdeaSubmission({ data, refresh }) {
                     }),
                   }}
                   rows={10}
+                  disabled
                 />
                 {errors.description && (
                   <span className="team-error">{errors.description.message}</span>
                 )}
               </Grid>
-              <button className="team-primary-btn submit-btn" type="submit" disabled={loading}>
+              {/* <button className="team-primary-btn submit-btn" type="submit" disabled={loading}>
                 {loading ? <CircularProgress color="secondary" size={24} /> : "Submit Idea"}
-              </button>
+              </button> */}
               <Grid item xs={12}>
                 <div>
-                  Once the idea is submitted, you will not be able to join/ leave this team or
-                  invite/remove someone from your team.
+                  {/* Once the idea is submitted, you will not be able to join/ leave this team or
+                  invite/remove someone from your team. */}
+                  Idea submission is closed! If you have already submitted the idea, stay tuned!
                 </div>
               </Grid>
             </Grid>
