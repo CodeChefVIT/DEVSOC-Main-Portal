@@ -4,6 +4,8 @@ import "./Profile.css";
 import back from "./back.svg";
 import { Link, useHistory } from "react-router-dom";
 import { GitHub, LinkedIn } from "@material-ui/icons";
+import { useEffect } from "react";
+import axios from "axios";
 
 export default function Profile({ data }) {
   const history = useHistory();
@@ -23,6 +25,25 @@ export default function Profile({ data }) {
         return "";
     }
   };
+
+  const certificate = async () => {
+    const token = localStorage.getItem("authToken");
+
+    await axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/user/generateCertificate`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((data) => {
+        window.open(data.data.certificate);
+      });
+  };
+
+  useEffect(() => {
+    if (!data.is_profile_completed) {
+      history.push("/app/profile/edit");
+    }
+  }, []);
+
   return (
     <div className="team-joined-div">
       <Grid container spacing={3}>
@@ -67,6 +88,15 @@ export default function Profile({ data }) {
           <Link to="/app/profile/edit">
             <button className="team-primary-btn profile-btn">Edit Profile</button>
           </Link>
+          <br/>
+          <br/>
+          {data.show_certificate ? (
+            <button className="team-primary-btn profile-btn" onClick={certificate}>
+              Download Certificate
+            </button>
+          ) : (
+            <></>
+          )}
           <Hidden smUp>
             <button
               className="team-primary-btn profile-btn"
