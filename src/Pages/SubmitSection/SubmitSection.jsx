@@ -11,11 +11,11 @@ function SubmitSection({ data, refresh }) {
           path="/app/submission"
           component={(props) => <IdeaSubmission {...props} data={data} refresh={refresh} />}
         ></Route>
-        <Route
+        {/* <Route
           exact
           path="/app/submission/project"
           component={(props) => <ProjectSubmission {...props} data={data} refresh={refresh} />}
-        ></Route>
+        ></Route> */}
       </Switch>
     </div>
   );
