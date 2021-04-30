@@ -86,7 +86,7 @@ function Dashboard({ data, refresh }) {
                 minimumIntegerDigits: 2,
                 useGrouping: false,
               })}{" "}
-              <span className="clock-label">HOURS</span>
+              <span className="clock-label">DAYS</span>
             </div>
             :{" "}
             <div className="clock-item">
@@ -94,7 +94,7 @@ function Dashboard({ data, refresh }) {
                 minimumIntegerDigits: 2,
                 useGrouping: false,
               })}{" "}
-              <span className="clock-label">MINUTES</span>
+              <span className="clock-label">HOURS</span>
             </div>
             :{" "}
             <div className="clock-item">
@@ -102,7 +102,7 @@ function Dashboard({ data, refresh }) {
                 minimumIntegerDigits: 2,
                 useGrouping: false,
               })}{" "}
-              <span className="clock-label">SECONDS</span>
+              <span className="clock-label">MINUTES</span>
             </div>
           </div>
         </div>
