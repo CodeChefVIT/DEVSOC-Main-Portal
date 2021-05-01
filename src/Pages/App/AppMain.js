@@ -99,7 +99,7 @@ const AppMain = () => {
           },
         })
         .then((res) => {
-          console.log(res.data);
+          // console.log(res.data);
           setTeamDetails(res.data);
         });
     } catch (error) {
