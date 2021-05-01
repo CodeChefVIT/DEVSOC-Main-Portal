@@ -72,6 +72,12 @@ function FinalSubmission({ data, refresh }) {
     // }
 
     if (file) {
+      if (file.size / 1024 / 1024 > 100) {
+        setErrorText("Max zip file size is 100MB");
+        setErrorSnack(true);
+        setLoading(false);
+        return;
+      }
       const zip = new FormData();
       zip.append("zip", file);
 
@@ -285,7 +291,7 @@ function FinalSubmission({ data, refresh }) {
                       <span className="team-error">{errors.techStack.message}</span>
                     )}
                   </Grid>
-                  <Grid item xs={12}>
+                  {/* <Grid item xs={12}>
                     <h3 className="file-gradient-head">
                       Source Code upload{" "}
                       {!zipUpload ? (
@@ -305,7 +311,7 @@ function FinalSubmission({ data, refresh }) {
                       style={{ marginBottom: "1em" }}
                       onChange={handleFile}
                     />
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </Grid>
               <Grid item xs={12} sm={6} className="sub-side">
