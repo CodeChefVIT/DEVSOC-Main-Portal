@@ -252,9 +252,9 @@ function FinalSubmission({ data, refresh }) {
                     {errors.github && <span className="team-error">{errors.github.message}</span>}
                   </Grid>
                   <Grid item xs={12}>
-                    <Tooltip title="Link to the demo video. Make sure the video is not private.">
+                    <Tooltip title="Link to the demo video. Make sure the video is not private. Optional for Review 2, but required for final pitch">
                       <TextInput
-                        label="Demo Video link"
+                        label="Demo Video link (optional)"
                         variant="outlined"
                         type="url"
                         inputProps={{
