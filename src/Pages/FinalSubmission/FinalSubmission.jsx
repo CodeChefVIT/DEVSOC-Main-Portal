@@ -64,12 +64,12 @@ function FinalSubmission({ data, refresh }) {
     let captcha = await executeRecaptcha("/");
     const token = localStorage.getItem("authToken");
 
-    if (file === null && !data.teams.submission.zip) {
-      setErrorText("Select ZIP file!");
-      setErrorSnack(true);
-      setLoading(false);
-      return;
-    }
+    // if (file === null && !data.teams.submission.zip) {
+    //   setErrorText("Select ZIP file!");
+    //   setErrorSnack(true);
+    //   setLoading(false);
+    //   return;
+    // }
 
     if (file) {
       const zip = new FormData();
