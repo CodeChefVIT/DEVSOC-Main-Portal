@@ -346,7 +346,7 @@ function FinalSubmission({ data, refresh }) {
                     )}
                   </Grid>
                   <Grid item xs={12}>
-                    <button
+                    {/* <button
                       className="team-primary-btn submit-btn"
                       type="submit"
                       disabled={loading}
@@ -356,7 +356,8 @@ function FinalSubmission({ data, refresh }) {
                       ) : (
                         "Submit Project"
                       )}
-                    </button>
+                    </button> */}
+                    Project submissions closed! Stay tuned!
                   </Grid>
                 </Grid>
               </Grid>
