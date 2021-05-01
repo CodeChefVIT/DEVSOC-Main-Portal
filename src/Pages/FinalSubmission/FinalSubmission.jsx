@@ -44,7 +44,6 @@ function FinalSubmission({ data, refresh }) {
 
   const handleFile = (e) => {
     if (e.target.files[0]) {
-      console.log(e.target.files[0]);
       setFile(e.target.files[0]);
     } else {
       setFile(null);
