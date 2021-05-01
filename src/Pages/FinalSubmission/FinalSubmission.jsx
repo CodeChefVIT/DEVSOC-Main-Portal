@@ -72,12 +72,6 @@ function FinalSubmission({ data, refresh }) {
     // }
 
     if (file) {
-      if (file.size / 1024 / 1024 > 100) {
-        setErrorText("Max zip file size is 100MB");
-        setErrorSnack(true);
-        setLoading(false);
-        return;
-      }
       const zip = new FormData();
       if (file.size > 100000000) {
         setErrorText("ZIP file size cannot exceed 100mb!");
