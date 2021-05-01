@@ -155,7 +155,7 @@ const AppMain = () => {
           <Route
             path="/app/submission"
             component={(props) =>
-              teamDetails.teams && teamDetails.teams.submissions ? (
+              teamDetails.teams && teamDetails.teams.submission ? (
                 teamDetails.teams.submission.status === "Shortlisted For Round 2" ||
                 teamDetails.teams.submission.status === "Project Submitted" ? (
                   <FinalSubmission {...props} data={teamDetails} refresh={setupApp} />

@@ -259,7 +259,6 @@ function FinalSubmission({ data, refresh }) {
                         type="url"
                         inputProps={{
                           ...register("demoVideo", {
-                            required: { value: true, message: "This field is required" },
                             maxLength: { value: 200, message: "Max 200 characters only" },
                           }),
                         }}
