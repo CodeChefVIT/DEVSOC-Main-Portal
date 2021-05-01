@@ -50,7 +50,7 @@ function IdeaSubmission({ data, refresh }) {
           // history.push("/app/profile");
         });
     } catch (error) {
-      if (error.response.status == 409) {
+      if (error.response.status === 409) {
         setErrorText("Time Size should be 2 to 5 members!");
         setErrorSnack(true);
       } else {

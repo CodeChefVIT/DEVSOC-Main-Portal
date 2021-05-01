@@ -1,0 +1,16 @@
+.final-left-box {
+	padding-left: 3% !important;
+}
+
+.file-gradient-head {
+	background: linear-gradient(98.49deg, #6f57ff, #25d8ff);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+@media screen and (max-width: 600px) {
+	.final-left-box {
+		padding-left: 8px !important;
+	}
+}

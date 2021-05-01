@@ -13,6 +13,7 @@ import { Snackbar } from "@material-ui/core";
 import { Alert } from "@material-ui/lab";
 import { useGoogleReCaptcha } from "react-google-recaptcha-v3";
 import Error404 from "../Error404/Error404";
+import FinalSubmission from "../FinalSubmission/FinalSubmission";
 
 const AppMain = () => {
   const history = useHistory();
@@ -78,7 +79,6 @@ const AppMain = () => {
           headers: { authorization: `Bearer ${token}` },
         })
         .then((res) => {
-          console.log(res.data);
           if (!res.data.user.is_profile_completed) history.replace("/app/profile/edit");
           setDashboardDetails(res.data.user);
         });
@@ -99,7 +99,7 @@ const AppMain = () => {
           },
         })
         .then((res) => {
-          // console.log(res.data);
+          console.log(res.data);
           setTeamDetails(res.data);
         });
     } catch (error) {
@@ -154,9 +154,14 @@ const AppMain = () => {
           ></Route>
           <Route
             path="/app/submission"
-            component={(props) => (
-              <SubmissionSection {...props} data={teamDetails} refresh={setupApp} />
-            )}
+            component={(props) =>
+              teamDetails.teams.submission.status === "Shortlisted For Round 2" ||
+              teamDetails.teams.submission.status === "Project Submitted" ? (
+                <FinalSubmission {...props} data={teamDetails} refresh={setupApp} />
+              ) : (
+                <SubmissionSection {...props} data={teamDetails} refresh={setupApp} />
+              )
+            }
           ></Route>
           <Route
             path="/app/profile"
@@ -164,6 +169,7 @@ const AppMain = () => {
               <ProfileSection {...props} data={dashboardDetails} refresh={setupApp} />
             )}
           ></Route>
+
           <Route path="*" component={(props) => <Error404 />}></Route>
         </Switch>
       </div>
