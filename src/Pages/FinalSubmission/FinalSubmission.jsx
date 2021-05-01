@@ -109,7 +109,10 @@ function FinalSubmission({ data, refresh }) {
           refresh(true);
           // history.push("/app/profile");
         });
-    } catch (error) {}
+    } catch (error) {
+      setErrorText("There was some error. Please try again");
+      setErrorSnack(true);
+    }
     setLoading(false);
   };
 
