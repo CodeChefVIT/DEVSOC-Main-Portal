@@ -78,7 +78,7 @@ function Dashboard({ data, refresh }) {
   return (
     <div className="team-container">
       <div className="team-div">
-        <div className="dashhack">{!hackBegin ? "Hack Starts in" : "Hack ends in"}</div>
+        {/* <div className="dashhack">{!hackBegin ? "Hack Starts in" : "Hack ends in"}</div>
         <div className="counter">
           <div className="clock">
             <div className="clock-item">
@@ -117,7 +117,8 @@ function Dashboard({ data, refresh }) {
           </>
         ) : (
           <></>
-        )}
+        )} */}
+        <div className="clock">Hack has Ended</div>
       </div>
     </div>
   );
