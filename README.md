@@ -16,8 +16,14 @@
 -   Easy to use.
 
 ## Important Links
--  [Main Portal Backend Repo](https://github.com/CodeChefVIT/DEVSOC21-Backend)
--  [DEVSOC Main Portal](https://hackwith.codechefvit.com/app/dashboard)
+- [DEVSOC Portal](https://hackwith.codechefvit.com)
+- [DEVSOC iOS App](Codechefvit.com/iosapp)
+- [DEVSOC Android App](Codechefvit.com/androidapp)
+- [DEVSOC Backend Repo](https://github.com/CodeChefVIT/DEVSOC-Backend)
+- [DEVSOC Photify Repo](https://github.com/CodeChefVIT/Photify-DEVSOC)
+- [DEVSOC Admin Portal repo](https://github.com/CodeChefVIT/DEVSOC21-Admin-Portal)
+- [DEVSOC App Repo](https://github.com/CodeChefVIT/DEVSOC21-App)
+- [DEVSOC Landing Page Repo](https://github.com/CodeChefVIT/DevSoc21)
 
 
 ## Screenshots
