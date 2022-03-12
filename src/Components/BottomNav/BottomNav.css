@@ -4,7 +4,7 @@
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  background-color: #080020;
+  /* background-color: #080020; */
   z-index: 100;
 }
 

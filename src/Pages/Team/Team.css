@@ -14,7 +14,7 @@
 }
 
 .team-div {
-  border: 2px solid #3051ff;
+  /* border: 2px solid #3051ff; */
   border-radius: 50px;
   width: 90%;
   height: 100%;
@@ -51,7 +51,7 @@
   outline: none;
   border: none;
   border-radius: 15px;
-  background: linear-gradient(91.89deg, #6f57ff -5.11%, #25d8ff 152.73%);
+  background: linear-gradient(91.89deg, #37ABBC -5.11%, #25D8FF 152.73%);
   color: white;
   height: 55px;
   width: 300px;
@@ -69,7 +69,7 @@
   outline: none;
   border: none;
   border-radius: 15px;
-  border: 2px solid #3051ff;
+  border: 2px solid #28CEF1;
   background: transparent;
   color: white;
   height: 55px;

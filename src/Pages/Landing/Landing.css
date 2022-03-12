@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk&display=swap");
 .devsoc21 {
   background: linear-gradient(91.52deg, #3051ff 0.45%, #25d8ff 107.04%);
   -webkit-background-clip: text;
@@ -24,6 +25,7 @@
   padding: 0;
   background-repeat: no-repeat;
   background-size: cover;
+  display: flex;
 }
 
 /* Google Button */
@@ -84,6 +86,30 @@
 .google-btn:active,
 .google-btn:active .google-icon {
   background: #1669f2;
+}
+
+.dev-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20%;
+}
+
+.logo {
+  width: 300px;
+  /* height: 280px; */
+  margin-right: 4%;
+}
+
+.heading1{
+  padding-top: 75px;
+  margin-bottom: 7.5%;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 900;
+  font-size: 90px;
+  line-height: 122px;
+  color: white;
 }
 
 @media (min-width: 768px) {

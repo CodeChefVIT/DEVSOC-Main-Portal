@@ -4,11 +4,13 @@ const TextInput = withStyles({
   root: {
     width: "100%",
     borderRadius: 14,
-    backgroundColor: "#1c006f",
+    backgroundColor: "#159AB7",
     "& .MuiInputBase-input": {
       fontFamily: "Montserrat",
       borderRadius: 16,
+      color:"#3E238F"
     },
+    
     "& .MuiFormLabel-root.Mui-focused": {
       color: "#cdcdcd !important",
     },
@@ -18,7 +20,7 @@ const TextInput = withStyles({
     "& .MuiOutlinedInput-root": {
       "& fieldset": {
         borderRadius: 14,
-        borderColor: "#1c006f",
+        borderColor: "#159AB7",
       },
       "&.Mui-focused fieldset": {
         borderColor: "#cdcdcd !important",

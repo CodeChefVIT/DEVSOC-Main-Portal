@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import "./TopNav.css";
+import logo from './DEVSOCLogo.png';
 
 function TopNav({ data }) {
   const history = useHistory();
@@ -13,7 +14,8 @@ function TopNav({ data }) {
     <div style={{ padding: "0 3%" }}>
       <h1 className="devsoc21">
         <Link to="/app/dashboard" style={{ textDecoration: "none", width: "fit-content" }}>
-          DEVSOC'21
+          <img src={logo} width={150}></img>
+          {/* DEVSOC'21 */}
         </Link>
       </h1>
       <h1 className="page-title">

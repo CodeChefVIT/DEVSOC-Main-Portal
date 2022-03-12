@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import "./ProfileEdit.css";
 import Grid from "@material-ui/core/Grid";
-import salty from "./Saly-14.svg";
+import salty from "./Profile.png";
 import {
   Button,
   CircularProgress,
@@ -130,6 +130,25 @@ export default function ProfileEdit({ data, refresh }) {
 
   return (
     <div className="team-joined-div">
+      <img
+            style={{
+              height: "100vh",
+              margin: "0",
+              width: "100vw",
+              padding: "0",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+             
+             
+              position: "fixed",
+              bottom: "0",
+              right: "0",
+              zIndex: -1,
+            }}
+            src={salty}
+            alt={""}
+            className="From-img"
+          />
       <div style={{ fontSize: "1.3rem", marginBottom: 10 }}>
         {data.is_profile_completed ? "" : "Please Complete your profile to navigate to other pages"}
       </div>
@@ -412,22 +431,10 @@ export default function ProfileEdit({ data, refresh }) {
 
       <Hidden xsDown>
         <Grid item md={6}>
-          <img
-            style={{
-              maxWidth: "100%",
-              maxHeight: "100%",
-              height: "auto",
-              position: "fixed",
-              bottom: "0",
-              right: "0",
-              zIndex: -1,
-            }}
-            src={salty}
-            alt={""}
-            className="From-img"
-          />
+          
         </Grid>
       </Hidden>
+      
       <Snackbar
         open={successSnack}
         onClose={() => setSuccessSnack(false)}
