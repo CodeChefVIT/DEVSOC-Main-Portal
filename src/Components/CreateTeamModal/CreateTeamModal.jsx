@@ -69,7 +69,7 @@ const CreateTeamModal = ({ open, handleClose, refresh }) => {
         <form onSubmit={handleSubmit(submit)}>
           <div className="team-name">
             <input
-              placeholder="Team name"
+              // placeholder="Team name"
               {...register("name", { required: true, maxLength: 30 })}
               className="modal-input"
             />

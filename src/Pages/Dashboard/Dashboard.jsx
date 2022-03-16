@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import "./Dashboard.css";
+import salty from './Dashboard.png'
 
 function Dashboard({ data, refresh }) {
   const [alreadyJoined, setAlreadyJoined] = useState(false);
@@ -23,7 +24,7 @@ function Dashboard({ data, refresh }) {
   var hackTimer;
   useEffect(() => {
     const start = new Date();
-    start.setFullYear(2021, 3, 30);
+    start.setFullYear(2022, 4, 15);
     start.setHours(18);
     start.setMinutes(0);
     start.setSeconds(0);
@@ -34,7 +35,7 @@ function Dashboard({ data, refresh }) {
       setTimer(diff);
     } else {
       const end = new Date();
-      end.setFullYear(2021, 4, 2);
+      end.setFullYear(2022, 4, 15);
       end.setHours(20);
       end.setMinutes(0);
       end.setSeconds(0);
@@ -77,8 +78,27 @@ function Dashboard({ data, refresh }) {
 
   return (
     <div className="team-container">
+      <img
+            style={{
+              height: "100vh",
+              margin: "0",
+              width: "100vw",
+              padding: "0",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+             
+             
+              position: "fixed",
+              bottom: "0",
+              right: "0",
+              zIndex: -1,
+            }}
+            src={salty}
+            alt={""}
+            className="From-img"
+          />
       <div className="team-div">
-        {/* <div className="dashhack">{!hackBegin ? "Hack Starts in" : "Hack ends in"}</div>
+        <div className="dashhack">{!hackBegin ? "Hack Starts in" : "Hack ends in"}</div>
         <div className="counter">
           <div className="clock">
             <div className="clock-item">
@@ -117,8 +137,8 @@ function Dashboard({ data, refresh }) {
           </>
         ) : (
           <></>
-        )} */}
-        <div className="clock">Hack has Ended</div>
+        )}
+        {/* <div className="clock">Hack has Ended</div> */}
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Grid, Hidden } from "@material-ui/core";
 import "./Profile.css";
-import back from "./back.svg";
+import back from "./Profile.png";
 import { Link, useHistory } from "react-router-dom";
 import { GitHub, LinkedIn } from "@material-ui/icons";
 import { useEffect } from "react";
@@ -90,13 +90,13 @@ export default function Profile({ data }) {
           </Link>
           <br/>
           <br/>
-          {data.show_certificate ? (
+          {/* {data.show_certificate ? (
             <button className="team-primary-btn profile-btn" onClick={certificate}>
               Download Certificate
             </button>
           ) : (
             <></>
-          )}
+          )} */}
           <Hidden smUp>
             <button
               className="team-primary-btn profile-btn"
@@ -114,11 +114,16 @@ export default function Profile({ data }) {
 
       <Hidden xsDown>
         <Grid item md={6}>
-          <img
+        <img
             style={{
-              maxWidth: "100%",
-              maxHeight: "100%",
-              height: "auto",
+              height: "100vh",
+              margin: "0",
+              width: "100vw",
+              padding: "0",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+             
+             
               position: "fixed",
               bottom: "0",
               right: "0",

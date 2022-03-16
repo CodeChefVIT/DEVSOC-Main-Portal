@@ -1,5 +1,5 @@
 import React from "react";
-import salty from "./Saly-16.svg";
+import salty from "./FinalIdeaSubmission.png";
 import TextInput from "../../Components/TextInput/TextInput";
 import {
   CircularProgress,
@@ -159,31 +159,38 @@ function FinalSubmission({ data, refresh }) {
           </div>
         </>
 
-        <img
-          style={{
-            maxWidth: "100%",
-            maxHeight: "100%",
-            height: "auto",
-            position: "fixed",
-            bottom: "0",
-            right: "0",
-            zIndex: -1,
-          }}
-          src={salty}
-          alt={""}
-          className="From-img"
-        />
       </div>
     );
   }
 
   return (
+    <>
+    <img
+    style={{
+      height: "100vh",
+      margin: "0",
+      width: "100vw",
+      padding: "0",
+      backgroundRepeat: "no-repeat",
+      backgroundSize: "cover",
+     
+     
+      position: "fixed",
+      bottom: "0",
+      right: "0",
+      zIndex: -1,
+    }}
+    src={salty}
+    alt={""}
+    className="From-img"
+  />
     <div className="team-joined-div" style={{ padding: "0" }}>
+      
       <Grid container style={{ height: "100%" }}>
         <Grid item xs={12} sm={12} md={7}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6} className="sub-side" className="final-left-box">
+              <Grid item xs={12} sm={6} className="sub-side final-left-box">
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
                     <TextInput
@@ -346,7 +353,7 @@ function FinalSubmission({ data, refresh }) {
                     )}
                   </Grid>
                   <Grid item xs={12}>
-                    {/* <button
+                    <button
                       className="team-primary-btn submit-btn"
                       type="submit"
                       disabled={loading}
@@ -356,8 +363,8 @@ function FinalSubmission({ data, refresh }) {
                       ) : (
                         "Submit Project"
                       )}
-                    </button> */}
-                    Project submissions closed! Stay tuned!
+                    </button>
+                    {/* Project submissions closed! Stay tuned! */}
                   </Grid>
                 </Grid>
               </Grid>
@@ -438,6 +445,7 @@ function FinalSubmission({ data, refresh }) {
         </Alert>
       </Snackbar>
     </div>
+    </>
   );
 }
 

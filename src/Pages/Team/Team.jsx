@@ -7,6 +7,7 @@ import InviteModal from "../../Components/InviteModal/InviteModal";
 import JoinTeamModal from "../../Components/JoinTeamModal/JoinTeamModal";
 import RemoveMember from "../../Components/RemoveMemberModal/RemoveMember";
 import "./Team.css";
+import dash from './Dashboard.png'
 
 function Team({ data, refresh, profile }) {
   const [createTeam, setCreateTeam] = useState(false);
@@ -60,9 +61,30 @@ function Team({ data, refresh, profile }) {
 
   return (
     <div className="team-container">
+      
+       <img
+            style={{
+              height: "100vh",
+              margin: "0",
+              width: "100vw",
+              padding: "0",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+             
+             
+              position: "fixed",
+              bottom: "0",
+              right: "0",
+              zIndex: -1,
+            }}
+            src={dash}
+            alt={""}
+            className="From-img"
+          />
       {!alreadyJoined ? (
         <div className="team-div">
           <>
+          <h1>Dashboard</h1>
             <h3 style={{ marginBottom: "40px" }}>Oops, looks like you dont have a team yet!</h3>
             <div className="team-btn-div">
               <button className="team-primary-btn" onClick={() => setCreateTeam(true)}>
@@ -176,7 +198,7 @@ function Team({ data, refresh, profile }) {
                 md={6}
                 style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
               >
-                <img src="/assets/team-joined.png" alt="team joined" style={{ width: "500px" }} />
+                {/* <img src="/assets/team-joined.png" alt="team joined" style={{ width: "500px" }} /> */}
               </Grid>
             </Hidden>
           </Grid>
