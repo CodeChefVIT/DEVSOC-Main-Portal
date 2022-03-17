@@ -46,14 +46,17 @@ export default function Profile({ data }) {
 
   return (
     <div className="team-joined-div">
-      <Grid container spacing={3}>
-        <Grid item xs={12} md={6} className="profile-data">
-          <Avatar
+      <div className="team-avatar">
+       <Avatar
             className="user_profile_picture"
             alt={data.name}
             variant="circular"
             src={data.avatar}
           />
+      </div>
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={12} className="profile-data">
+         
           <h1>{data.name}</h1>
           <h3>{data.email}</h3>
           <div className="social">

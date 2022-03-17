@@ -3,7 +3,7 @@
   margin: 0 0 15px 0;
   width: fit-content;
   padding-right: 50px;
-  overflow: hidden;
+  /* overflow: hidden; */
   height: 36px;
 }
 
