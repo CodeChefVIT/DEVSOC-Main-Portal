@@ -91,19 +91,24 @@ function IdeaSubmission({ data, refresh }) {
         </>
 
         <img
-          style={{
-            maxWidth: "100%",
-            maxHeight: "100%",
-            height: "auto",
-            position: "fixed",
-            bottom: "0",
-            right: "0",
-            zIndex: -1,
-          }}
-          src={salty}
-          alt={""}
-          className="From-img"
-        />
+            style={{
+              height: "100vh",
+              margin: "0",
+              width: "100vw",
+              padding: "0",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+             
+             
+              position: "fixed",
+              bottom: "0",
+              right: "0",
+              zIndex: -1,
+            }}
+            src={salty}
+            alt={""}
+            className="From-img"
+          />
       </div>
     );
   }
@@ -263,7 +268,7 @@ function IdeaSubmission({ data, refresh }) {
 
       <Hidden xsDown>
         <Grid item md={6}>
-          <img
+          {/* <img
             style={{
               maxWidth: "100%",
               maxHeight: "100%",
@@ -276,7 +281,7 @@ function IdeaSubmission({ data, refresh }) {
             src={salty}
             alt={""}
             className="From-img"
-          />
+          /> */}
         </Grid>
       </Hidden>
       <Snackbar

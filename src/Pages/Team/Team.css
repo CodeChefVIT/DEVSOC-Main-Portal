@@ -2,9 +2,10 @@
   width: 100%;
   height: calc(100% - 10px);
   margin: 3px 0 7px 0;
-  display: flex;
+  display: grid;
   justify-content: center;
   align-items: center;
+  text-align: center;
 }
 
 @media (max-height: 500px) {
@@ -31,7 +32,12 @@
   height: 100%;
   padding: 0 3%;
 }
-
+.team-avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10px;
+}
 .team-members-head-div .gradient-head {
   margin: 0;
 }
@@ -92,7 +98,7 @@
 }
 
 .gradient-head {
-  background: linear-gradient(98.49deg, #6f57ff, #25d8ff);
+  background: linear-gradient(98.49deg, #25D7FE -7.64%, #25D8FF 127.88%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

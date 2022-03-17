@@ -8,6 +8,7 @@ import JoinTeamModal from "../../Components/JoinTeamModal/JoinTeamModal";
 import RemoveMember from "../../Components/RemoveMemberModal/RemoveMember";
 import "./Team.css";
 import dash from './Dashboard.png'
+import back from "./EmptyTeam.png";
 
 function Team({ data, refresh, profile }) {
   const [createTeam, setCreateTeam] = useState(false);
@@ -109,19 +110,41 @@ function Team({ data, refresh, profile }) {
         </div>
       ) : (
         <div className="team-joined-div">
+           <img
+            style={{
+              height: "100vh",
+              margin: "0",
+              width: "100vw",
+              padding: "0",
+              backgroundRepeat: "no-repeat",
+              backgroundSize: "cover",
+             
+             
+              position: "fixed",
+              bottom: "0",
+              right: "0",
+              zIndex: -1,
+            }}
+            src={back}
+            alt={""}
+            className="From-img"
+          />
           <Grid container spacing={3}>
-            <Grid item xs={12} sm={12} md={6}>
+            <Grid item xs={12} sm={12} md={12}>
               <div
                 style={{
                   width: "100%",
                   display: "flex",
-                  justifyContent: "space-between",
+                  justifyContent: "center",
                   alignItems: "center",
                   margin: "40px 0",
+
                 }}
               >
                 <h3 className="team-name">Team {data.teams.name}</h3>
-                <a
+                
+              </div>
+              <a
                   className="remove-btn"
                   href="/allTeams"
                   target="_blank"
@@ -130,7 +153,6 @@ function Team({ data, refresh, profile }) {
                 >
                   View all teams
                 </a>
-              </div>
               <div className="my-team-info">
                 {/* <h2 className="gradient-head">Status</h2>
                 <p className="team-status">Selected for final pitch</p> */}
@@ -144,14 +166,17 @@ function Team({ data, refresh, profile }) {
                     marginBottom: "20px",
                   }}
                 >
-                  <h2 className="gradient-head">Team Members</h2>
+                </div>
+                <h2 className="gradient-head">Team Members</h2>
                   {data.isLeader && !ideaSubmitted ? (
                     <span className="remove-btn" onClick={() => setRemoving(true)}>
                       Remove members
                     </span>
                   ) : null}
-                </div>
-                <Grid container spacing={3} className="team-members-div">
+                <Grid container spacing={3} className="team-members-div" style={{
+                        display: "flex",
+                        justifyContent: "center",
+                      }}>
                   {data.teams.users.map((user, i) => (
                     <Grid
                       item
@@ -162,7 +187,8 @@ function Team({ data, refresh, profile }) {
                         paddingBottom: 0,
                         paddingTop: 0,
                         display: "flex",
-                        justifyContent: i % 2 === 0 ? "flex-start" : "flex-end",
+                        marginTop: "50px",
+                        justifyContent: "center",
                       }}
                       className="member-name-grid"
                     >
@@ -190,17 +216,7 @@ function Team({ data, refresh, profile }) {
                 )}
               </div>
             </Grid>
-            <Hidden smDown>
-              <Grid
-                item
-                xs={12}
-                sm={12}
-                md={6}
-                style={{ display: "flex", justifyContent: "center", alignItems: "center" }}
-              >
-                {/* <img src="/assets/team-joined.png" alt="team joined" style={{ width: "500px" }} /> */}
-              </Grid>
-            </Hidden>
+            
           </Grid>
           <RemoveMember
             open={removing}
