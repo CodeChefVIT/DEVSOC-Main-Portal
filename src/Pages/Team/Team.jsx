@@ -137,11 +137,11 @@ function Team({ data, refresh, profile }) {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  margin: "40px 0",
+                  margin: "20px 0",
 
                 }}
               >
-                <h3 className="team-name">Team {data.teams.name}</h3>
+                <h2 className="team-name">Team {data.teams.name}</h2>
                 
               </div>
               <a

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import Loading from "../../Components/Loading/Loading";
 import TeamCard from "../../Components/TeamCard/TeamCard";
 import "./AllTeams.css";
+import allTeams from "../../assets/Allteams.png";
 
 const AllTeams = () => {
   const [loading, setLoading] = useState(true);

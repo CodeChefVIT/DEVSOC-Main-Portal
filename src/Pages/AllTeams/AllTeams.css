@@ -1,3 +1,9 @@
+.all-teams-page{
+	background:linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.75)),url("../../assets/Allteams.png") no-repeat center center;
+	background-size:cover;
+}
+
+
 .all-teams-div {
 	display: flex !important;
 	flex-direction: column !important;
@@ -7,7 +13,7 @@
 
 .search-container {
 	width: 40%;
-	margin-bottom: 10%;
+	margin-bottom: 5%;
 }
 
 .search-box {
@@ -16,7 +22,7 @@
 
 .search-box .MuiOutlinedInput-notchedOutline {
 	border-width: 3px !important;
-	border-color: #3051FF !important;
+	border-color: #28CEF1 !important;
 	border-radius: 15px !important;
 }
 
@@ -25,10 +31,11 @@
 }
 
 .search-box .MuiFormLabel-root.Mui-focused {
-	color: #3051FF !important;
+	color: #28CEF1 !important;
 }
 
 .all-teams-list {
+	/* margin-top: 10%; */
 	width: 60%;
 }
 

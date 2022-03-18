@@ -131,24 +131,24 @@ export default function ProfileEdit({ data, refresh }) {
   return (
     <div className="team-joined-div">
       <img
-            style={{
-              height: "100vh",
-              margin: "0",
-              width: "100vw",
-              padding: "0",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-             
-             
-              position: "fixed",
-              bottom: "0",
-              right: "0",
-              zIndex: -1,
-            }}
-            src={salty}
-            alt={""}
-            className="From-img"
-          />
+        style={{
+          height: "100vh",
+          margin: "0",
+          width: "100vw",
+          padding: "0",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+
+
+          position: "fixed",
+          bottom: "0",
+          right: "0",
+          zIndex: -1,
+        }}
+        src={salty}
+        alt={""}
+        className="From-img"
+      />
       <div style={{ fontSize: "1.3rem", marginBottom: 10 }}>
         {data.is_profile_completed ? "" : "Please Complete your profile to navigate to other pages"}
       </div>
@@ -259,8 +259,9 @@ export default function ProfileEdit({ data, refresh }) {
                 <Grid item xs={12} sm={6}>
                   <TextInput
                     variant="outlined"
-                    label="Discord Username"
+                    label="Discord username"
                     inputProps={{ ...register("discordUser", { required: true, maxLength: 30 }) }}
+                    style={{ fontSize: "0.75rem" }}
                   />
                   {errors.discordUser && (
                     <span className="team-error">Please fill this field!</span>
@@ -431,10 +432,10 @@ export default function ProfileEdit({ data, refresh }) {
 
       <Hidden xsDown>
         <Grid item md={6}>
-          
+
         </Grid>
       </Hidden>
-      
+
       <Snackbar
         open={successSnack}
         onClose={() => setSuccessSnack(false)}
@@ -461,7 +462,7 @@ export default function ProfileEdit({ data, refresh }) {
             <Dialog
               open={firstTime}
               keepMounted
-              onClose={() => {}}
+              onClose={() => { }}
               aria-labelledby="alert-dialog-slide-title"
               aria-describedby="alert-dialog-slide-description"
             >
