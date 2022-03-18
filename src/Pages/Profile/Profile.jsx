@@ -9,6 +9,7 @@ import axios from "axios";
 
 export default function Profile({ data }) {
   const history = useHistory();
+  console.log(data);
   const getString = (num) => {
     switch (num) {
       case 1:
@@ -46,20 +47,21 @@ export default function Profile({ data }) {
 
   return (
     <div className="team-joined-div">
-      <div className="team-avatar">
-       <Avatar
-            className="user_profile_picture"
-            alt={data.name}
-            variant="circular"
-            src={data.avatar}
-          />
+      <div className="profile-avatar">
+        <Avatar
+          className="user_profile_picture"
+          alt={data.name}
+          variant="circular"
+          src={data.avatar}
+        />
       </div>
       <Grid container spacing={3}>
         <Grid item xs={12} md={12} className="profile-data">
-         
-          <h1>{data.name}</h1>
-          <h3>{data.email}</h3>
-          <div className="social">
+
+          <h1 className="users-name">{data.name}</h1>
+          <p><a className="users-email" href={data.email}>{data.email}</a></p>
+          <p className="users-phone">+{data.mobile}</p>
+          {/* <div className="social">
             {data.personal.website === "" ? (
               <></>
             ) : (
@@ -67,7 +69,7 @@ export default function Profile({ data }) {
                 <h3>{data.personal?.website}</h3>
               </a>
             )}
-          </div>
+          </div> */}
           <h3>
             {data.college}: {getString(data.collegeYear)}
           </h3>
@@ -91,8 +93,8 @@ export default function Profile({ data }) {
           <Link to="/app/profile/edit">
             <button className="team-primary-btn profile-btn">Edit Profile</button>
           </Link>
-          <br/>
-          <br/>
+          <br />
+          <br />
           {/* {data.show_certificate ? (
             <button className="team-primary-btn profile-btn" onClick={certificate}>
               Download Certificate
@@ -117,7 +119,7 @@ export default function Profile({ data }) {
 
       <Hidden xsDown>
         <Grid item md={6}>
-        <img
+          <img
             style={{
               height: "100vh",
               margin: "0",
@@ -125,8 +127,8 @@ export default function Profile({ data }) {
               padding: "0",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
-             
-             
+
+
               position: "fixed",
               bottom: "0",
               right: "0",

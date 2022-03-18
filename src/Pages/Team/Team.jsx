@@ -62,30 +62,30 @@ function Team({ data, refresh, profile }) {
 
   return (
     <div className="team-container">
-      
-       <img
-            style={{
-              height: "100vh",
-              margin: "0",
-              width: "100vw",
-              padding: "0",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-             
-             
-              position: "fixed",
-              bottom: "0",
-              right: "0",
-              zIndex: -1,
-            }}
-            src={dash}
-            alt={""}
-            className="From-img"
-          />
+
+      <img
+        style={{
+          height: "100vh",
+          margin: "0",
+          width: "100vw",
+          padding: "0",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+
+
+          position: "fixed",
+          bottom: "0",
+          right: "0",
+          zIndex: -1,
+        }}
+        src={dash}
+        alt={""}
+        className="From-img"
+      />
       {!alreadyJoined ? (
         <div className="team-div">
           <>
-          <h1>Dashboard</h1>
+            <h1>Dashboard</h1>
             <h3 style={{ marginBottom: "40px" }}>Oops, looks like you dont have a team yet!</h3>
             <div className="team-btn-div">
               <button className="team-primary-btn" onClick={() => setCreateTeam(true)}>
@@ -110,7 +110,7 @@ function Team({ data, refresh, profile }) {
         </div>
       ) : (
         <div className="team-joined-div">
-           <img
+          <img
             style={{
               height: "100vh",
               margin: "0",
@@ -118,8 +118,8 @@ function Team({ data, refresh, profile }) {
               padding: "0",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
-             
-             
+
+
               position: "fixed",
               bottom: "0",
               right: "0",
@@ -142,17 +142,17 @@ function Team({ data, refresh, profile }) {
                 }}
               >
                 <h2 className="team-name">Team {data.teams.name}</h2>
-                
+
               </div>
               <a
-                  className="remove-btn"
-                  href="/allTeams"
-                  target="_blank"
-                  rel="noreferrer"
-                  style={{ textDecoration: "none" }}
-                >
-                  View all teams
-                </a>
+                className="remove-btn"
+                href="/allTeams"
+                target="_blank"
+                rel="noreferrer"
+                style={{ textDecoration: "none" }}
+              >
+                View all teams
+              </a>
               <div className="my-team-info">
                 {/* <h2 className="gradient-head">Status</h2>
                 <p className="team-status">Selected for final pitch</p> */}
@@ -168,15 +168,15 @@ function Team({ data, refresh, profile }) {
                 >
                 </div>
                 <h2 className="gradient-head">Team Members</h2>
-                  {data.isLeader && !ideaSubmitted ? (
-                    <span className="remove-btn" onClick={() => setRemoving(true)}>
-                      Remove members
-                    </span>
-                  ) : null}
+                {data.isLeader && !ideaSubmitted ? (
+                  <span className="remove-btn" onClick={() => setRemoving(true)}>
+                    Remove members
+                  </span>
+                ) : null}
                 <Grid container spacing={3} className="team-members-div" style={{
-                        display: "flex",
-                        justifyContent: "center",
-                      }}>
+                  display: "flex",
+                  justifyContent: "center",
+                }}>
                   {data.teams.users.map((user, i) => (
                     <Grid
                       item
@@ -216,7 +216,7 @@ function Team({ data, refresh, profile }) {
                 )}
               </div>
             </Grid>
-            
+
           </Grid>
           <RemoveMember
             open={removing}
