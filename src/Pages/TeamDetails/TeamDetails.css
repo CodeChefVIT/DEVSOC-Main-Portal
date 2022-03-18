@@ -4,7 +4,7 @@
 
 @media screen and (max-width: 600px) {
 	.team-details {
-		background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/src/assets/teamDetails.png");
+		/* background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/src/assets/teamDetails.png"); */
 		background-position: center left;
 		/* background-size: cover; */
 	}

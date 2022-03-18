@@ -3,6 +3,8 @@ import React, { useEffect } from "react";
 import { useHistory } from "react-router";
 import "./Landing.css";
 import logo from '../../assets/logo.png'
+import text from "./Landing.png";
+import salty from "./landing-bg.png";
 
 function Landing() {
   const history = useHistory();
@@ -28,23 +30,39 @@ function Landing() {
   }, []);
 
   return (
-    <div className="landing-page" style={{ backgroundImage: `url('/assets/landing-bg.png')` }}>
+    <div className="landing-page">
+       <img
+        style={{
+          height: "100%",
+          margin: "0",
+          width: "100%",
+          padding: "0",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          position: "fixed",
+          bottom: "0",
+          right: "0",
+          zIndex: -1,
+        }}
+        src={salty}
+        alt={""}
+        className="From-img"
+      />
       <div className="dev-container">
         <img className="logo" src={logo}></img>
         <div>
+          <div className="devsoc">
           <h1 className="heading1">
             DEVSOC <span style={{ color: "#37ABBC" }}>‘22</span>
           </h1>
+          <img src={text} className="logo2"></img>
           <div className="google-link">
-            <div className="sign-txt">Get into the action</div>
             <div className="google-btn" onClick={handleButton}>
               <div className="google-icon-wrapper">
-                <img className="google-icon" src="/assets/gbtn.svg" alt="google" />
+                <img className="google-icon" src="/assets/gbtn.png" alt="google"/>
               </div>
-              <p className="btn-text">
-                <b>Sign in with Google</b>
-              </p>
             </div>
+          </div>
           </div>
         </div>
       </div>

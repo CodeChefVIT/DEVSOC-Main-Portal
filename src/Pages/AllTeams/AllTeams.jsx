@@ -6,7 +6,8 @@ import { Link } from "react-router-dom";
 import Loading from "../../Components/Loading/Loading";
 import TeamCard from "../../Components/TeamCard/TeamCard";
 import "./AllTeams.css";
-import allTeams from "../../assets/Allteams.png";
+import team from "../../assets/Allteams.png";
+import logo from './DEVSOCLogo.png';
 
 const AllTeams = () => {
   const [loading, setLoading] = useState(true);
@@ -49,11 +50,29 @@ const AllTeams = () => {
   }
 
   return (
+    
     <div className="all-teams-page">
+      <img
+        style={{
+          height: "100vh",
+          margin: "0",
+          width: "100vw",
+          padding: "0",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          position: "fixed",
+          bottom: "0",
+          right: "0",
+          zIndex: -1,
+        }}
+        src={team}
+        alt={""}
+        className="From-img"
+      />
       <div style={{ padding: "0 3%", marginBottom: "40px" }}>
         <h1 className="devsoc21">
           <Link to="/app/dashboard" style={{ textDecoration: "none", width: "fit-content" }}>
-            DEVSOC'21
+          <img src={logo} width={150}></img>
           </Link>
         </h1>
         <h1 className="page-title">All Teams</h1>
@@ -72,6 +91,7 @@ const AllTeams = () => {
           />
         </div>
         <div className="all-teams-list">
+
           {teams.length > 0 ? (
             teams.map((team) => <TeamCard team={team} />)
           ) : (
