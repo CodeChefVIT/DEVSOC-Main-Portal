@@ -153,8 +153,8 @@ export default function ProfileEdit({ data, refresh }) {
         {data.is_profile_completed ? "" : "Please Complete your profile to navigate to other pages"}
       </div>
       <Grid container>
-        <Grid item xs={12} md={8} lg={6}>
-          <form onSubmit={handleSubmit(onSubmit)}>
+        <Grid item xs={12} md={8} lg={10}>
+          <form onSubmit={handleSubmit(onSubmit)} className="profile-form-edit">
             <Grid container spacing={2} justify="flex-start" alignItems="flex-start">
               <Grid item container xs={12} sm={6} spacing={2}>
                 <Grid item xs={12} style={{ paddingTop: 12 }}>
@@ -162,6 +162,12 @@ export default function ProfileEdit({ data, refresh }) {
                     label="Name"
                     variant="outlined"
                     inputProps={{ ...register("name", { required: true, maxLength: 30 }) }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
+
                   />
                   {errors.name && <span className="team-error">This field is required!</span>}
                 </Grid>
@@ -173,6 +179,11 @@ export default function ProfileEdit({ data, refresh }) {
                       ...register("mobile", { required: true, maxLength: 15, minLength: 7 }),
                     }}
                     placeholder="without country code"
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.mobile && (
                     <span className="team-error">Please enter a valid phone number!</span>
@@ -183,6 +194,11 @@ export default function ProfileEdit({ data, refresh }) {
                     variant="outlined"
                     label="College"
                     inputProps={{ ...register("college", { required: true, maxLength: 100 }) }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.college && <span className="team-error">Please fill this field!</span>}
                 </Grid>
@@ -196,6 +212,11 @@ export default function ProfileEdit({ data, refresh }) {
                       ...register("year", {
                         required: { value: true, message: "Required" },
                       }),
+                    }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
                     }}
                   >
                     <MenuItem key={0} value="1">
@@ -223,6 +244,11 @@ export default function ProfileEdit({ data, refresh }) {
                     inputProps={{
                       ...register("regno"),
                     }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.regno && <span className="team-error">{errors.regno.message}</span>}
                 </Grid>
@@ -236,6 +262,11 @@ export default function ProfileEdit({ data, refresh }) {
                         maxLength: 50,
                         pattern: /^(https?:\/\/)?(www\.)?github.com\/[a-zA-Z0-9-]+\/?$/,
                       }),
+                    }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
                     }}
                   />
                   {errors.github && <span className="team-error">Invalid Github Profile Url!</span>}
@@ -251,6 +282,11 @@ export default function ProfileEdit({ data, refresh }) {
                         pattern: /^(https?:\/\/)?(www\.)?linkedin.com\/in\/[a-zA-Z0-9-]+\/?$/,
                       }),
                     }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.linkedin && (
                     <span className="team-error">Invalid LinkedIn Profile Url!</span>
@@ -261,7 +297,12 @@ export default function ProfileEdit({ data, refresh }) {
                     variant="outlined"
                     label="Discord username"
                     inputProps={{ ...register("discordUser", { required: true, maxLength: 30 }) }}
-                    style={{ fontSize: "0.75rem" }}
+                    style={{
+                      fontSize: "0.75rem",
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.discordUser && (
                     <span className="team-error">Please fill this field!</span>
@@ -278,6 +319,11 @@ export default function ProfileEdit({ data, refresh }) {
                         maxLength: 4,
                         pattern: /^\d{4}$/,
                       }),
+                    }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
                     }}
                   />
                   {errors.discordHash && (
@@ -296,6 +342,11 @@ export default function ProfileEdit({ data, refresh }) {
                       }),
                     }}
                     rows={4}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.bio && <span className="team-error">{errors.bio.message}</span>}
                 </Grid>
@@ -314,6 +365,11 @@ export default function ProfileEdit({ data, refresh }) {
                         },
                       }),
                     }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.website && <span className="team-error">{errors.website.message}</span>}
                 </Grid>
@@ -331,6 +387,11 @@ export default function ProfileEdit({ data, refresh }) {
                         },
                       }),
                     }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.resume && <span className="team-error">{errors.resume.message}</span>}
                 </Grid>
@@ -339,6 +400,11 @@ export default function ProfileEdit({ data, refresh }) {
                     label="Address Line 1"
                     variant="outlined"
                     inputProps={{ ...register("line1", { required: true, maxLength: 200 }) }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.line1 && <span className="team-error">This field is required!</span>}
                 </Grid>
@@ -347,6 +413,11 @@ export default function ProfileEdit({ data, refresh }) {
                     variant="outlined"
                     label="Address Line 2"
                     inputProps={{ ...register("line2", { maxLength: 100 }) }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.line2 && <span className="team-error">Max 100 characters only</span>}
                 </Grid>
@@ -355,6 +426,11 @@ export default function ProfileEdit({ data, refresh }) {
                     variant="outlined"
                     label="City"
                     inputProps={{ ...register("city", { required: true, maxLength: 30 }) }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.city && (
                     <span className="team-error">Please fill this field! Max 30 characters.</span>
@@ -365,6 +441,11 @@ export default function ProfileEdit({ data, refresh }) {
                     variant="outlined"
                     label="State"
                     inputProps={{ ...register("state", { required: true, maxLength: 30 }) }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.state && (
                     <span className="team-error">Please fill this field! Max 30 characters.</span>
@@ -382,6 +463,11 @@ export default function ProfileEdit({ data, refresh }) {
                         pattern: /^[0-9]{6}$/,
                       }),
                     }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.pincode && <span className="team-error">Invalid Pin Code!</span>}
                 </Grid>
@@ -390,6 +476,11 @@ export default function ProfileEdit({ data, refresh }) {
                     variant="outlined"
                     label="Country"
                     inputProps={{ ...register("country", { required: true, maxLength: 100 }) }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   />
                   {errors.country && <span className="team-error">Please fill this field!</span>}
                 </Grid>
@@ -400,6 +491,11 @@ export default function ProfileEdit({ data, refresh }) {
                     variant="outlined"
                     defaultValue={data.personal.tshirt}
                     inputProps={{ ...register("tshirt", { required: true }) }}
+                    style={{
+                      width: "100%",
+                      color: 'white',
+                      backgroundColor: '#0380AA',
+                    }}
                   >
                     <MenuItem key={0} value="S">
                       T-Shirt Size: S/36
@@ -422,7 +518,7 @@ export default function ProfileEdit({ data, refresh }) {
               </Grid>
               <Grid item container xs={12} sm={6}>
                 <button className="team-primary-btn submit-btn" type="submit" disabled={loading}>
-                  {loading ? <CircularProgress color="secondary" size={24} /> : "Update Profile"}
+                  {loading ? <CircularProgress color="secondary" size={20} /> : "Update Profile"}
                 </button>
               </Grid>
             </Grid>

@@ -56,7 +56,7 @@ export default function Profile({ data }) {
         />
       </div>
       <Grid container spacing={3}>
-        <Grid item xs={12} md={12} className="profile-data">
+        <Grid item xs={12} md={12} lg={24} className="profile-data">
 
           <h1 className="users-name">{data.name}</h1>
           <p><a className="users-email" href={data.email}>{data.email}</a></p>
@@ -70,10 +70,10 @@ export default function Profile({ data }) {
               </a>
             )}
           </div> */}
-          <h3>
+          {/* <h3>
             {data.college}: {getString(data.collegeYear)}
-          </h3>
-          <h3>{data.bio}</h3>
+          </h3> */}
+          {/* <h3>{data.bio}</h3> */}
           <div className="social">
             {data.personal.github === "" ? (
               <></>

@@ -1,13 +1,30 @@
+.profile-form-edit{
+  overflow-x: hidden;
+}
+
 textarea {
   resize: none;
 }
 
 .submit-btn {
-  width: 100% !important;
-  margin: 4px 4px 0 0;
+  width: 50% !important;
+  margin: 10.5px 4px 0 0;
 }
 
 /* Mui Overrides */
 textarea.MuiInputBase-input {
   border-radius: 0px !important;
+}
+
+
+.MuiInputBase-input {
+  color: #fff !important;
+}
+
+
+@media screen and (max-width: 600px) {
+  .submit-btn {
+    width: 50% !important;
+    margin-left: 20% !important;
+  }
 }
