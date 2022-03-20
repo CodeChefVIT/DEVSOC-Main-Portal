@@ -89,16 +89,40 @@
   margin-left: 14.5%;
 }
 
+
+.join-team-btn{
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  border: 2px solid #28CEF1;
+  background: transparent;
+  color: white;
+  height: 55px;
+  width: 300px;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+
+.join-team-btn:hover {
+  filter: drop-shadow(0 0 10px #3051ff);
+}
+
 .team-secondary-btn:hover {
   filter: drop-shadow(0 0 10px #3051ff);
 }
 
 @media screen and (max-width: 600px) {
-  .team-primary-btn, .team-secondary-btn {
+  .team-primary-btn, .team-secondary-btn ,.join-team-btn {
     width: 200px;
   }
   .remove-btn {
     font-size: 0.8rem;
+  }
+  .team-status.team-member{
+    margin-left: 30.5%;
   }
 }
 
@@ -171,5 +195,6 @@
     height: 45px;
     width: 90% !important;
     font-size: 1rem;
+    margin-left: -1px
   }
 }

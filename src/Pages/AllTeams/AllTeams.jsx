@@ -64,6 +64,7 @@ const AllTeams = () => {
           bottom: "0",
           right: "0",
           zIndex: -1,
+          opacity: "0.5",
         }}
         src={team}
         alt={""}

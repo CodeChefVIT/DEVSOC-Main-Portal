@@ -25,6 +25,16 @@
 
 .modal-input {
 	font-weight: bold !important;
+	font-size: 1.1rem;
+	text-transform: uppercase;
+}
+
+.modal-input:focus{
+	filter: drop-shadow(0 0 10px #3051ff);
+}
+
+.modal-input::placeholder {
+	color: #fff !important;
 }
 
 .team-error {
@@ -36,4 +46,5 @@
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	margin-top: 30px;
 }

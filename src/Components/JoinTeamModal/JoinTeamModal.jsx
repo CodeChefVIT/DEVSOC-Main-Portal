@@ -65,7 +65,10 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
       PaperProps={{ className: "dialog-paper" }}
     >
       <DialogContent>
-        <h3>Enter team code</h3>
+        <h3 style={{
+          fontSize: "1.5rem",
+          fontWeight: "bold",
+        }}>Enter team code</h3>
         <form onSubmit={handleSubmit(submit)}>
           <div className="team-name">
             <input
@@ -92,7 +95,7 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
           {errorText}
         </Alert>
       </Snackbar>
-    </Dialog>
+    </Dialog >
   );
 };
 

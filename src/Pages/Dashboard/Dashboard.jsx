@@ -30,16 +30,17 @@ function Dashboard({ data, refresh }) {
     start.setSeconds(0);
     const Now = new Date();
     const diff = (start - Now) / 1000;
-    // console.log(diff);
+    console.log(diff);
     if (start - Now > 0) {
       setTimer(diff);
     } else {
       const end = new Date();
-      end.setFullYear(2022, 4, 15);
+      end.setFullYear(2022, 4, 18);
       end.setHours(20);
       end.setMinutes(0);
       end.setSeconds(0);
       const newdiff = (end - Now) / 1000;
+      console.log(newdiff);
       setTimer(newdiff);
       setHack(true);
     }

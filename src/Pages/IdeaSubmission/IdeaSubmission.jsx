@@ -91,51 +91,51 @@ function IdeaSubmission({ data, refresh }) {
         </>
 
         <img
-            style={{
-              height: "100vh",
-              margin: "0",
-              width: "100vw",
-              padding: "0",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-             
-             
-              position: "fixed",
-              bottom: "0",
-              right: "0",
-              zIndex: -1,
-            }}
-            src={salty}
-            alt={""}
-            className="From-img"
-          />
+          style={{
+            height: "100vh",
+            margin: "0",
+            width: "100vw",
+            padding: "0",
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+
+
+            position: "fixed",
+            bottom: "0",
+            right: "0",
+            zIndex: -1,
+          }}
+          src={salty}
+          alt={""}
+          className="From-img"
+        />
       </div>
     );
   }
 
   return (
     <div className="team-joined-div">
-       <img
-            style={{
-              height: "100vh",
-              margin: "0",
-              width: "100vw",
-              padding: "0",
-              backgroundRepeat: "no-repeat",
-              backgroundSize: "cover",
-             
-             
-              position: "fixed",
-              bottom: "0",
-              right: "0",
-              zIndex: -1,
-            }}
-            src={salty}
-            alt={""}
-            className="From-img"
-          />
+      <img
+        style={{
+          height: "100vh",
+          margin: "0",
+          width: "100vw",
+          padding: "0",
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+
+
+          position: "fixed",
+          bottom: "0",
+          right: "0",
+          zIndex: -1,
+        }}
+        src={salty}
+        alt={""}
+        className="From-img"
+      />
       <Grid container>
-        <Grid item xs={12} md={4} lg={3}>
+        <Grid item xs={12} md={4} lg={6}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Grid item container xs={12} spacing={2} className="sub-side">
               <Grid item xs={12}>
@@ -147,6 +147,11 @@ function IdeaSubmission({ data, refresh }) {
                     data.teams && data.teams.submission ? data.teams.submission.track : ""
                   }
                   inputProps={{ ...register("track", { required: true }) }}
+                  style={{
+                    width: "100%",
+                    color: 'white',
+                    backgroundColor: '#0380AA',
+                  }}
                 >
                   <MenuItem key={0} value="ar-vr">
                     Best of AR/VR
@@ -184,7 +189,11 @@ function IdeaSubmission({ data, refresh }) {
                       maxLength: { value: 100, message: "Max 100 characters only" },
                     }),
                   }}
-                
+                  style={{
+                    width: "100%",
+                    color: 'white',
+                    backgroundColor: '#0380AA',
+                  }}
                 />
                 {errors.name && <span className="team-error">{errors.name.message}</span>}
               </Grid>
@@ -212,7 +221,11 @@ function IdeaSubmission({ data, refresh }) {
                     }),
                   }}
                   rows={10}
-                  
+                  style={{
+                    color: 'white',
+                    backgroundColor: '#0380AA',
+                  }}
+
                 />
                 {errors.description && (
                   <span className="team-error">{errors.description.message}</span>
@@ -236,7 +249,7 @@ function IdeaSubmission({ data, refresh }) {
           item
           xs={12}
           md={8}
-          lg={9}
+          lg={6}
           style={{
             backgroundColor: "#1c006f88",
             padding: 25,
@@ -264,7 +277,7 @@ function IdeaSubmission({ data, refresh }) {
             </div>
           )}
         </Grid>
-      </Grid>
+      </Grid >
 
       <Hidden xsDown>
         <Grid item md={6}>
@@ -304,7 +317,7 @@ function IdeaSubmission({ data, refresh }) {
           {errorText}
         </Alert>
       </Snackbar>
-    </div>
+    </div >
   );
 }
 

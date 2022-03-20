@@ -67,7 +67,7 @@ const RemoveMember = ({ open, handleClose, data, refresh }) => {
               ) : null
             )
           ) : (
-            <h1 style={{ fontWeight: "normal", fontSize: "1.8rem", color: "#3500d4" }}>
+            <h1 style={{ fontWeight: "normal", fontSize: "1.8rem", color: "white" }}>
               You are alone :(
             </h1>
           )}

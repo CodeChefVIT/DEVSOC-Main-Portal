@@ -85,14 +85,14 @@ function Team({ data, refresh, profile }) {
       {!alreadyJoined ? (
         <div className="team-div">
           <>
-            <h1>Dashboard</h1>
+            <h1 style={{ fontSize: "2.75rem" }}>Dashboard</h1>
             <h3 style={{ marginBottom: "40px" }}>Oops, looks like you dont have a team yet!</h3>
             <div className="team-btn-div">
               <button className="team-primary-btn" onClick={() => setCreateTeam(true)}>
                 Create a team
               </button>
               <p style={{ fontWeight: 400, fontSize: 24, margin: "10px" }}>or</p>
-              <button className="team-secondary-btn" onClick={() => setJoinTeam(true)}>
+              <button className="join-team-btn" onClick={() => setJoinTeam(true)}>
                 Join a team
               </button>
             </div>
