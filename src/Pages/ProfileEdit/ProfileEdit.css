@@ -25,6 +25,6 @@ textarea.MuiInputBase-input {
 @media screen and (max-width: 600px) {
   .submit-btn {
     width: 50% !important;
-    margin-left: 20% !important;
+    margin-left: 25% !important;
   }
 }
