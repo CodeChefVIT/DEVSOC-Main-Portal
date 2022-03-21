@@ -118,7 +118,7 @@ const InviteModal = ({ open, handleClose, data }) => {
           onClick={handleCopy}
         />
         <button
-          className="team-secondary-btn modal-input"
+          className="team-secondary-btn1 modal-input"
           type="submit"
           style={{
             display: "flex",

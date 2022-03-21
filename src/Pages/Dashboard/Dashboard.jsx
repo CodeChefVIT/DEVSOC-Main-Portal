@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
 import "./Dashboard.css";
-import salty from './Dashboard.png'
+import salty from './Dashboard.png';
+import Countdown from 'react-countdown';
+
 
 function Dashboard({ data, refresh }) {
   const [alreadyJoined, setAlreadyJoined] = useState(false);
@@ -10,6 +12,10 @@ function Dashboard({ data, refresh }) {
   const [hrs, setHrs] = useState(0);
   const [min, setMin] = useState(0);
   const [sec, setSec] = useState(0);
+  
+var date1 = new Date();
+var date2 = new Date("04/15/2022");
+var Difference_In_Time = date2.getTime() - date1.getTime();
 
   useEffect(() => {
     if (data.message && data.message === "Not in a team") {
@@ -102,7 +108,8 @@ function Dashboard({ data, refresh }) {
         <div className="dashhack">{!hackBegin ? "Hack Starts in" : "Hack ends in"}</div>
         <div className="counter">
           <div className="clock">
-            <div className="clock-item">
+            <Countdown date={Date.now() + Difference_In_Time} />
+            {/* <div className="clock-item">
               {hrs.toLocaleString("en-US", {
                 minimumIntegerDigits: 2,
                 useGrouping: false,
@@ -124,7 +131,7 @@ function Dashboard({ data, refresh }) {
                 useGrouping: false,
               })}{" "}
               <span className="clock-label">SECONDS</span>
-            </div>
+            </div> */}
           </div>
         </div>
         {!alreadyJoined ? (

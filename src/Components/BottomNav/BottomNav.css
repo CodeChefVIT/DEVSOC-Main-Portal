@@ -33,7 +33,7 @@
 }
 
 .nav-tab:hover {
-  filter: drop-shadow(0 0 1px #6f57ff);
+  filter: drop-shadow(0 0 1px #25D8FF);
 }
 
 .nav-tab.active:after {
@@ -41,7 +41,7 @@
   display: block;
   width: 12px;
   height: 12px;
-  background: linear-gradient(135deg, #6f57ff 0%, #25d8ff 100%);
+  background: linear-gradient(98.49deg, #25D7FE -7.64%, #25D8FF 127.88%);
   border-radius: 50%;
   margin: auto;
 }

@@ -190,7 +190,7 @@ function Team({ data, refresh, profile }) {
                         marginTop: "50px",
                         justifyContent: "center",
                       }}
-                      className="member-name-grid"
+                      className="team-container"
                     >
                       <p className="team-status team-member">{user.name}</p>
                     </Grid>
