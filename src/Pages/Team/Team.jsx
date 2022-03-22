@@ -181,14 +181,15 @@ function Team({ data, refresh, profile }) {
                     <Grid
                       item
                       xs={12}
-                      sm={6}
+                      // sm={12}
                       key={user.email}
                       style={{
                         paddingBottom: 0,
                         paddingTop: 0,
                         display: "flex",
-                        marginTop: "50px",
+                        marginTop: "20px",
                         justifyContent: "center",
+
                       }}
                       className="team-container"
                     >

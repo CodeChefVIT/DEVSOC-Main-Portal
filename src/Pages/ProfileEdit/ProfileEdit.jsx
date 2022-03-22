@@ -517,7 +517,7 @@ export default function ProfileEdit({ data, refresh }) {
                 </Grid>
               </Grid>
               <Grid item container xs={12} sm={6}>
-                <button className="team-primary-btn submit-btn" type="submit" disabled={loading}>
+                <button className="team-primary-btn update-profile submit-btn" type="submit" disabled={loading}>
                   {loading ? <CircularProgress color="secondary" size={20} /> : "Update Profile"}
                 </button>
               </Grid>

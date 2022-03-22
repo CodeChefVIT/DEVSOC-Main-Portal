@@ -27,4 +27,7 @@ textarea.MuiInputBase-input {
     width: 50% !important;
     margin-left: 25% !important;
   }
+  .update-profile{
+    margin-bottom: 30px;
+  }
 }
