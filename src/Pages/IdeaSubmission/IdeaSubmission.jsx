@@ -98,7 +98,7 @@ function IdeaSubmission({ data, refresh }) {
             padding: "0",
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
-
+            filter: "brightness(0.7)",
 
             position: "fixed",
             bottom: "0",
@@ -123,7 +123,7 @@ function IdeaSubmission({ data, refresh }) {
           padding: "0",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-
+          filter: "brightness(0.7)",
 
           position: "fixed",
           bottom: "0",
@@ -272,7 +272,7 @@ function IdeaSubmission({ data, refresh }) {
               No Content Yet
             </div>
           ) : (
-            <div style={{ overflow: "auto", maxHeight: "calc(100% - 10px)" }}>
+            <div style={{ overflow: "auto", maxHeight: "calc(100% - 10px)", textAlign:"left",}}>
               <ReactMarkdown plugins={[gfm]} children={markdown} />
             </div>
           )}

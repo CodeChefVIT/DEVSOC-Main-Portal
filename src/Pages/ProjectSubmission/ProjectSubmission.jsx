@@ -99,6 +99,7 @@ function IdeaSubmission({ data, refresh }) {
             bottom: "0",
             right: "0",
             zIndex: -1,
+            filter: "brightness(0.7)",
           }}
           src={salty}
           alt={""}
@@ -249,6 +250,7 @@ function IdeaSubmission({ data, refresh }) {
               position: "fixed",
               bottom: "0",
               right: "0",
+              filter: "brightness(0.7)",
               zIndex: -1,
             }}
             src={salty}

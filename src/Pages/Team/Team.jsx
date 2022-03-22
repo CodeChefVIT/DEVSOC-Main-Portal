@@ -72,7 +72,7 @@ function Team({ data, refresh, profile }) {
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
 
-
+          filter: "brightness(0.7)",
           position: "fixed",
           bottom: "0",
           right: "0",
@@ -118,19 +118,18 @@ function Team({ data, refresh, profile }) {
               padding: "0",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
-
-
               position: "fixed",
               bottom: "0",
               right: "0",
               zIndex: -1,
+              filter: "brightness(0.7)",
             }}
             src={back}
             alt={""}
             className="From-img"
           />
-          <Grid container spacing={3}>
-            <Grid item xs={12} sm={12} md={12}>
+          <Grid container spacing={3} xs={12} style={{display: "contents"}}>
+            {/* <Grid item > */}
               <div
                 style={{
                   width: "100%",
@@ -216,7 +215,7 @@ function Team({ data, refresh, profile }) {
                   <></>
                 )}
               </div>
-            </Grid>
+            {/* </Grid> */}
 
           </Grid>
           <RemoveMember

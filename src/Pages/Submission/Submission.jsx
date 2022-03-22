@@ -40,6 +40,7 @@ function Submission(props) {
           position: "fixed",
           bottom: "0",
           right: "0",
+          filter: "brightness(0.7)",
           zIndex: -1,
         }}
         src={saltysubmission}

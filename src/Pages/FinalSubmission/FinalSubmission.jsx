@@ -173,7 +173,7 @@ function FinalSubmission({ data, refresh }) {
       padding: "0",
       backgroundRepeat: "no-repeat",
       backgroundSize: "cover",
-     
+      filter: "brightness(0.7)",
      
       position: "fixed",
       bottom: "0",
@@ -417,6 +417,7 @@ function FinalSubmission({ data, refresh }) {
               bottom: "0",
               right: "0",
               zIndex: -1,
+              filter: "brightness(0.7)",
             }}
             src={salty}
             alt={""}

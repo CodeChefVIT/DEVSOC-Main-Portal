@@ -93,7 +93,7 @@ var Difference_In_Time = date2.getTime() - date1.getTime();
               padding: "0",
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
-             
+              filter: "brightness(0.7)",
              
               position: "fixed",
               bottom: "0",

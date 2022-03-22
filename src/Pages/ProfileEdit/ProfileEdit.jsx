@@ -138,7 +138,7 @@ export default function ProfileEdit({ data, refresh }) {
           padding: "0",
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-
+          filter: "brightness(0.7)",
 
           position: "fixed",
           bottom: "0",
