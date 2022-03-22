@@ -60,7 +60,7 @@ export default function Profile({ data }) {
 
           <h1 className="users-name">{data.name}</h1>
           <p><a className="users-email" href={data.email}>{data.email}</a></p>
-          <p className="users-phone">+{data.mobile}</p>
+          <p className="users-phone">{data.mobile}</p>
           {/* <div className="social">
             {data.personal.website === "" ? (
               <></>

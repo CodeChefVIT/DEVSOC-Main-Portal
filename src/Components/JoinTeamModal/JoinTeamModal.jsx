@@ -25,6 +25,8 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
     let captcha = await executeRecaptcha("/");
 
     data = { ...data, captcha };
+    data.code = data.code.toUpperCase();
+    console.log(data);
 
     try {
       await axios

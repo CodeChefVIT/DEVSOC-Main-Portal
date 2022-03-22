@@ -48,3 +48,9 @@ code {
   color: #3000c0;
   font-weight: 400 !important;
 }
+
+@media screen and (max-width: 600px) {
+  #root {
+    background: #080020 !important;
+  }
+}

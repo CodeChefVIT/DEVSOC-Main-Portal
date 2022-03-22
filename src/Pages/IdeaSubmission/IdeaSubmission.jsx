@@ -114,7 +114,7 @@ function IdeaSubmission({ data, refresh }) {
   }
 
   return (
-    <div className="team-joined-div">
+    <div className="team-joined-div1">
       <img
         style={{
           height: "100vh",

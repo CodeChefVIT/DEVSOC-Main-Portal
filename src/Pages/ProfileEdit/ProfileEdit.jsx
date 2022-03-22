@@ -149,7 +149,7 @@ export default function ProfileEdit({ data, refresh }) {
         alt={""}
         className="From-img"
       />
-      <div style={{ fontSize: "1.3rem", marginBottom: 10 }}>
+      <div style={{ fontSize: "1.3rem", marginBottom: 10, alignContent:"flex-start" }}>
         {data.is_profile_completed ? "" : "Please Complete your profile to navigate to other pages"}
       </div>
       <Grid container>
