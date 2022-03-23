@@ -155,7 +155,7 @@ export default function ProfileEdit({ data, refresh }) {
       <Grid container>
         <Grid item xs={12} md={8} lg={10}>
           <form onSubmit={handleSubmit(onSubmit)} className="profile-form-edit">
-            <Grid container spacing={2} justify="flex-start" alignItems="flex-start">
+            <Grid container spacing={2} justify="flex-start" alignItems="flex-start"  >
               <Grid item container xs={12} sm={6} spacing={2}>
                 <Grid item xs={12} style={{ paddingTop: 12 }}>
                   <TextInput
@@ -167,6 +167,7 @@ export default function ProfileEdit({ data, refresh }) {
                       color: 'white',
                       backgroundColor: '#0380AA',
                     }}
+                    autoComplete="new-password"
 
                   />
                   {errors.name && <span className="team-error">This field is required!</span>}
@@ -184,6 +185,7 @@ export default function ProfileEdit({ data, refresh }) {
                       color: 'white',
                       backgroundColor: '#0380AA',
                     }}
+                    autoComplete="new-password"
                   />
                   {errors.mobile && (
                     <span className="team-error">Please enter a valid phone number!</span>
@@ -199,6 +201,7 @@ export default function ProfileEdit({ data, refresh }) {
                       color: 'white',
                       backgroundColor: '#0380AA',
                     }}
+                    autoComplete="new-password"
                   />
                   {errors.college && <span className="team-error">Please fill this field!</span>}
                 </Grid>
@@ -218,6 +221,7 @@ export default function ProfileEdit({ data, refresh }) {
                       color: 'white',
                       backgroundColor: '#0380AA',
                     }}
+                    autoComplete="new-password"
                   >
                     <MenuItem key={0} value="1">
                       First Year
@@ -234,6 +238,7 @@ export default function ProfileEdit({ data, refresh }) {
                     <MenuItem key={4} value="5">
                       Fifth Year
                     </MenuItem>
+                    
                   </TextInput>
                   {errors.year && <span className="team-error">{errors.year.message}</span>}
                 </Grid>
@@ -249,6 +254,7 @@ export default function ProfileEdit({ data, refresh }) {
                       color: 'white',
                       backgroundColor: '#0380AA',
                     }}
+                    autoComplete="new-password"
                   />
                   {errors.regno && <span className="team-error">{errors.regno.message}</span>}
                 </Grid>
@@ -263,6 +269,7 @@ export default function ProfileEdit({ data, refresh }) {
                         pattern: /^(https?:\/\/)?(www\.)?github.com\/[a-zA-Z0-9-]+\/?$/,
                       }),
                     }}
+                    autoComplete="new-password"
                     style={{
                       width: "100%",
                       color: 'white',
@@ -282,6 +289,7 @@ export default function ProfileEdit({ data, refresh }) {
                         pattern: /^(https?:\/\/)?(www\.)?linkedin.com\/in\/[a-zA-Z0-9-]+\/?$/,
                       }),
                     }}
+                    autoComplete="new-password"
                     style={{
                       width: "100%",
                       color: 'white',
@@ -303,6 +311,7 @@ export default function ProfileEdit({ data, refresh }) {
                       color: 'white',
                       backgroundColor: '#0380AA',
                     }}
+                    autoComplete="new-password"
                   />
                   {errors.discordUser && (
                     <span className="team-error">Please fill this field!</span>
@@ -320,6 +329,7 @@ export default function ProfileEdit({ data, refresh }) {
                         pattern: /^\d{4}$/,
                       }),
                     }}
+                    autoComplete="new-password"
                     style={{
                       width: "100%",
                       color: 'white',
@@ -341,6 +351,7 @@ export default function ProfileEdit({ data, refresh }) {
                         maxLength: { value: 500, message: "Max 500 characters only!" },
                       }),
                     }}
+                    autoComplete="new-password"
                     rows={4}
                     style={{
                       width: "100%",
@@ -354,6 +365,7 @@ export default function ProfileEdit({ data, refresh }) {
               <Grid item container xs={12} sm={6} spacing={2}>
                 <Grid item xs={12}>
                   <TextInput
+                  autoComplete="new-password"
                     variant="outlined"
                     label="Personal Website(optional)"
                     inputProps={{
@@ -375,6 +387,7 @@ export default function ProfileEdit({ data, refresh }) {
                 </Grid>
                 <Grid item xs={12}>
                   <TextInput
+                  autoComplete="new-password"
                     variant="outlined"
                     label="Resume Link"
                     inputProps={{
@@ -399,6 +412,7 @@ export default function ProfileEdit({ data, refresh }) {
                   <TextInput
                     label="Address Line 1"
                     variant="outlined"
+                    autoComplete="new-password"
                     inputProps={{ ...register("line1", { required: true, maxLength: 200 }) }}
                     style={{
                       width: "100%",
@@ -412,6 +426,7 @@ export default function ProfileEdit({ data, refresh }) {
                   <TextInput
                     variant="outlined"
                     label="Address Line 2"
+                    autoComplete="new-password"
                     inputProps={{ ...register("line2", { maxLength: 100 }) }}
                     style={{
                       width: "100%",
@@ -425,6 +440,7 @@ export default function ProfileEdit({ data, refresh }) {
                   <TextInput
                     variant="outlined"
                     label="City"
+                    autoComplete="new-password"
                     inputProps={{ ...register("city", { required: true, maxLength: 30 }) }}
                     style={{
                       width: "100%",
@@ -440,6 +456,7 @@ export default function ProfileEdit({ data, refresh }) {
                   <TextInput
                     variant="outlined"
                     label="State"
+                    autoComplete="new-password"
                     inputProps={{ ...register("state", { required: true, maxLength: 30 }) }}
                     style={{
                       width: "100%",
@@ -463,6 +480,7 @@ export default function ProfileEdit({ data, refresh }) {
                         pattern: /^[0-9]{6}$/,
                       }),
                     }}
+                    autoComplete="new-password"
                     style={{
                       width: "100%",
                       color: 'white',
@@ -481,6 +499,7 @@ export default function ProfileEdit({ data, refresh }) {
                       color: 'white',
                       backgroundColor: '#0380AA',
                     }}
+                    autoComplete="new-password"
                   />
                   {errors.country && <span className="team-error">Please fill this field!</span>}
                 </Grid>
@@ -496,6 +515,7 @@ export default function ProfileEdit({ data, refresh }) {
                       color: 'white',
                       backgroundColor: '#0380AA',
                     }}
+                    autoComplete="new-password"
                   >
                     <MenuItem key={0} value="S">
                       T-Shirt Size: S/36

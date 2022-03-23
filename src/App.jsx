@@ -8,6 +8,8 @@ import JoinInvite from "./Pages/JoinInvite/JoinInvite";
 import AllTeams from "./Pages/AllTeams/AllTeams";
 import TeamDetails from "./Pages/TeamDetails/TeamDetails";
 import Error404 from "./Pages/Error404/Error404";
+import './App.css'
+import discord from "./Discord-Logo.png"
 // import DiscordLink from "./Components/DiscordLink/DiscordLink";
 
 const theme = createMuiTheme({
@@ -29,6 +31,11 @@ const theme = createMuiTheme({
 function App() {
   return (
     <ThemeProvider theme={theme}>
+      <a href="http://discord.codechefvit.com/" target="_blank">
+        <div class="side-fixed-btn hover-change">
+          <img src={discord} className="disc-img" alt="" />
+        </div>
+      </a>
       <Router>
         {/* <DiscordLink /> */}
         <Switch>
