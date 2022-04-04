@@ -9,7 +9,7 @@ import axios from "axios";
 
 export default function Profile({ data }) {
   const history = useHistory();
-  console.log(data);
+  // console.log(data);
   const getString = (num) => {
     switch (num) {
       case 1:

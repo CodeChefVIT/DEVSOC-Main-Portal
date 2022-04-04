@@ -36,7 +36,7 @@ var Difference_In_Time = date2.getTime() - date1.getTime();
     start.setSeconds(0);
     const Now = new Date();
     const diff = (start - Now) / 1000;
-    console.log(diff);
+    // console.log(diff);
     if (start - Now > 0) {
       setTimer(diff);
     } else {
@@ -46,7 +46,7 @@ var Difference_In_Time = date2.getTime() - date1.getTime();
       end.setMinutes(0);
       end.setSeconds(0);
       const newdiff = (end - Now) / 1000;
-      console.log(newdiff);
+      // console.log(newdiff);
       setTimer(newdiff);
       setHack(true);
     }

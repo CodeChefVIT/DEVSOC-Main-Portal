@@ -26,7 +26,7 @@ const JoinTeamModal = ({ open, handleClose, refresh }) => {
 
     data = { ...data, captcha };
     data.code = data.code.toUpperCase();
-    console.log(data);
+    // console.log(data);
 
     try {
       await axios
