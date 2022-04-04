@@ -30,8 +30,14 @@ function Landing() {
   }, []);
 
   return (
+
     <div className="landing-page">
-       <img
+      {/* <a href="http://discord.codechefvit.com/" target="_blank">
+        <div class="side-fixed-btn hover-change">
+          <img src={discord} alt="" />
+        </div>
+      </a> */}
+      <img
         style={{
           height: "100%",
           margin: "0",
@@ -50,23 +56,25 @@ function Landing() {
         className="From-img"
       />
       <div className="dev-container">
-        <img className="logo" src={logo}></img>
+        {/* <img className="logo" src={logo}></img> */}
         <div>
           <div className="devsoc">
-          <h1 className="heading1">
-            DEVSOC <span style={{ color: "#37ABBC" }}>‘22</span>
-          </h1>
-          <img src={text} className="logo2"></img>
-          <div className="google-link">
-            <div className="google-btn" onClick={handleButton}>
-              <div className="google-icon-wrapper">
-                <img className="google-icon" src="/assets/gbtn.png" alt="google"/>
+            <h1 className="heading1" style={{ marginTop: "30px" }}>
+              DEVSOC <span style={{ color: "#37ABBC" }}>‘22</span> has been postponed :(
+            </h1>
+            {/* <img src={text} className="logo2"></img> */}
+            {/* <div className="google-link">
+              <div className="google-btn" onClick={handleButton}>
+                <div className="google-icon-wrapper">
+                  <img className="google-icon" src="/assets/gbtn.png" alt="google" />
+                </div>
               </div>
-            </div>
-          </div>
+            </div> */}
           </div>
         </div>
+
       </div>
+
       {/* <h1 className="devsoc21 ds-landing">DEVSOC'22</h1> */}
     </div>
   );
